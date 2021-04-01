@@ -10,6 +10,7 @@ public abstract class Products {
     private int price;
 
     public String getName() {
+
         return name;
     }
 
@@ -18,10 +19,12 @@ public abstract class Products {
     }
 
     public String getAuthor() {
+
         return author;
     }
 
     public void setAuthor(String author) {
+
         this.author = author;
     }
 
@@ -34,14 +37,17 @@ public abstract class Products {
     }
 
     public String getCategory() {
+
         return category;
     }
 
     public void setCategory(String category) {
+
         this.category = category;
     }
 
     public int getPrice() {
+
         return price;
     }
 
