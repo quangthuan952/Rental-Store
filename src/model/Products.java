@@ -15,6 +15,7 @@ public abstract class Products {
     }
 
     public void setName(String name) {
+
         this.name = name;
     }
 
@@ -23,7 +24,8 @@ public abstract class Products {
         return author;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthor(
+            String author) {
 
         this.author = author;
     }
