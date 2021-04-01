@@ -1,6 +1,7 @@
 package view;
 
 
+import database.DBConnect;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -19,6 +20,8 @@ public class StartingTab extends Application {
             root = FXMLLoader.load(getClass().getResource("AddCustomer.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
+            DBConnect db = new DBConnect();
+            db.connectToDB();
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
