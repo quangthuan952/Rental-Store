@@ -1,6 +1,6 @@
 package model;
 
-public class CompactDics extends Products {
+public class CompactDisc extends Products {
     private String time;
     private Double capacity;
     private String resolution;
@@ -27,5 +27,10 @@ public class CompactDics extends Products {
 
     public void setResolution(String resolution) {
         this.resolution = resolution;
+    }
+
+    @Override
+    public void addProduct() {
+
     }
 }

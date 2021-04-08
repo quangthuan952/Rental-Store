@@ -17,9 +17,10 @@ public class StartingTab extends Application {
     public void start(Stage primaryStage) {
         try {
             Parent root;
-            root = FXMLLoader.load(getClass().getResource("AddCustomer.fxml"));
+            root = FXMLLoader.load(getClass().getResource("AddComic.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
+            primaryStage.setMaximized(true);
             DBConnect db = new DBConnect();
             db.connectToDB();
             primaryStage.show();
