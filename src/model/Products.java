@@ -7,7 +7,7 @@ public abstract class Products {
     private String author;
     private Date yearOfPublication;
     private String category;
-    private int price;
+    private float price;
 
     public String getName() {
 
@@ -31,10 +31,12 @@ public abstract class Products {
     }
 
     public Date getYearOfPublication() {
+
         return yearOfPublication;
     }
 
     public void setYearOfPublication(Date yearOfPublication) {
+
         this.yearOfPublication = yearOfPublication;
     }
 
@@ -48,12 +50,27 @@ public abstract class Products {
         this.category = category;
     }
 
-    public int getPrice() {
+    public float getPrice() {
 
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(float price) {
+
         this.price = price;
     }
+
+    public Products(String name, String author, Date yearOfPublication, String category, float price) {
+        this.name = name;
+        this.author = author;
+        this.yearOfPublication = yearOfPublication;
+        this.category = category;
+        this.price = price;
+    }
+    public Products() {
+
+    }
+
+    public abstract void addProduct();
+
 }
