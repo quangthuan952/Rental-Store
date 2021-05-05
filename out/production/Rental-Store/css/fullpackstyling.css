@@ -1,0 +1,538 @@
+.button1
+{
+-fx-background-color : #393351;
+-fx-background-radius :  30 0 0 30;
+}
+.button1:hover
+{
+-fx-background-color : #524A7B ;
+-fx-background-radius :  30 0 0 30;
+}
+.button1:pressed
+{
+-fx-background-color : #2F2B43 ;
+-fx-background-radius :  30 0 0 30;
+}
+
+#btnComic
+{
+-fx-background-color : #393351;
+-fx-background-radius :  20;
+}
+#btnComic:hover
+{
+-fx-background-color : #524A7B ;
+-fx-background-radius :  20;
+}
+#btnComic:pressed
+{
+-fx-background-color : #2F2B43 ;
+-fx-background-radius :  20;
+}
+
+#btnCD
+{
+-fx-background-color : #393351;
+-fx-background-radius :  20;
+}
+#btnCD:hover
+{
+-fx-background-color : #524A7B ;
+-fx-background-radius :  20;
+}
+#btnCD:pressed
+{
+-fx-background-color : #2F2B43 ;
+-fx-background-radius :  20;
+}
+
+#btnSearch
+{
+-fx-background-color : #393351;
+-fx-background-radius :  20;
+}
+#btnSearch:hover
+{
+-fx-background-color : #524A7B ;
+-fx-background-radius :  20;
+}
+#btnSearch:pressed
+{
+-fx-background-color : #2F2B43 ;
+-fx-background-radius :  20;
+}
+
+#btnDetail
+{
+-fx-background-color : #393351;
+-fx-background-radius :  20;
+}
+#btnDetail:hover
+{
+-fx-background-color : #524A7B ;
+-fx-background-radius :  20;
+}
+#btnDetail:pressed
+{
+-fx-background-color : #2F2B43 ;
+-fx-background-radius :  20;
+}
+
+#btnRental
+{
+-fx-background-color : #393351;
+-fx-background-radius :  20;
+}
+#btnRental:hover
+{
+-fx-background-color : #524A7B ;
+-fx-background-radius :  20;
+}
+#btnRental:pressed
+{
+-fx-background-color : #2F2B43 ;
+-fx-background-radius :  20;
+}
+
+#btnReturn
+{
+-fx-background-color : #393351;
+-fx-background-radius :  20;
+}
+#btnReturn:hover
+{
+-fx-background-color : #524A7B ;
+-fx-background-radius :  20;
+}
+#btnReturn:pressed
+{
+-fx-background-color : #2F2B43 ;
+-fx-background-radius :  20;
+}
+
+.button3
+{
+    -fx-background-color : #141124;
+    -fx-background-radius :  0 0 0 0;
+}
+.button3:hover
+{
+    -fx-background-color : #524A7B ;
+}
+.button3:pressed
+{
+    -fx-background-color : #2F2B43 ;
+}
+
+.button4
+{
+    -fx-background-color :linear-gradient(to top left, #41951C, #D4CEE3);
+    -fx-background-radius :  30 30 30 30;
+}
+.button4:hover
+{
+    -fx-background-color :linear-gradient(to top left, #D4CEE3, #41951C);
+    -fx-background-radius :  30 30 30 30;
+}
+.button4:pressed
+{
+    -fx-background-color :linear-gradient(to top left, #41951C, #D4CEE3);
+    -fx-background-radius :  30 30 30 30;
+}
+#btnCancel
+{
+    -fx-background-color :#330000;
+}
+
+#btnSave
+{
+    -fx-background-color : #000044;
+
+}
+#btnCancel:hover
+{
+    -fx-background-color :#333333;
+}
+#btnSave:hover
+{
+    -fx-background-color :#333333;
+
+}
+#ComboBox
+{
+    -fx-background-color : #2f234b;
+    -fx-border-color:  #515658;
+    -fx-border-radius: 20;
+    -fx-border-color: white;
+    -fx-border-width: 2;
+
+
+}
+#cbSearchBy
+{
+    -fx-background-color : #2f234b;
+    -fx-border-color:  #515658;
+    -fx-border-radius: 20;
+    -fx-border-color: white;
+    -fx-border-width: 2;
+
+
+}
+#ComboBox .list-cell{
+    -fx-text-fill: #000000;
+
+}
+#cbSearchBy .cell:selected {
+    -fx-text-fill: white;
+}
+#ComboBox .cell:selected {
+    -fx-text-fill: white;
+}
+#ComboBox:hover
+{
+    -fx-background-color :  #393351;
+    -fx-border-color:  #FFFF;
+    -fx-border-radius: 30;
+}
+#ComboBox:pressed
+{
+    -fx-background-color :  #393351;
+    -fx-border-color:  #FFFF;
+    -fx-border-radius: 30;
+}
+
+
+.table-view{
+   -fx-background-color: #393351;
+}
+.table-view .column-header,
+.table-view .column-header-background .filler {
+    -fx-cell-size : 20;
+
+}
+.table-view .column-header .label{
+
+   -fx-text-fill: white;
+   -fx-font-weight: bold;
+   -fx-alignment: CENTER;
+}
+.table-view .cell{
+   -fx-cell-size: 30;
+  -fx-alignment: center-left;
+  -fx-text-fill: #000000;
+}
+.table-row-cell{
+-fx-table-cell-border-color:#999999;
+}
+.table-row-cell:selected {
+    -fx-background-color:  rgb(127, 172, 243);
+ }
+ .table-row-cell:selected .text {
+        -fx-fill : white ;
+ }
+ .table-column {
+     -fx-alignment: CENTER;
+ }
+ .table-cell{
+     -fx-border-color: #999999;  /* similar to the default color */
+     -fx-border-width: 0;   /* similar to the default width */
+ }
+ #NameCol {
+ -fx-alignment: CENTER-LEFT;
+ }
+ #PaperSizeCol {
+ -fx-alignment: CENTER;
+ }
+ #PriceCol {
+  -fx-alignment: CENTER;
+  }
+  #PageNumberCol {
+   -fx-alignment: CENTER;
+   }
+ #AuthorCol {
+ -fx-alignment: CENTER-LEFT;
+ }
+ #CategoryCol {
+ -fx-alignment: CENTER-LEFT;
+ }
+ #LanguageCol {
+ -fx-alignment: CENTER-LEFT;
+ }
+ #YearOfPublicationCol {
+  -fx-alignment: CENTER-LEFT;
+  }
+/**/
+#nameCol {
+ -fx-alignment: CENTER-LEFT;
+ }
+ #timeCol {
+ -fx-alignment: CENTER;
+ }
+ #priceCol {
+  -fx-alignment: CENTER;
+  }
+  #capacityCol {
+   -fx-alignment: CENTER;
+   }
+ #authorCol {
+ -fx-alignment: CENTER-LEFT;
+ }
+ #categoryCol {
+ -fx-alignment: CENTER-LEFT;
+ }
+ #resolutionCol {
+ -fx-alignment: CENTER;
+ }
+ #yearOfPublicationCol {
+ -fx-alignment: CENTER-LEFT;
+ }
+.chart {
+    -fx-padding: 10px;
+    -fx-background-color: transparent;
+    -fx-legend-visible: false;
+}
+.chart-plot-background {
+    -fx-background-color:transparent;
+}
+
+.chart-pie {
+    -fx-border-color: derive(-fx-pie-color, 1%);
+    -fx-border-width: 0px;
+}
+.linear-grad
+{
+    -fx-background-color: linear-gradient(to bottom left, #A868A0, #2D75E8);
+}
+
+/*table*/
+
+.table-view .column-header-background{
+    -fx-background-color: #000033;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+.table-row-cell: odd{
+    -fx-background-color: #999999;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
+.table-row-cell: even{
+    -fx-background-color: #999999;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
+.table-row-cell:selected {
+    -fx-background-color:  #393351;
+    -fx-background-insets: 0;
+    -fx-background-radius: 1;
+}
+
+.table-row-cell: hover {
+    -fx-background-color: #93f9b911;
+
+}
+.table-cell {
+-fx-text-fill:white;
+}
+
+#tfSearch{
+    -fx-font-family: "Quicksand";
+   -fx-font-size: 14;
+   -fx-padding: 1,1,1,1;
+   -fx-border-color: white;
+   -fx-border-width: 2;
+   -fx-border-radius: 20;
+   -fx-border: gone;
+   -fx-background-color: transparent;
+   -fx-text-fill: white;
+
+}
+#tfSearchCD{
+    -fx-font-family: "Quicksand";
+   -fx-font-size: 14;
+   -fx-padding: 1,1,1,1;
+   -fx-border-color: white;
+   -fx-border-width: 2;
+   -fx-border-radius: 20;
+   -fx-border: gone;
+   -fx-background-color: transparent;
+   -fx-text-fill: white;
+
+}
+#tfName {
+ -fx-font-size: 14;
+  -fx-prompt-text-fill: WHITE;
+  -fx-text-fill: #FF9900;
+}
+#tfAuthor {
+ -fx-font-size: 14;
+  -fx-prompt-text-fill: WHITE;
+  -fx-text-fill: #FF9900;
+}
+#tfLanguage {
+ -fx-font-size: 14;
+  -fx-prompt-text-fill: WHITE;
+  -fx-text-fill: #FF9900;
+}
+#tfCategory {
+ -fx-font-size: 14;
+  -fx-prompt-text-fill: WHITE;
+  -fx-text-fill: #FF9900;
+}
+#tfPageNumber {
+ -fx-font-size: 14;
+  -fx-prompt-text-fill: WHITE;
+  -fx-text-fill: #FF9900;
+}
+#tfPrice {
+  -fx-font-size: 14;
+  -fx-prompt-text-fill: WHITE;
+  -fx-text-fill: #FF9900;
+}
+#tfTime {
+ -fx-font-size: 14;
+  -fx-prompt-text-fill: WHITE;
+  -fx-text-fill: #FF9900;
+}
+#tfCapacity {
+ -fx-font-size: 14;
+  -fx-prompt-text-fill: WHITE;
+  -fx-text-fill: #FF9900;
+}
+#tfResolution {
+  -fx-font-size: 14;
+  -fx-prompt-text-fill: WHITE;
+  -fx-text-fill: #FF9900;
+}
+#cbPaperSize .cell:selected {
+   -fx-text-fill: #FF9900;
+
+}
+#cbPaperSize {
+    -fx-prompt-text-fill: #FF9900;
+    -fx-font-size:14;
+ }
+
+ #pDate .text-field{
+  -jfx-focus-color: white;
+  -jfx-unfocus-color: white;
+  -fx-prompt-text-fill: white;
+  -fx-font-size:14;
+
+ }
+ #pDate .text-field:selected{
+      -jfx-focus-color: white;
+      -jfx-unfocus-color: white;
+      -fx-prompt-text-fill: #FF9900;
+      -fx-font-size:14;
+  }
+ #pRentDate .text-field{
+   -jfx-focus-color: white;
+   -jfx-unfocus-color: white;
+   -fx-prompt-text-fill: white;
+   -fx-font-size:14;
+  }
+  #pRentDate .text-field:selected{
+     -jfx-focus-color: white;
+     -jfx-unfocus-color: white;
+     -fx-prompt-text-fill: #FF9900;
+     -fx-font-size:14;
+  }
+#pDateEdit .text-field{
+     -jfx-focus-color: white;
+     -jfx-unfocus-color: white;
+     -fx-prompt-text-fill:  #FF9900;
+     -fx-font-size:14;
+    }
+#pDateEdit .text-field:selected{
+        -jfx-focus-color: white;
+        -jfx-unfocus-color: white;
+        -fx-prompt-text-fill: #FF9900;
+        -fx-font-size:14;
+  }
+#pRentDateEdit .text-field{
+    -jfx-focus-color: white;
+    -jfx-unfocus-color: white;
+    -fx-prompt-text-fill:  #FF9900;
+     -fx-font-size:14;
+}
+#pRentDateEdit .text-field:selected{
+        -jfx-focus-color: white;
+        -jfx-unfocus-color: white;
+        -fx-prompt-text-fill: #FF9900;
+        -fx-font-size:14;
+  }
+#tfDeposit {
+    -fx-font-size: 14;
+    -fx-prompt-text-fill: WHITE;
+    -fx-text-fill: #FF9900;
+}
+#tfCodeOrder {
+  -fx-font-size: 14;
+  -fx-prompt-text-fill: WHITE;
+  -fx-text-fill: #FF9900;
+ }
+
+ .text-field {
+   -fx-font-size: 14;
+   -fx-prompt-text-fill: WHITE;
+   -fx-text-fill: #FF9900;
+ }
+
+#btnAdd {
+     -fx-background-color : #000033;
+      -fx-border-width: 2;
+      -fx-background-radius: 30;
+      -fx-border-radius: 30;
+      -fx-text-fill: #ffffff;
+      -fx-border-color:#ffffff;
+ }
+#btnAdd:hover {
+    -fx-background-color:#393351;
+    -fx-background-radius:30;
+    -fx-border-width: 2;
+    -fx-text-fill: grey;
+    -fx-border-color:#ffffff;
+}
+#btnAdd :pressed {
+     -fx-background-color : #2F2B43 ;
+ }
+ #btnCancel {
+      -fx-background-color : #000033;
+       -fx-border-width: 2;
+       -fx-background-radius: 30;
+       -fx-border-radius: 30;
+       -fx-text-fill: #ffffff;
+       -fx-border-color:#ffffff;
+  }
+ #btnCancel:hover {
+     -fx-background-color:#393351;
+     -fx-background-radius:30;
+     -fx-border-width: 2;
+     -fx-text-fill: grey;
+     -fx-border-color:#ffffff;
+ }
+ #btnCancel :pressed {
+      -fx-background-color : #2F2B43 ;
+ }
+
+#depositCol {
+ -fx-alignment: CENTER;
+}
+#idItemCol {
+  -fx-alignment: CENTER;
+}
+#depositCol {
+ -fx-alignment: CENTER;
+}
+#rentDateCol {
+ -fx-alignment: CENTER;
+}
+#phoneCol{
+  -fx-alignment: CENTER;
+}
+ #codeOrderCol{
+   -fx-alignment: CENTER;
+ }

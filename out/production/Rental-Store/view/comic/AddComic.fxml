@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="634.0" prefWidth="1192.0" style="-fx-background-color: #1A172A;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.comic.AddComicController">
+   <children>
+      <VBox prefHeight="71.0" prefWidth="1192.0">
+         <children>
+            <Pane prefHeight="71.0" prefWidth="1189.0" style="-fx-background-color: #2f234b;" />
+         </children>
+      </VBox>
+      <VBox layoutX="34.0" layoutY="106.0" prefHeight="453.0" prefWidth="596.0">
+         <children>
+            <Pane prefHeight="514.0" prefWidth="612.0" style="-fx-background-color: #131022; -fx-background-radius: 20;">
+               <children>
+                  <Pane layoutX="42.0" layoutY="41.0" prefHeight="77.0" prefWidth="491.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
+                     <children>
+                        <JFXTextField fx:id="tfName" focusColor="WHITE" labelFloat="true" layoutX="-7.0" layoutY="24.0" prefHeight="25.0" prefWidth="450.0" promptText="Name" stylesheets="@../../css/fullpackstyling.css" unFocusColor="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets left="50.0" />
+                           </padding>
+                        </JFXTextField>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="42.0" layoutY="140.0" prefHeight="77.0" prefWidth="491.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
+                     <children>
+                        <JFXTextField fx:id="tfAuthor" focusColor="WHITE" labelFloat="true" layoutX="-7.0" layoutY="24.0" prefHeight="25.0" prefWidth="450.0" promptText="Author" stylesheets="@../../css/fullpackstyling.css" unFocusColor="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets left="50.0" />
+                           </padding>
+                        </JFXTextField>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="42.0" layoutY="240.0" prefHeight="77.0" prefWidth="491.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;" stylesheets="@../../css/fullpackstyling.css">
+                     <children>
+                        <JFXTextField fx:id="tfCategory" focusColor="WHITE" labelFloat="true" layoutX="-7.0" layoutY="24.0" prefHeight="25.0" prefWidth="450.0" promptText="Category" unFocusColor="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets left="50.0" />
+                           </padding>
+                        </JFXTextField>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="42.0" layoutY="340.0" prefHeight="77.0" prefWidth="491.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;" stylesheets="@../../css/fullpackstyling.css">
+                     <children>
+                        <JFXTextField fx:id="tfPrice" focusColor="WHITE" labelFloat="true" layoutX="-7.0" layoutY="24.0" prefHeight="25.0" prefWidth="450.0" promptText="Price" unFocusColor="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets left="50.0" />
+                           </padding>
+                        </JFXTextField>
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+         </children>
+      </VBox>
+      <VBox layoutX="592.0" layoutY="107.0" prefHeight="453.0" prefWidth="566.0">
+         <children>
+            <Pane prefHeight="514.0" prefWidth="630.0" style="-fx-background-color: #131022; -fx-background-radius: 20;">
+               <children>
+                  <Pane layoutX="41.0" layoutY="40.0" prefHeight="77.0" prefWidth="230.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
+                     <children>
+                        <JFXTextField fx:id="tfPageNumber" focusColor="WHITE" labelFloat="true" layoutX="-7.0" layoutY="24.0" prefHeight="25.0" prefWidth="204.0" promptText="Page Number" stylesheets="@../../css/fullpackstyling.css" unFocusColor="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets left="50.0" />
+                           </padding>
+                        </JFXTextField>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="41.0" layoutY="140.0" prefHeight="77.0" prefWidth="491.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
+                     <children>
+                        <JFXComboBox fx:id="cbPaperSize" focusColor="WHITE" layoutX="41.0" layoutY="26.0" promptText="Paper Size" stylesheets="@../../css/fullpackstyling.css" unFocusColor="WHITE" />
+                     </children>
+                  </Pane>
+                  <Pane layoutX="41.0" layoutY="240.0" prefHeight="77.0" prefWidth="491.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
+                     <children>
+                        <JFXTextField fx:id="tfLanguage" focusColor="WHITE" labelFloat="true" layoutX="-7.0" layoutY="24.0" prefHeight="25.0" prefWidth="450.0" promptText="Language" stylesheets="@../../css/fullpackstyling.css" unFocusColor="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets left="50.0" />
+                           </padding>
+                        </JFXTextField>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="41.0" layoutY="340.0" prefHeight="77.0" prefWidth="491.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;" stylesheets="@../../css/fullpackstyling.css">
+                     <children>
+                        <JFXDatePicker fx:id="pDate" defaultColor="#0866a4" layoutX="40.0" layoutY="25.0" prefHeight="28.0" prefWidth="234.0" promptText="Year of Publication" />
+                     </children>
+                  </Pane>
+                  <Pane layoutX="302.0" layoutY="40.0" prefHeight="77.0" prefWidth="230.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
+                     <children>
+                        <JFXTextField fx:id="tfProductCode" focusColor="WHITE" labelFloat="true" layoutX="-7.0" layoutY="24.0" prefHeight="25.0" prefWidth="204.0" promptText="Comic's ID" stylesheets="@../../css/fullpackstyling.css" unFocusColor="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets left="50.0" />
+                           </padding>
+                        </JFXTextField>
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+         </children>
+      </VBox>
+      <Pane layoutX="-3.0" layoutY="-110.0" prefHeight="196.0" prefWidth="279.0" style="-fx-background-color: linear-gradient(to bottom left, #A868A0, #2D75E8); -fx-background-radius: 35;" styleClass="linear-grad" stylesheets="@../../css/fullpackstyling.css">
+         <children>
+            <Label layoutX="95.0" layoutY="138.0" text="Add Comic" textFill="WHITE">
+               <font>
+                  <Font name="Monospaced Bold" size="25.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="57.0" fitWidth="54.0" layoutX="25.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../image/add.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+    <Button fx:id="btnAdd" layoutX="1062.0" layoutY="583.0" mnemonicParsing="false" onAction="#addComic" prefHeight="29.0" prefWidth="69.0" stylesheets="@../../css/fullpackstyling.css" text="Save" />
+   </children>
+</AnchorPane>

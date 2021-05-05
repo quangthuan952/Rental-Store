@@ -1,13 +1,10 @@
 package model;
 
-import java.util.Date;
+
     public class Customer {
         private String name;
-        private int phone;
-        private String items;
-        private Date duration;
-        private double deposit;
-        private double hireCharge;
+        private String phone;
+
 
         public String getName() {
             return name;
@@ -17,43 +14,17 @@ import java.util.Date;
             this.name = name;
         }
 
-        public int getPhone() {
+        public String getPhone() {
             return phone;
         }
 
-        public void setPhone(int phone) {
+        public void setPhone(String phone) {
             this.phone = phone;
         }
+        public Customer() {};
 
-        public String getItems() {
-            return items;
+        public Customer(String name, String phone) {
+            this.name = name;
+            this.phone = phone;
         }
-
-        public void setItems(String items) {
-            this.items = items;
-        }
-
-        public Date getDuration() {
-            return duration;
-        }
-
-        public void setDuration(Date duration) {
-            this.duration = duration;
-        }
-
-        public double getDeposit() {
-            return deposit;
-        }
-
-        public void setDeposit(double deposit) {
-            this.deposit = deposit;
-        }
-
-        public double getHireCharge() {
-            return hireCharge;
-        }
-
-        public void setHireCharge(double hireCharge) {
-            this.hireCharge = hireCharge;
-        }
-}
+    }

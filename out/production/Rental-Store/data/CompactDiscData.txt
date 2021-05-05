@@ -1,0 +1,6 @@
+CD1;Có chàng trai viết lên cây;Phan Mạnh Quỳnh;2021/5/3;Tâm lý tình cảm;50.0;1h30;2.5;4K
+CD2;Nhỏ ơi;Jack;2021/5/3;Nhạc nhẹ;30.0;1h30;1.3;Full HD
+CD3;Thám Tử Conan Movie 21: Bản Tình Ca Màu Đỏ Thẫm; Kobun Shizuno;2021/5/3;Hoạt hình;80.0;1h50;4.5;4K
+CD4;Muộn rồi mà sao còn;Sơn Tùng - MTP;2021/5/3;Pop Ballat;56.0;90p;4.6;4K
+CD5;Một cú lừa;Bích Phương;2021/5/3;Hành động;90.0;1h30;9.6;4K
+CD6;Bố Già;Trấn Thành;2021-03-05;Tâm lý, tình cảm;120.0;2h05;15.5;4K

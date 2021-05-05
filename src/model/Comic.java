@@ -1,35 +1,22 @@
 package model;
 
-
-import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXDatePicker;
-import com.jfoenix.controls.JFXTextField;
-import database.DBConnect;
+import data.Data;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseButton;
-import javafx.stage.Stage;
 
-import javax.security.auth.callback.Callback;
-import javax.swing.*;
-import java.awt.event.MouseEvent;
-import java.net.URL;
-import java.util.Date;
-import java.util.ResourceBundle;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Comic extends Products implements Initializable {
+
+public class Comic extends Product {
     private int pageNumber;
     private String paperSize;
     private String language;
+
 
     public int getPageNumber() {
 
@@ -61,10 +48,10 @@ public class Comic extends Products implements Initializable {
         this.language = language;
     }
 
-    // Construct
+    // Constructor
 
-    public Comic(String name, String author, Date yearOfPublication, String category, float price, int pageNumber, String paperSize, String language) {
-        super(name, author, yearOfPublication, category, price);
+    public Comic(String id, String name, String author, String yearOfPublication, String category, float price, int pageNumber, String paperSize, String language) {
+        super(id, name, author, yearOfPublication, category, price);
         this.pageNumber = pageNumber;
         this.paperSize = paperSize;
         this.language = language;
@@ -79,125 +66,122 @@ public class Comic extends Products implements Initializable {
     public Comic() {
 
     }
-
-    // Các thuộc tính của giao diện
-    @FXML
-    private JFXTextField tfComicName;
-
-    @FXML
-    private JFXTextField tfAuthor;
-
-    @FXML
-    private JFXTextField tfCategory;
-
-    @FXML
-    private JFXTextField tfPageNumber;
-
-    @FXML
-    private JFXTextField tfPrice;
-
-    @FXML
-    private JFXTextField tfLanguage;
-
-    @FXML
-    JFXComboBox<String> cbPapersize = new JFXComboBox<String>();
-    ComboBox<String> cbSearch = new ComboBox<String>();
-
-    @FXML
-    private JFXDatePicker dpYearOfPublication;
-    // Xét giá trị cho comboBox
-    ObservableList<String> list = FXCollections.observableArrayList("A5", "A4", "A2", "A3");
-    ObservableList<String> searchBy = FXCollections.observableArrayList("Name", "Author", "Category");
-
-    // TableComic
-    @FXML
-    private TableView<Comic> ComicTable;
-    @FXML
-    private TableColumn<Comic, String> NameCol;
-
-    @FXML
-    private TableColumn<Comic, String> AuthorCol;
-
-    @FXML
-    private TableColumn<Comic, String> CategoryCol;
-
-    @FXML
-    private TableColumn<Comic, Integer> PageNumberCol;
-
-    @FXML
-    private TableColumn<Comic, Float> PriceCol;
-
-    @FXML
-    private TableColumn<Comic, String> LanguageCol;
-
-    @FXML
-    private TableColumn<Comic, String> PaperSizeCol;
-    private TableColumn<Comic, Integer> STTCol;
-
-    @FXML
-    private TableColumn<Comic, Date> YearOfPublicationCol;
-    ObservableList<Comic> listComic;
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        cbPapersize.getItems().addAll(list);
-        cbSearch.getItems().addAll(searchBy);
-        //STTCol.setCellValueFactory(new PropertyValueFactory<Comic, Integer>("STT"));
-        NameCol.setCellValueFactory(new PropertyValueFactory<Comic, String>("Name"));
-        AuthorCol.setCellValueFactory(new PropertyValueFactory<Comic,String>("Author"));
-        CategoryCol.setCellValueFactory(new PropertyValueFactory<Comic, String>("Category"));
-        PageNumberCol.setCellValueFactory(new PropertyValueFactory<Comic, Integer>("PageNumber"));
-        PriceCol.setCellValueFactory(new PropertyValueFactory<Comic,Float>("Price"));
-        LanguageCol.setCellValueFactory(new PropertyValueFactory<Comic, String>("language"));
-        PaperSizeCol.setCellValueFactory(new PropertyValueFactory<Comic, String>("PaperSize"));
-        YearOfPublicationCol.setCellValueFactory(new PropertyValueFactory<Comic,Date>("YearOfPublication"));
-        DBConnect dbConnect = new DBConnect();
-        listComic = dbConnect.getDataComics();
-        ComicTable.setItems(listComic);
+    public Comic(String name, String ID) {
+        super(name, ID);
     }
 
-
-    // Update table
     @Override
-    public void addProduct() {
-        Comic comic = new Comic();
-        //Set giá trị thuộc tính cho đối tượng comics từ dữ liệu do người dùng nhập
-        comic.setName(tfComicName.getText().toString());
-        comic.setAuthor(tfAuthor.getText().toString());
-        comic.setCategory(tfCategory.getText().toString());
-        comic.setPrice(Float.parseFloat(tfPrice.getText().toString()));
-        comic.setPageNumber(Integer.parseInt(tfPageNumber.getText().toString()));
-        comic.setLanguage(tfLanguage.getText().toString());
-        comic.setPaperSize(cbPapersize.getSelectionModel().getSelectedItem().toString());
-        comic.setYearOfPublication(java.sql.Date.valueOf(dpYearOfPublication.getValue()));
-        listComic.add(comic);
-        // Insert vào Database
-        String sql = "insert into comic values(N'" + comic.getName() + "', N'" + comic.getAuthor() + "', N'" + comic.getCategory() + "', " +
-                "'" + comic.getPageNumber() + "', '" + comic.getPrice() + "', N'" + comic.getLanguage() + "', N'" + comic.getPaperSize() + "', '" + comic.getYearOfPublication() + "')";
-        DBConnect dbConnect = new DBConnect();
-        if (dbConnect.insertData(sql)) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Success");
-            alert.setHeaderText("Insert data in Database successful!");
-            alert.show();
-            dbConnect.getDataComics();
+    public String toString() {
+        return this.getId() + ";" + this.getName() + ";" + this.getAuthor() + ";" + this.getYearOfPublication() + ";" + this.getCategory() + ";" + this.getPrice()
+                + ";" + this.getPageNumber() + ";" + this.getPaperSize() + ";" + this.getLanguage();
+    }
+
+    @Override
+    public void addProduct(Product product) {
+
+        String dir = System.getProperty("user.dir");
+        try {
+            FileWriter fw = new FileWriter(dir + "\\src\\data\\ComicData.txt", true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(String.valueOf((Comic) product));
+            bw.newLine();
+            bw.close();
+            fw.close();
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Override
+    public void editProduct(Product product) {
+        String dir = System.getProperty("user.dir");
+        List<Comic> l = (new Data().getDataComic());
+        try {
+            FileWriter fw = new FileWriter(dir + "\\src\\data\\ComicData.txt");
+            BufferedWriter bw = new BufferedWriter(fw);
+            for (Comic o: l) {
+                if(o.getId().equals(product.getId())) {
+                    bw.write(String.valueOf((Comic) product));
+                    bw.newLine();
+                }
+                else {
+                    bw.write(String.valueOf((Comic) o));
+                    bw.newLine();
+                }
+
+            }
+
+            bw.close();
+            fw.close();
+        }catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
-    public void testButton(ActionEvent actionEvent) {
+    @Override
+    public void deleteProduct(Product product) {
+        String dir = System.getProperty("user.dir");
+        List<Comic> l = (new Data().getDataComic());
         try {
+            FileWriter fw = new FileWriter(dir + "\\src\\data\\ComicData.txt");
+            BufferedWriter bw = new BufferedWriter(fw);
+            for (Comic o: l) {
+                if(o.getId().equals(product.getId())) {
+                    continue;
+               }
+                bw.write(String.valueOf((Comic) o));
+                bw.newLine();
+            }
+            bw.close();
+            fw.close();
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
 
-            Parent root;
-            Stage stage = new Stage();
-            root = FXMLLoader.load(getClass().getResource("/view/ComicList.fxml"));
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.setMaximized(true);
-            DBConnect db = new DBConnect();
-            db.connectToDB();
-            stage.show();
+    }
+
+    @Override
+    public List<Product> searchProduct(String key, int criterion) {
+        List<Product> list = new ArrayList<Product>();
+        String dir = System.getProperty("user.dir");
+        try {
+            FileReader fr = new FileReader(dir + "\\src\\data\\ComicData.txt");
+            BufferedReader br = new BufferedReader(fr);
+            String line = "";
+
+            while (true) {
+                line = br.readLine();
+                if(line == null) {
+                    break;
+                }
+                String txt[] = line.split(";");
+                String ID = txt[0];
+                String name = txt[1];
+                String author = txt[2];
+                String year = (txt[3]);
+                String category = txt[4];
+                float price = Float.parseFloat(txt[5]);
+                int pageNumber = Integer.parseInt(txt[6]);
+                String paperSize = txt[7];
+                String language = txt[8];
+                if(criterion == 0 && key.equalsIgnoreCase(txt[1])) {
+                        Comic c = new Comic(ID, name, author, year, category, price, pageNumber, paperSize, language);
+                        list.add(c);
+                }
+                else if(criterion == 1 && key.equalsIgnoreCase(txt[2])) {
+                    Comic c = new Comic(ID, name, author, year, category, price, pageNumber, paperSize, language);
+                    list.add(c);
+                }
+                else if(criterion == 2 && key.equalsIgnoreCase(txt[4])) {
+                    Comic c = new Comic(ID, name, author, year, category, price, pageNumber, paperSize, language);
+                    list.add(c);
+                }
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return list;
     }
 
 }
