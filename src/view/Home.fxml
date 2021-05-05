@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="640.0" prefWidth="1016.0" style="-fx-background-color: #2f234b;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.comic.HomeController">
+   <children>
+      <AnchorPane prefHeight="750.0" prefWidth="292.0" style="-fx-background-color: #393351;">
+         <children>
+            <Pane prefHeight="128.0" prefWidth="294.0">
+               <children>
+                  <ImageView fitHeight="35.0" fitWidth="33.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/home.png" />
+                     </image>
+                  </ImageView>
+                  <Line endX="12.0" endY="738.0" layoutX="280.0" layoutY="14.0" startX="12.0" startY="-14.049530029296875" stroke="WHITE" />
+               </children>
+            </Pane>
+            <ImageView fitHeight="174.0" fitWidth="175.0" layoutY="190.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/book1.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="109.0" layoutY="251.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/CD2.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="28.0" layoutY="389.0" text="Rental Store" textFill="#e1e1e1">
+               <font>
+                  <Font name="System Bold" size="41.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Pane layoutX="272.0" layoutY="-1.0" prefHeight="753.0" prefWidth="1018.0">
+         <children>
+            <Pane layoutX="-82.0" layoutY="-192.0" prefHeight="302.0" prefWidth="587.0" rotate="-147.5" style="-fx-background-color: #fa2c56; -fx-background-radius: 70;" />
+            <Button fx:id="btnComic" layoutX="88.0" layoutY="96.0" mnemonicParsing="false" onAction="#ComicM" prefHeight="255.0" prefWidth="264.0" stylesheets="@../css/fullpackstyling.css">
+               <graphic>
+                  <Circle radius="84.0" stroke="#4d4d4d" strokeType="INSIDE">
+                     <fill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.11999999731779099" green="0.5086825489997864" blue="1.0" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.44426169991493225" green="0.8947368264198303" blue="0.29410332441329956" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </Circle>
+               </graphic>
+            </Button>
+            <Button fx:id="btnCD" layoutX="415.0" layoutY="96.0" mnemonicParsing="false" onAction="#CompactDiscM" prefHeight="255.0" prefWidth="264.0" stylesheets="@../css/fullpackstyling.css">
+               <graphic>
+                  <Circle fx:id="btnCD" radius="84.0" stroke="#4d4d4d" strokeType="INSIDE">
+                     <fill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.11999999731779099" green="0.5086825489997864" blue="1.0" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="1.0" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </Circle>
+               </graphic>
+            </Button>
+            <Button fx:id="btnSearch" layoutX="88.0" layoutY="415.0" mnemonicParsing="false" onAction="#RetalM" prefHeight="255.0" prefWidth="264.0" stylesheets="@../css/fullpackstyling.css">
+               <graphic>
+                  <Circle fx:id="btnRental" radius="84.0" stroke="#4d4d4d" strokeType="INSIDE">
+                     <fill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.11999999731779099" green="0.5086825489997864" blue="1.0" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.007662835249042145">
+                                 <color>
+                                    <Color red="1.0" green="0.20149795711040497" blue="0.11999999731779099" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.9070979973930555">
+                                 <color>
+                                    <Color red="1.0" green="0.7018808126449585" blue="0.5799999833106995" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="1.0" green="0.6836858987808228" blue="0.5799999833106995" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </Circle>
+               </graphic>
+            </Button>
+            <Button fx:id="btnReturn" layoutX="415.0" layoutY="415.0" mnemonicParsing="false" onAction="#ReturnM" prefHeight="255.0" prefWidth="264.0" stylesheets="@../css/fullpackstyling.css">
+               <graphic>
+                  <Circle fx:id="btnSearch11" radius="84.0" stroke="#4d4d4d" strokeType="INSIDE">
+                     <fill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.11999999731779099" green="0.5086825489997864" blue="1.0" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.007662835249042145">
+                                 <color>
+                                    <Color red="0.11999999731779099" green="1.0" blue="0.2142055481672287" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.04123711340206179">
+                                 <color>
+                                    <Color red="0.9765343070030212" green="1.0" blue="0.8999999761581421" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.9070979973930552">
+                                 <color>
+                                    <Color red="0.13390317559242249" green="0.11959999799728394" blue="0.9200000166893005" opacity="0.9700000286102295" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="1.0" green="1.0" blue="1.0" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </Circle>
+               </graphic>
+            </Button>
+            <Button fx:id="btnDetail" layoutX="746.0" layoutY="415.0" mnemonicParsing="false" prefHeight="255.0" prefWidth="264.0" stylesheets="@../css/fullpackstyling.css">
+               <graphic>
+                  <Circle fx:id="btnDetail" radius="84.0" stroke="#4d4d4d" strokeType="INSIDE">
+                     <fill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.11999999731779099" green="0.5086825489997864" blue="1.0" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.007662835249042145">
+                                 <color>
+                                    <Color red="0.11999999731779099" green="0.5086825489997864" blue="1.0" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.9868420958518982" green="0.9384137392044067" blue="0.018274853006005287" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </Circle>
+               </graphic>
+            </Button>
+            <Label layoutX="194.0" layoutY="312.0" text="Comic" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="193.0" layoutY="632.0" text="Rental" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="535.0" layoutY="312.0" text="CD" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="518.0" layoutY="632.0" text="Return" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="842.0" layoutY="632.0" text="Revenue" textFill="#f8f8f8">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="99.0" fitWidth="88.0" layoutX="177.0" layoutY="497.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/XING.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="62.0" fitWidth="65.0" layoutX="516.0" layoutY="513.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/return.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="78.0" fitWidth="73.0" layoutX="185.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/comic.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="79.0" fitWidth="81.0" layoutX="506.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/CD1.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="73.0" fitWidth="73.0" layoutX="839.0" layoutY="504.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/money.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="btnCD" layoutX="743.0" layoutY="96.0" mnemonicParsing="false" prefHeight="255.0" prefWidth="264.0" stylesheets="@../css/fullpackstyling.css">
+               <graphic>
+                  <Circle fx:id="btnCD1" radius="84.0" stroke="#4d4d4d" strokeType="INSIDE">
+                     <fill>
+                        <LinearGradient endX="1.0" endY="1.0" startY="0.009523809523809525">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.7882493138313293" green="1.0" blue="0.11999999731779099" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="1.0" green="0.2166064977645874" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </Circle>
+               </graphic>
+            </Button>
+            <ImageView fitHeight="88.0" fitWidth="73.0" layoutX="838.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/customer.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="837.0" layoutY="312.0" text="Customer" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

@@ -6,10 +6,16 @@
 
 }
 
+#btnDetail {
+    -fx-background-radius: 15;
+    -fx-text-fill: white;
+    -fx-padding: 5 40 5 40;
+
+}
+
 .jfx-button:hover {
 
     -fx-background-color:#696969  ;
-
 
 }
 .jfx-text-field {
@@ -32,7 +38,7 @@
 
 
 .table-view .column-header {
-    -fx-background-color:  #0928ed;
+    -fx-background-color:  #2e08b5;
     -fx-text-background-color: #ffffff;
     -fx-alignment: CENTER;
 
@@ -83,4 +89,9 @@
 .table-row-cell: hover {
     -fx-background-color: #6495ED;
     -fx-text-background-color: #ffffff;
+}
+.jfx-text-field {
+    -fx-prompt-text-fill: WHITE;
+    -jfx-focus-color: WHITE;
+    -jfx-unfocus-color: WHITE;
 }
