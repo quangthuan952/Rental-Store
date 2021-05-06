@@ -6,7 +6,9 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ToggleGroup;
+import javafx.stage.Stage;
 import model.*;
 
 import java.net.URL;
@@ -38,6 +40,8 @@ public class AddRentalController implements Initializable {
     private JFXRadioButton rdCD;
     @FXML
     private JFXTextField tfID;
+    @FXML
+    private Button btnCancel;
 
     @FXML
     private JFXDatePicker pRentDate;
@@ -75,6 +79,9 @@ public class AddRentalController implements Initializable {
             Bill b = new Bill(codeOrder, kindOfProduct, product, rentDate, deposit, customer);
             bill.addBill(b);
         }
-
+    }
+    public void cancel(ActionEvent event) {
+        Stage stage = (Stage) btnCancel.getScene().getWindow();
+        stage.close();
     }
 }

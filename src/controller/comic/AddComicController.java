@@ -6,8 +6,11 @@ import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.stage.Stage;
 import model.Comic;
 
 import java.net.URL;
@@ -41,10 +44,10 @@ public class AddComicController implements Initializable {
     private JFXDatePicker pDate;
 
     @FXML
-    private JFXButton btnCancel;
+    private Button btnCancel;
 
-    @FXML
-    private JFXButton btnSave;
+
+
     ObservableList<String> listPaperSize ;
     Comic c = new Comic();
     public void initialize(URL location, ResourceBundle resources) {
@@ -67,4 +70,9 @@ public class AddComicController implements Initializable {
         Comic comic = new Comic(ID, name, author, year, category, price, pageNumber, paperSize, language);
         c.addProduct(comic);
     }
+
+        public void cancel(ActionEvent event) {
+            Stage stage = (Stage) btnCancel.getScene().getWindow();
+            stage.close();
+        }
 }

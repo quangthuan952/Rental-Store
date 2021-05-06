@@ -64,4 +64,9 @@ public class RevenueController implements Initializable {
         String to = pDateTo.getValue().toString();
         lbRevenue.setText(String.valueOf(b.calculateRevenue(from, to)));
     }
+
+    public void cancel() {
+        pDateFrom.setValue(null);
+        pDateTo.setValue(null);
+    }
 }

@@ -190,5 +190,6 @@
          </children>
       </Pane>
     <Button fx:id="btnAdd" layoutX="1062.0" layoutY="583.0" mnemonicParsing="false" onAction="#addComic" prefHeight="29.0" prefWidth="69.0" stylesheets="@../../css/fullpackstyling.css" text="Save" />
+      <Button fx:id="btnCancel" layoutX="966.0" layoutY="583.0" mnemonicParsing="false" onAction="#cancel" prefHeight="29.0" prefWidth="69.0" stylesheets="@../../css/fullpackstyling.css" text="Cancel" />
    </children>
 </AnchorPane>

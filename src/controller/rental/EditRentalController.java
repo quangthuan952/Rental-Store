@@ -3,9 +3,12 @@ package controller.rental;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ToggleGroup;
+import javafx.stage.Stage;
 import model.*;
 
 import java.net.URL;
@@ -37,6 +40,8 @@ public class EditRentalController implements Initializable {
 
     @FXML
     private ToggleGroup item;
+    @FXML
+    private Button btnExit;
 
     @FXML
     private JFXRadioButton rdCD;
@@ -96,5 +101,10 @@ public class EditRentalController implements Initializable {
             b = new Bill(codeOrder, kindOfProduct,product, rentDate, deposit, customer);
         }
         bill.editRental(b);
+    }
+    @FXML
+    public void handleExit(ActionEvent event) {
+        Stage stage = (Stage) btnExit.getScene().getWindow();
+        stage.close();
     }
 }
