@@ -1,6 +1,6 @@
 # Rental-Store
-- Cài JavaFx
-- Cài thư viện sqljdbc_9.2.0.0_enu
-- Cài jfoenix-9.0.10
-- Cài Scene Builder
-- JDK 11
+- Hướng dẫn cài đặt:
+  - Cài đặt JavaFX
+  - Cài đặt jfoenix-9.0.10
+  - Cài đặt Scene Builder
+  - Cài đặt JDK 11
