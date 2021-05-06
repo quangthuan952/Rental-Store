@@ -1,10 +1,14 @@
 package controller.compactdisc;
 
 import controller.comic.ComicController;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
+import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -32,6 +36,8 @@ public class DetailCDController implements Initializable {
 
     @FXML
     private Label lbYearOfPublication;
+    @FXML
+    private Button btnExit;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -44,5 +50,11 @@ public class DetailCDController implements Initializable {
         lbCapacity.setText(String.valueOf(cdController.capacity));
         lbYearOfPublication.setText(String.valueOf(cdController.year));
         lbResolution.setText(cdController.resolution);
+    }
+
+    @FXML
+    public void handleExit(ActionEvent event) {
+        Stage stage = (Stage) btnExit.getScene().getWindow();
+        stage.close();
     }
 }

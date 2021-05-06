@@ -101,7 +101,7 @@ public class Comic extends Product {
             FileWriter fw = new FileWriter(dir + "\\src\\data\\ComicData.txt");
             BufferedWriter bw = new BufferedWriter(fw);
             for (Comic o: l) {
-                if(o.getId().equals(product.getId())) {
+                if(o.getId().equalsIgnoreCase(product.getId())) {
                     bw.write(String.valueOf((Comic) product));
                     bw.newLine();
                 }
@@ -127,7 +127,7 @@ public class Comic extends Product {
             FileWriter fw = new FileWriter(dir + "\\src\\data\\ComicData.txt");
             BufferedWriter bw = new BufferedWriter(fw);
             for (Comic o: l) {
-                if(o.getId().equals(product.getId())) {
+                if(o.getId().equalsIgnoreCase(product.getId())) {
                     continue;
                }
                 bw.write(String.valueOf((Comic) o));

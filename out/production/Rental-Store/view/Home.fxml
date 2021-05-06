@@ -160,7 +160,7 @@
                   </Circle>
                </graphic>
             </Button>
-            <Button fx:id="btnDetail" layoutX="746.0" layoutY="415.0" mnemonicParsing="false" prefHeight="255.0" prefWidth="264.0" stylesheets="@../css/fullpackstyling.css">
+            <Button fx:id="btnDetail" layoutX="746.0" layoutY="415.0" mnemonicParsing="false" onAction="#RevenueM" prefHeight="255.0" prefWidth="264.0" stylesheets="@../css/fullpackstyling.css">
                <graphic>
                   <Circle fx:id="btnDetail" radius="84.0" stroke="#4d4d4d" strokeType="INSIDE">
                      <fill>

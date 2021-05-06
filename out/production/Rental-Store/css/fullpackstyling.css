@@ -336,7 +336,16 @@
 .table-cell {
 -fx-text-fill:white;
 }
-
+ #paymentCol {
+ -fx-alignment: CENTER;
+ -fx-font-weight:bold;
+}
+#rentalFreeCol {
+ -fx-alignment: CENTER;
+}
+#returnDateCol {
+ -fx-alignment: CENTER;
+}
 #tfSearch{
     -fx-font-family: "Quicksand";
    -fx-font-size: 14;
@@ -428,6 +437,32 @@
       -fx-prompt-text-fill: #FF9900;
       -fx-font-size:14;
   }
+#pDateTo .text-field{
+    -jfx-focus-color: white;
+    -jfx-unfocus-color: white;
+    -fx-prompt-text-fill: white;
+    -fx-font-size:14;
+
+}
+#pDateTo .text-field:selected{
+        -jfx-focus-color: white;
+        -jfx-unfocus-color: white;
+        -fx-prompt-text-fill: white;
+        -fx-font-size:14;
+}
+#pDateFrom .text-field{
+  -jfx-focus-color: white;
+  -jfx-unfocus-color: white;
+  -fx-prompt-text-fill: white;
+  -fx-font-size:14;
+
+ }
+ #pDateFrom .text-field:selected{
+      -jfx-focus-color: white;
+      -jfx-unfocus-color: white;
+      -fx-prompt-text-fill: white;
+      -fx-font-size:14;
+  }
  #pRentDate .text-field{
    -jfx-focus-color: white;
    -jfx-unfocus-color: white;
@@ -482,7 +517,7 @@
  }
 
 #btnAdd {
-     -fx-background-color : #000033;
+      -fx-background-color : #000033;
       -fx-border-width: 2;
       -fx-background-radius: 30;
       -fx-border-radius: 30;
@@ -535,4 +570,41 @@
 }
  #codeOrderCol{
    -fx-alignment: CENTER;
+ }
+.chart-pie-label {
+    -fx-fill: white;
+    -fx-text-size: 1.2rem;
+}
+.chart-title {
+  -fx-text-fill: #4682b4;
+  -fx-font-size: 1.6em;
+}
+
+.data0.chart-pie {
+    -fx-pie-color:  #4682b4;
+}
+.data1.chart-pie {
+    -fx-pie-color: #87cefa;
+}
+
+#btnExit {
+
+}
+#btnExit {
+      -fx-background-color : #000033;
+      -fx-border-width: 2;
+      -fx-background-radius: 30;
+      -fx-border-radius: 30;
+      -fx-text-fill: #ffffff;
+      -fx-border-color:#ffffff;
+ }
+#btnExit:hover {
+    -fx-background-color:#393351;
+    -fx-background-radius:30;
+    -fx-border-width: 2;
+    -fx-text-fill: grey;
+    -fx-border-color:#ffffff;
+}
+#btnExit:pressed {
+     -fx-background-color : #2F2B43 ;
  }

@@ -83,7 +83,7 @@ public class CompactDisc extends Product {
             FileWriter fw = new FileWriter(dir + "\\src\\data\\CompactDiscData.txt");
             BufferedWriter bw = new BufferedWriter(fw);
             for (CompactDisc o: l) {
-                if(o.getId().equals(product.getId())) {
+                if(o.getId().equalsIgnoreCase(product.getId())) {
                     bw.write(String.valueOf((CompactDisc) product));
                     bw.newLine();
                 }
@@ -108,7 +108,7 @@ public class CompactDisc extends Product {
             FileWriter fw = new FileWriter(dir + "\\src\\data\\CompactDiscData.txt");
             BufferedWriter bw = new BufferedWriter(fw);
             for (CompactDisc o: l) {
-                if(o.getId().equals(product.getId())) {
+                if(o.getId().equalsIgnoreCase(product.getId())) {
                     continue;
                 }
                 bw.write(String.valueOf((CompactDisc) o));

@@ -8,6 +8,57 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 
 public class Data {
+
+    public float getPriceProduct(String itemID) {
+        String dir = System.getProperty("user.dir");
+        float priceItem = 0;
+        if(itemID.indexOf("M") == 1) {
+            try {
+                FileReader fd = new FileReader(dir +"\\src\\data\\ComicData.txt");
+                BufferedReader bd = new BufferedReader(fd);
+                String line ="";
+                while(true) {
+                    line = bd.readLine();
+                    if(line == null) {
+                        break;
+                    }
+                    String txt[] = line.split(";");
+                    String ID = txt[0];
+                    if(ID.equalsIgnoreCase(itemID)) {
+                        priceItem = Float.parseFloat(txt[5]);
+                        break;
+                    }
+
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        else {
+            try {
+                FileReader fd = new FileReader(dir +"\\src\\data\\CompactDiscData.txt");
+                BufferedReader bd = new BufferedReader(fd);
+                String line ="";
+                while(true) {
+                    line = bd.readLine();
+                    if(line == null) {
+                        break;
+                    }
+                    String txt[] = line.split(";");
+                    String ID = txt[0];
+                    if(ID.equalsIgnoreCase(itemID)) {
+                        priceItem = Float.parseFloat(txt[5]);
+                        break;
+                    }
+
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        return priceItem;
+    }
     public ObservableList<Comic> getDataComic() {
         ObservableList<Comic> comicObservableList = FXCollections.observableArrayList();
         String dir = System.getProperty("user.dir");
@@ -83,7 +134,6 @@ public class Data {
                     break;
                 }
                 String txt[] = line.split(";");
-               //QT1102;Comic;Muộn rồi mà sao còn;2021-5-3;4.5;Hoàng Quang Thuận;0375162551
                 String codeOrder = txt[0];
                 String item = txt[1];
                 String itemID = txt[2];
@@ -93,9 +143,7 @@ public class Data {
                 String nameCustomer = txt[6];
                 String phone = txt[7];
                 Customer customer = new Customer(nameCustomer, phone);
-
                 if(item.equals("Comic")) {
-
                     Product comic = new Comic(nameProduct, itemID);
                     comic.setName(nameProduct);
                     Bill bill = new Bill(codeOrder, item, comic, rentDate, deposit,customer);
@@ -119,7 +167,7 @@ public class Data {
         ObservableList<Bill> bills = FXCollections.observableArrayList();
         String dir = System.getProperty("user.dir");
         try {
-            FileReader fd = new FileReader(dir +"\\src\\data\\daata.txt");
+            FileReader fd = new FileReader(dir +"\\src\\data\\ReturnData.txt");
             BufferedReader bd = new BufferedReader(fd);
             String line ="";
             while(true) {
@@ -129,33 +177,32 @@ public class Data {
                 }
                 String txt[] = line.split(";");
 
-
-                //codeOrder + ";" + items + ";" + product.getId()+ ";" + product.getName() + ";" + rentDate + ";"
-                //+ returnDate + ";" + deposit + ";" + hireCharge+ ";" + customer.getName() + ";" + customer.getPhone();
                 String codeOrder = txt[0];
                 String item = txt[1];
                 String itemID = txt[2];
                 String nameProduct = txt[3];
                 String rentDate = txt[4];
                 String returnDate = txt[5];
+                float priceItem = 0;
                 float deposit = Float.parseFloat(txt[6]);
-                float hirgCharge = Float.parseFloat(txt[7]);
                 String nameCustomer = txt[8];
                 String phone = txt[9];
+                float amoutPaid = Float.parseFloat(txt[10]);
                 Customer customer = new Customer(nameCustomer, phone);
-//(String codeOrder, String items, String rentDate, String returnDate,
-                // float deposit, float hireCharge, Customer customer, Product product)
                 if(item.equals("Comic")) {
-
                     Product comic = new Comic(nameProduct, itemID);
                     comic.setName(nameProduct);
-                    Bill bill = new Bill(codeOrder, item, rentDate, returnDate, deposit, hirgCharge, customer, comic);
+                    priceItem = getPriceProduct(itemID);
+                    comic.setPrice(priceItem);
+                    Bill bill = new Bill(codeOrder, item, rentDate, returnDate, deposit, customer, comic);
                     bills.add(bill);
                 }
                 else {
                     Product cd = new CompactDisc(nameProduct, itemID);
                     cd.setName(nameProduct);
-                    Bill bill = new Bill(codeOrder, item, rentDate, returnDate, deposit, hirgCharge, customer, cd);
+                    priceItem = getPriceProduct(itemID);
+                    cd.setPrice(priceItem);
+                    Bill bill = new Bill(codeOrder, item, rentDate, returnDate, deposit, customer, cd);
                     bills.add(bill);
                 }
 

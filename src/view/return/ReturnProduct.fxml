@@ -14,7 +14,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="714.0" prefWidth="1368.0" style="-fx-background-color: #1A172A;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.returnproduct.ReturnProductController">
    <children>
       <HBox layoutX="20.0" layoutY="203.0" prefHeight="283.0" prefWidth="281.0">
@@ -74,6 +73,6 @@
             </TableView>
          </children>
       </VBox>
-      <Button fx:id="btnAdd" layoutX="224.0" layoutY="505.0" mnemonicParsing="false" stylesheets="@../../css/fullpackstyling.css" text="Return" />
+      <Button fx:id="btnAdd" layoutX="224.0" layoutY="505.0" mnemonicParsing="false" onAction="#addReturn" stylesheets="@../../css/fullpackstyling.css" text="Return" />
    </children>
 </AnchorPane>
