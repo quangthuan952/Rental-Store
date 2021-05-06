@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -54,6 +55,8 @@ public class ComicController implements Initializable {
     private TableColumn<Comic, String> YearOfPublicationCol;
     @FXML
     private javafx.scene.control.ComboBox<String> ComboBox;
+    @FXML
+    private Button refesh;
     @FXML
     private TextField tfSearch;
 
@@ -204,6 +207,8 @@ public class ComicController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        Stage stage = (Stage) refesh.getScene().getWindow();
+        stage.close();
     }
 
     public void delete() {

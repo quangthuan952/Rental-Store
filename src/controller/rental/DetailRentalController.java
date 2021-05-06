@@ -1,8 +1,12 @@
 package controller.rental;
 
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -28,6 +32,9 @@ public class DetailRentalController implements Initializable {
 
     @FXML
     private Label lbRentDate;
+    @FXML
+    private Button btnExit;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         RentalController rentalController = new RentalController();
@@ -40,4 +47,10 @@ public class DetailRentalController implements Initializable {
         lbRentDate.setText(rentalController.rentDate);
 
     }
+    @FXML
+    public void handleExit(ActionEvent event) {
+        Stage stage = (Stage) btnExit.getScene().getWindow();
+        stage.close();
+    }
+
 }

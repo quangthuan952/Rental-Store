@@ -6,6 +6,8 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +17,7 @@ public class Bill {
     private String rentDate;
     private String returnDate;
     private float deposit;
-    private float hireCharge;
+    //private float hireCharge;
     private Customer customer;
     private Product product;
 
@@ -77,13 +79,13 @@ public class Bill {
         this.deposit = deposit;
     }
 
-    public float getHireCharge() {
-        return hireCharge;
-    }
-
-    public void setHireCharge(float hireCharge) {
-        this.hireCharge = hireCharge;
-    }
+//    public float getHireCharge() {
+//        return hireCharge;
+//    }
+//
+//    public void setHireCharge(float hireCharge) {
+//        this.hireCharge = hireCharge;
+//    }
 
     public Bill(String codeOrder, String items, String rentDate, float deposit, Customer customer) {
         this.codeOrder = codeOrder;
@@ -93,6 +95,7 @@ public class Bill {
         this.customer = customer;
 
     }
+
     public Bill(String codeOrder, String items, Product product, String rentDate, float deposit, Customer customer) {
         this.codeOrder = codeOrder;
         this.items = items;
@@ -102,24 +105,39 @@ public class Bill {
         this.customer = customer;
     }
 
-    public Bill(String codeOrder, String items, String rentDate, String returnDate, float deposit, float hireCharge, Customer customer, Product product) {
+    public Bill(String codeOrder, String items, String rentDate, String returnDate, float deposit, Customer customer, Product product) {
         this.codeOrder = codeOrder;
         this.items = items;
         this.rentDate = rentDate;
         this.returnDate = returnDate;
         this.deposit = deposit;
-        this.hireCharge = hireCharge;
+        // this.hireCharge = hireCharge;
         this.customer = customer;
         this.product = product;
     }
 
-    public Bill() {};
-    public String toStringRental() {
-            return codeOrder + ";" + items + ";" + product.getId()+ ";" + product.getName() + ";" + rentDate + ";" + deposit + ";" + customer.getName() + ";" + customer.getPhone();
+    public Bill() {
     }
+
+    ;
+
+    public float hireCharge() {
+        LocalDate dateBefore = LocalDate.parse(rentDate);
+        LocalDate dateAfter = LocalDate.parse(returnDate);
+        return ChronoUnit.DAYS.between(dateBefore, dateAfter) * getProduct().getPrice();
+    }
+
+    public float calculateAmountPay() {
+        return hireCharge() - deposit;
+    }
+
+    public String toStringRental() {
+        return codeOrder + ";" + items + ";" + product.getId() + ";" + product.getName() + ";" + rentDate + ";" + deposit + ";" + customer.getName() + ";" + customer.getPhone();
+    }
+
     public String toStringReturn() {
-        return codeOrder + ";" + items + ";" + product.getId()+ ";" + product.getName() + ";" + rentDate + ";" + returnDate
-                + ";" + deposit + ";" + hireCharge+ ";" + customer.getName() + ";" + customer.getPhone();
+        return codeOrder + ";" + items + ";" + product.getId() + ";" + product.getName() + ";" + rentDate + ";" + returnDate
+                + ";" + deposit + ";" + hireCharge() + ";" + customer.getName() + ";" + customer.getPhone() + ";" + calculateAmountPay();
     }
 
     public void addBill(Bill bill) {
@@ -131,51 +149,53 @@ public class Bill {
             bw.newLine();
             bw.close();
             fw.close();
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     public void editRental(Bill bill) {
         String dir = System.getProperty("user.dir");
         List<Bill> l = (new Data().getDataBill());
         try {
             FileWriter fw = new FileWriter(dir + "\\src\\data\\BillData.txt");
             BufferedWriter bw = new BufferedWriter(fw);
-            for (Bill o: l) {
-                if(o.getCodeOrder().equals(bill.getCodeOrder())) {
+            for (Bill o : l) {
+                if (o.getCodeOrder().equalsIgnoreCase(bill.getCodeOrder())) {
                     bw.write(String.valueOf((bill)));
                     bw.newLine();
-                }
-                else {
+                } else {
                     bw.write(String.valueOf((Bill) o));
                     bw.newLine();
                 }
             }
             bw.close();
             fw.close();
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     public void deleteRental(Bill bill) {
         String dir = System.getProperty("user.dir");
         List<Bill> l = (new Data().getDataBill());
         try {
             FileWriter fw = new FileWriter(dir + "\\src\\data\\BillData.txt");
             BufferedWriter bw = new BufferedWriter(fw);
-            for (Bill o: l) {
-                if(o.getCodeOrder().equals(bill.getCodeOrder())) {
+            for (Bill o : l) {
+                if (o.getCodeOrder().equalsIgnoreCase(bill.getCodeOrder())) {
                     continue;
                 }
-                bw.write(String.valueOf((o)));
+                bw.write(o.toStringRental());
                 bw.newLine();
             }
             bw.close();
             fw.close();
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     public List<Bill> searchBill(String key, int criterion) {
         List<Bill> list = new ArrayList<Bill>();
         String dir = System.getProperty("user.dir");
@@ -185,7 +205,7 @@ public class Bill {
             String line = "";
             while (true) {
                 line = br.readLine();
-                if(line == null) {
+                if (line == null) {
                     break;
                 }
                 String txt[] = line.split(";");
@@ -201,30 +221,113 @@ public class Bill {
                 Product product = null;
                 Product comic = null;
                 Product cd = null;
-                if(item.equals("Comic")) {
+                if (item.equalsIgnoreCase("Comic")) {
 
                     comic = new Comic(nameProduct, itemID);
                     product = comic;
                     comic.setName(nameProduct);
-                }
-                else {
+                } else {
                     cd = new CompactDisc(nameProduct, itemID);
                     product = cd;
                     cd.setName(nameProduct);
                 }
-                if(criterion == 0 && key.equalsIgnoreCase(codeOrder)) {
-                    Bill bill = new Bill(codeOrder, item, product, rentDate, deposit,customer);
+                if (criterion == 0 && key.equalsIgnoreCase(codeOrder)) {
+                    Bill bill = new Bill(codeOrder, item, product, rentDate, deposit, customer);
                     list.add(bill);
-                }
-                else if(criterion == 1 && key.equalsIgnoreCase(nameCustomer)) {
-                    Bill bill = new Bill(codeOrder, item, product, rentDate, deposit,customer);
+                } else if (criterion == 1 && key.equalsIgnoreCase(nameCustomer)) {
+                    Bill bill = new Bill(codeOrder, item, product, rentDate, deposit, customer);
                     list.add(bill);
-                }
-                else if(criterion == 2 && key.equalsIgnoreCase(phone)) {
-                    Bill bill = new Bill(codeOrder, item, product, rentDate, deposit,customer);
+                } else if (criterion == 2 && key.equalsIgnoreCase(phone)) {
+                    Bill bill = new Bill(codeOrder, item, product, rentDate, deposit, customer);
+                    list.add(bill);
+                } else if (criterion == 3 && key.equalsIgnoreCase(rentDate)) {
+                    Bill bill = new Bill(codeOrder, item, product, rentDate, deposit, customer);
                     list.add(bill);
                 }
             }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    public void returnProduct(Bill bill) {
+        String dir = System.getProperty("user.dir");
+        try {
+            FileWriter fw = new FileWriter(dir + "\\src\\data\\ReturnData.txt", true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(bill.toStringReturn());
+            bw.newLine();
+            bw.close();
+            fw.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public float calculateRevenue(String from, String to) {
+        float revenue = 0;
+        LocalDate dateFrom = LocalDate.parse(from);
+        LocalDate dateTo = LocalDate.parse(to);
+
+        String dir = System.getProperty("user.dir");
+        try {
+            FileReader fd = new FileReader(dir + "\\src\\data\\ReturnData.txt");
+            BufferedReader bd = new BufferedReader(fd);
+            String line = "";
+            while (true) {
+                line = bd.readLine();
+                if (line == null) {
+                    break;
+                }
+                String txt[] = line.split(";");
+                String date = txt[5];
+
+                //ChronoUnit.DAYS.between(dateForm, tmp) < 0 thì tmp là những ngày trước dateForm
+                float rentalFee = Float.parseFloat(txt[7]);
+                LocalDate tmp = LocalDate.parse(date);
+                if (ChronoUnit.DAYS.between(tmp, dateFrom) < 0 && ChronoUnit.DAYS.between(tmp, dateTo) > 0) {
+                    revenue += rentalFee;
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return revenue;
+    }
+
+    public List<Float> calculateTotalRevenue() {
+        List<Float> list = new ArrayList<>();
+        float revenueComic = 0;
+        float revenueCD = 0;
+        float totalRevenue = 0;
+
+        String dir = System.getProperty("user.dir");
+        try {
+            FileReader fd = new FileReader(dir + "\\src\\data\\ReturnData.txt");
+            BufferedReader bd = new BufferedReader(fd);
+            String line = "";
+            while (true) {
+                line = bd.readLine();
+                if (line == null) {
+                    break;
+                }
+                String txt[] = line.split(";");
+                String item = txt[1];
+                float rentalFee = Float.parseFloat(txt[7]);
+                totalRevenue += rentalFee;
+                if(item.indexOf("D") == 1) {
+                    revenueCD += rentalFee;
+                }
+                else {
+                    revenueComic += rentalFee;
+                }
+            }
+            list.add(totalRevenue);
+            list.add(revenueComic);
+            list.add(revenueCD);
         } catch (Exception e) {
             e.printStackTrace();
         }

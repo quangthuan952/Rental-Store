@@ -65,7 +65,7 @@ public class RentalController implements Initializable {
     public static String loai;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        listComboBoxSearchBy = FXCollections.observableArrayList("By Code Order", "By Name", "By Phone");
+        listComboBoxSearchBy = FXCollections.observableArrayList("By Code Order", "By Name", "By Phone", "By Date");
         ComboBox.setItems(listComboBoxSearchBy);
         billList = data.getDataBill();
         updateTable(billList);
@@ -114,7 +114,6 @@ public class RentalController implements Initializable {
                 else {
                     loai = "CD";
                 }
-                System.out.println(b.toString());
                 detail();
             }});
     }
@@ -161,6 +160,7 @@ public class RentalController implements Initializable {
     }
     public void delete() {
         Bill bill1 = RentalTable.getSelectionModel().getSelectedItem();
+        //System.out.println(bill1.toStringReturn());
         b.deleteRental(bill1);
     }
 
@@ -186,6 +186,9 @@ public class RentalController implements Initializable {
             }
             else if(output.equals("By Phone")) {
                 criterion = 2;
+            }
+            else if(output.equals("By Date")) {
+                criterion = 3;
             }
             List<Bill> l = b.searchBill(key, criterion);
             for (int i = 0; i < l.size(); i++) {

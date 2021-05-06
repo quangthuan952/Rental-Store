@@ -175,7 +175,7 @@
                         </ImageView>
                      </children>
                   </Pane>
-                  <Button layoutX="523.0" layoutY="296.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" text="OK" />
+                  <Button fx:id="btnExit" layoutX="523.0" layoutY="296.0" mnemonicParsing="false" onAction="#handleExit" prefHeight="25.0" prefWidth="72.0" stylesheets="@../../css/fullpackstyling.css" text="OK" />
                </children>
             </Pane>
          </children>

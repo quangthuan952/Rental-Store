@@ -70,4 +70,17 @@ public class HomeController implements Initializable {
             e.printStackTrace();
         }
     }
+    public void RevenueM(ActionEvent actionEvent) {
+        try {
+            Stage primaryStage = new Stage();
+            Parent root;
+            root = FXMLLoader.load(getClass().getResource("/view/revenue/Revenue.fxml"));
+            Scene scene = new Scene(root);
+            primaryStage.setScene(scene);
+            primaryStage.setMaximized(true);
+            primaryStage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

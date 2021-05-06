@@ -1,3 +1,5 @@
-QT1102;Comic;CM1;Muộn rồi mà sao còn;2021-5-3;4.5;Hoàng Quang Thuận;0375162551
-QT1103;Comic;CM2;Có chàng trai viết lên cây;2021-5-4;5.0;Nguyễn Quang Hưng;0973459018
+QT1102;Comic;CM1;Muộn rồi mà sao còn;2021-05-03;4.5;Hoàng Quang Thuận;0375162551
 QT1004;CD;CD1;Có chàng trai viết lên cây;2021-05-04;10.0;Lê Thanh Tùng;0985374056
+QT1005;CD;CM2;Tình yêu mang theo;2021-05-04;10.0;Lê Thanh Tùng;0985374056
+QT1006;CD;CD3;Bố Già;2021-05-04;15.0;Trần Nam Anh;0987357156
+QT1007;CD;CD4;Gozilla đại chiến Kong;2021-05-04;20.0;Nguyễn Thành Nam;0985374056

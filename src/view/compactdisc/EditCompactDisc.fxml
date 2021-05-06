@@ -26,7 +26,7 @@
                <children>
                   <Pane layoutX="63.0" layoutY="40.0" prefHeight="77.0" prefWidth="491.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
                      <children>
-                        <JFXTextField fx:id="tfName" focusColor="WHITE" labelFloat="true" layoutX="-7.0" layoutY="24.0" prefHeight="25.0" prefWidth="450.0" promptText="Name" stylesheets="@../../css/fullpackstyling.css" unFocusColor="WHITE">
+                        <JFXTextField fx:id="tfName" focusColor="WHITE" labelFloat="true" layoutX="20.0" layoutY="24.0" prefHeight="25.0" prefWidth="440.0" promptText="Name" stylesheets="@../../css/fullpackstyling.css" unFocusColor="WHITE">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -34,11 +34,16 @@
                               <Insets left="50.0" />
                            </padding>
                         </JFXTextField>
+                        <ImageView fitHeight="43.0" fitWidth="46.0" layoutX="14.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../image/cdname.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </Pane>
                   <Pane layoutX="63.0" layoutY="140.0" prefHeight="77.0" prefWidth="491.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
                      <children>
-                        <JFXTextField fx:id="tfAuthor" focusColor="WHITE" labelFloat="true" layoutX="-7.0" layoutY="24.0" prefHeight="25.0" prefWidth="450.0" promptText="Author" stylesheets="@../../css/fullpackstyling.css" unFocusColor="WHITE">
+                        <JFXTextField fx:id="tfAuthor" focusColor="WHITE" labelFloat="true" layoutX="20.0" layoutY="24.0" prefHeight="25.0" prefWidth="440.0" promptText="Author" stylesheets="@../../css/fullpackstyling.css" unFocusColor="WHITE">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -46,11 +51,16 @@
                               <Insets left="50.0" />
                            </padding>
                         </JFXTextField>
+                        <ImageView fitHeight="43.0" fitWidth="46.0" layoutX="14.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../image/director.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </Pane>
                   <Pane layoutX="63.0" layoutY="240.0" prefHeight="77.0" prefWidth="491.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;" stylesheets="@../../css/fullpackstyling.css">
                      <children>
-                        <JFXTextField fx:id="tfCategory" focusColor="WHITE" labelFloat="true" layoutX="-7.0" layoutY="24.0" prefHeight="25.0" prefWidth="450.0" promptText="Category" unFocusColor="WHITE">
+                        <JFXTextField fx:id="tfCategory" focusColor="WHITE" labelFloat="true" layoutX="20.0" layoutY="24.0" prefHeight="25.0" prefWidth="440.0" promptText="Category" unFocusColor="WHITE">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -58,11 +68,16 @@
                               <Insets left="50.0" />
                            </padding>
                         </JFXTextField>
+                        <ImageView fitHeight="43.0" fitWidth="46.0" layoutX="14.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../image/category1.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </Pane>
                   <Pane layoutX="63.0" layoutY="340.0" prefHeight="77.0" prefWidth="491.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;" stylesheets="@../../css/fullpackstyling.css">
                      <children>
-                        <JFXTextField fx:id="tfPrice" focusColor="WHITE" labelFloat="true" layoutX="-7.0" layoutY="24.0" prefHeight="25.0" prefWidth="450.0" promptText="Price" unFocusColor="WHITE">
+                        <JFXTextField fx:id="tfPrice" focusColor="WHITE" labelFloat="true" layoutX="20.0" layoutY="24.0" prefHeight="25.0" prefWidth="440.0" promptText="Price" unFocusColor="WHITE">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -70,6 +85,11 @@
                               <Insets left="50.0" />
                            </padding>
                         </JFXTextField>
+                        <ImageView fitHeight="43.0" fitWidth="46.0" layoutX="14.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../image/price.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </Pane>
                </children>
@@ -82,7 +102,7 @@
                <children>
                   <Pane layoutX="41.0" layoutY="40.0" prefHeight="77.0" prefWidth="230.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
                      <children>
-                        <JFXTextField fx:id="tfTime" focusColor="WHITE" labelFloat="true" layoutX="-7.0" layoutY="24.0" prefHeight="25.0" prefWidth="204.0" promptText="Time" stylesheets="@../../css/fullpackstyling.css" unFocusColor="WHITE">
+                        <JFXTextField fx:id="tfTime" focusColor="WHITE" labelFloat="true" layoutX="20.0" layoutY="24.0" prefHeight="25.0" prefWidth="180.0" promptText="Time" stylesheets="@../../css/fullpackstyling.css" unFocusColor="WHITE">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -90,11 +110,16 @@
                               <Insets left="50.0" />
                            </padding>
                         </JFXTextField>
+                        <ImageView fitHeight="43.0" fitWidth="46.0" layoutX="14.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../image/time.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </Pane>
                   <Pane layoutX="41.0" layoutY="240.0" prefHeight="77.0" prefWidth="491.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
                      <children>
-                        <JFXTextField fx:id="tfResolution" focusColor="WHITE" labelFloat="true" layoutX="-7.0" layoutY="24.0" prefHeight="25.0" prefWidth="450.0" promptText="Resolution" stylesheets="@../../css/fullpackstyling.css" unFocusColor="WHITE">
+                        <JFXTextField fx:id="tfResolution" focusColor="WHITE" labelFloat="true" layoutX="20.0" layoutY="24.0" prefHeight="25.0" prefWidth="440.0" promptText="Resolution" stylesheets="@../../css/fullpackstyling.css" unFocusColor="WHITE">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -102,11 +127,21 @@
                               <Insets left="50.0" />
                            </padding>
                         </JFXTextField>
+                        <ImageView fitHeight="43.0" fitWidth="46.0" layoutX="14.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../image/resolution.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </Pane>
                   <Pane layoutX="41.0" layoutY="340.0" prefHeight="77.0" prefWidth="491.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;" stylesheets="@../../css/fullpackstyling.css">
                      <children>
-                        <JFXDatePicker fx:id="pDateEdit" defaultColor="#0866a4" layoutX="40.0" layoutY="25.0" prefHeight="28.0" prefWidth="234.0" promptText="Year of Publication" />
+                        <JFXDatePicker fx:id="pDateEdit" defaultColor="#0866a4" layoutX="68.0" layoutY="24.0" prefHeight="28.0" prefWidth="234.0" promptText="Year of Publication" />
+                        <ImageView fitHeight="43.0" fitWidth="46.0" layoutX="14.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../image/Year.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </Pane>
                   <ButtonBar layoutX="354.0" layoutY="460.0" prefHeight="40.0" prefWidth="200.0">
@@ -116,7 +151,7 @@
                   </ButtonBar>
                   <Pane layoutX="41.0" layoutY="140.0" prefHeight="77.0" prefWidth="491.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
                      <children>
-                        <JFXTextField fx:id="tfCapacity" focusColor="WHITE" labelFloat="true" layoutX="-7.0" layoutY="24.0" prefHeight="25.0" prefWidth="450.0" promptText="Capacity" stylesheets="@../../css/fullpackstyling.css" unFocusColor="WHITE">
+                        <JFXTextField fx:id="tfCapacity" focusColor="WHITE" labelFloat="true" layoutX="20.0" layoutY="24.0" prefHeight="25.0" prefWidth="440.0" promptText="Capacity" stylesheets="@../../css/fullpackstyling.css" unFocusColor="WHITE">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -124,11 +159,16 @@
                               <Insets left="50.0" />
                            </padding>
                         </JFXTextField>
+                        <ImageView fitHeight="43.0" fitWidth="46.0" layoutX="14.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../image/capacity.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </Pane>
                   <Pane layoutX="301.0" layoutY="40.0" prefHeight="77.0" prefWidth="230.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
                      <children>
-                        <JFXTextField fx:id="tfProductCode" focusColor="WHITE" labelFloat="true" layoutX="-7.0" layoutY="24.0" prefHeight="25.0" prefWidth="204.0" promptText="CD's ID" stylesheets="@../../css/fullpackstyling.css" unFocusColor="WHITE">
+                        <JFXTextField fx:id="tfProductCode" focusColor="WHITE" labelFloat="true" layoutX="20.0" layoutY="24.0" prefHeight="25.0" prefWidth="180.0" promptText="CD's ID" stylesheets="@../../css/fullpackstyling.css" unFocusColor="WHITE">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -136,6 +176,11 @@
                               <Insets left="50.0" />
                            </padding>
                         </JFXTextField>
+                        <ImageView fitHeight="43.0" fitWidth="46.0" layoutX="14.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../image/productItem.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </Pane>
                </children>
