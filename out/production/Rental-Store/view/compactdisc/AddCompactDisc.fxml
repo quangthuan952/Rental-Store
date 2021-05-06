@@ -4,7 +4,6 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -144,11 +143,7 @@
                         </ImageView>
                      </children>
                   </Pane>
-                  <ButtonBar fx:id="btnAdd" layoutX="354.0" layoutY="460.0" prefHeight="40.0" prefWidth="200.0">
-                    <buttons>
-                      <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#addCompactDisc" stylesheets="@../../css/fullpackstyling.css" text="Save" />
-                    </buttons>
-                  </ButtonBar>
+                <Button fx:id="btnAdd" layoutX="465.0" layoutY="452.0" mnemonicParsing="false" onAction="#addCompactDisc" prefHeight="29.0" prefWidth="67.0" stylesheets="@../../css/fullpackstyling.css" text="Save" />
                   <Pane layoutX="41.0" layoutY="140.0" prefHeight="77.0" prefWidth="491.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
                      <children>
                         <JFXTextField fx:id="tfCapacity" focusColor="WHITE" labelFloat="true" layoutX="25.0" layoutY="24.0" prefHeight="25.0" prefWidth="440.0" promptText="Capacity" stylesheets="@../../css/fullpackstyling.css" unFocusColor="WHITE">
@@ -183,6 +178,7 @@
                         </ImageView>
                      </children>
                   </Pane>
+                  <Button fx:id="btnCancel" layoutX="369.0" layoutY="451.0" mnemonicParsing="false" onAction="#cancel" prefHeight="29.0" prefWidth="67.0" stylesheets="@../../css/fullpackstyling.css" text="Cancel" />
                </children>
             </Pane>
          </children>

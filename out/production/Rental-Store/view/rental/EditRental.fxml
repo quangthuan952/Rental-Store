@@ -130,6 +130,6 @@
          </children>
       </VBox>
       <Button fx:id="btnAdd" layoutX="982.0" layoutY="459.0" mnemonicParsing="false" onAction="#editRT" prefHeight="29.0" prefWidth="60.0" stylesheets="@../../css/fullpackstyling.css" text="Save" />
-      <Button fx:id="btnCancel" layoutX="891.0" layoutY="459.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="60.0" stylesheets="@../../css/fullpackstyling.css" text="Cancel" />
+      <Button fx:id="btnExit" layoutX="891.0" layoutY="459.0" mnemonicParsing="false" onAction="#handleExit" prefHeight="29.0" prefWidth="60.0" stylesheets="@../../css/fullpackstyling.css" text="Cancel" />
    </children>
 </AnchorPane>

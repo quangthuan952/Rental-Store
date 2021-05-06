@@ -3,8 +3,11 @@ package controller.compactdisc;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.stage.Stage;
 import model.CompactDisc;
 
 import java.net.URL;
@@ -37,10 +40,7 @@ public class AddCDController implements Initializable {
     @FXML
     private JFXTextField tfProductCode;
     @FXML
-    private JFXButton btnCancel;
-
-    @FXML
-    private JFXButton btnSave;
+    private Button btnCancel;
 
     CompactDisc compactDisc = new CompactDisc();
     public void initialize(URL location, ResourceBundle resources) {
@@ -60,5 +60,9 @@ public class AddCDController implements Initializable {
         CompactDisc cd = new CompactDisc(ID, name, author, year, category, price, time, capacity, resolution);
         compactDisc.addProduct(cd);
         check = true;
+    }
+    public void cancel(ActionEvent event) {
+        Stage stage = (Stage) btnCancel.getScene().getWindow();
+        stage.close();
     }
 }

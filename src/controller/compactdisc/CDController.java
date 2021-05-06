@@ -30,9 +30,6 @@ public class CDController implements Initializable {
 
     @FXML
     private Button btnSearch;
-
-    @FXML
-    private Button btnAdd;
     @FXML
     private TableColumn<CompactDisc, String> IDCol;
 

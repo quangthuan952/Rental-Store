@@ -5,8 +5,11 @@ import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.stage.Stage;
 import model.Comic;
 
 import java.net.URL;
@@ -38,6 +41,8 @@ public class EditComicController implements Initializable {
     private JFXTextField tfLanguage;
     @FXML
     private JFXDatePicker pDateEdit;
+    @FXML
+    private Button btnExit;
 
     ObservableList<String> listPaperSize ;
     Comic c = new Comic();
@@ -95,5 +100,10 @@ public class EditComicController implements Initializable {
         //String yearOfPublication, String category, float price, int pageNumber, String paperSize, String
         Comic comic = new Comic(ID, name, author, year, category, price, pageNumber, paperSize, language);
         c.editProduct(comic);
+    }
+    @FXML
+    public void handleExit(ActionEvent event) {
+        Stage stage = (Stage) btnExit.getScene().getWindow();
+        stage.close();
     }
 }

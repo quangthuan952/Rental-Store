@@ -5,7 +5,6 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -155,11 +154,6 @@
                         </ImageView>
                      </children>
                   </Pane>
-                  <ButtonBar layoutX="354.0" layoutY="460.0" prefHeight="40.0" prefWidth="200.0">
-                    <buttons>
-                      <Button mnemonicParsing="false" onAction="#editComic" text="Save" />
-                    </buttons>
-                  </ButtonBar>
                   <Pane layoutX="301.0" layoutY="40.0" prefHeight="77.0" prefWidth="230.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
                      <children>
                         <JFXTextField fx:id="tfProductCode" focusColor="WHITE" labelFloat="true" layoutX="25.0" layoutY="24.0" prefHeight="25.0" prefWidth="180.0" promptText="Comic's ID" stylesheets="@../../css/fullpackstyling.css" unFocusColor="WHITE">
@@ -177,6 +171,8 @@
                         </ImageView>
                      </children>
                   </Pane>
+                <Button fx:id="btnSave" layoutX="470.0" layoutY="454.0" mnemonicParsing="false" onAction="#editComic" prefHeight="25.0" prefWidth="60.0" stylesheets="@../../css/fullpackstyling.css" text="Save" />
+                  <Button fx:id="btnExit" layoutX="377.0" layoutY="454.0" mnemonicParsing="false" onAction="#handleExit" prefHeight="25.0" prefWidth="60.0" stylesheets="@../../css/fullpackstyling.css" text="Cancel" />
                </children>
             </Pane>
          </children>

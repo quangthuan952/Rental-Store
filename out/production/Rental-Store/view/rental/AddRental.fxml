@@ -39,7 +39,7 @@
       <Pane layoutX="10.0" layoutY="86.0" prefHeight="455.0" prefWidth="1167.0">
          <children>
             <Button fx:id="btnAdd" layoutX="1062.0" layoutY="418.0" mnemonicParsing="false" onAction="#add" prefHeight="25.0" prefWidth="66.0" stylesheets="@../../css/fullpackstyling.css" text="Save" />
-            <Button fx:id="btnCancel" layoutX="952.0" layoutY="418.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="66.0" stylesheets="@../../css/fullpackstyling.css" text="Cancel" />
+            <Button fx:id="btnCancel" layoutX="952.0" layoutY="418.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="66.0" stylesheets="@../../css/fullpackstyling.css" text="Cancel" />
          </children>
       </Pane>
       <VBox layoutX="34.0" layoutY="105.0" prefHeight="373.0" prefWidth="600.0">

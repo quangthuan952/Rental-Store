@@ -21,7 +21,7 @@
                      <children>
                         <JFXDatePicker fx:id="pDateTo" defaultColor="#46008f" layoutX="49.0" layoutY="219.0" prefWidth="250.0" promptText="To Date" stylesheets="@../../css/fullpackstyling.css" />
                         <JFXDatePicker fx:id="pDateFrom" defaultColor="#46008f" layoutX="49.0" layoutY="155.0" prefWidth="250.0" promptText="From Date" stylesheets="@../../css/fullpackstyling.css" />
-                        <Button fx:id="btnAdd" layoutX="264.0" layoutY="306.0" mnemonicParsing="false" onAction="#caclulate" stylesheets="@../../css/fullpackstyling.css" text="Calculate" />
+                        <Button fx:id="btnAdd" layoutX="263.0" layoutY="308.0" mnemonicParsing="false" onAction="#caclulate" prefHeight="29.0" prefWidth="72.0" stylesheets="@../../css/fullpackstyling.css" text="Calculate" />
                         <Label layoutX="99.0" layoutY="80.0" text="REVENUE" textFill="WHITE">
                            <font>
                               <Font size="36.0" />
@@ -32,6 +32,7 @@
                               <Image url="@../../image/money.png" />
                            </image>
                         </ImageView>
+                        <Button fx:id="btnExit" layoutX="167.0" layoutY="308.0" mnemonicParsing="false" onAction="#cancel" prefHeight="29.0" prefWidth="72.0" stylesheets="@../../css/fullpackstyling.css" text="Cancel" />
                      </children>
                   </Pane>
                   <ImageView fitHeight="150.0" fitWidth="60.0" layoutX="928.0" layoutY="433.0" pickOnBounds="true" preserveRatio="true">

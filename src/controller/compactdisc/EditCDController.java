@@ -6,8 +6,11 @@ import com.jfoenix.controls.JFXTextField;
 import controller.comic.ComicController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.stage.Stage;
 import model.Comic;
 import model.CompactDisc;
 
@@ -37,6 +40,8 @@ public class EditCDController implements Initializable {
 
     @FXML
     private JFXDatePicker pDateEdit;
+    @FXML
+    private Button btnExit;
 
     @FXML
     private JFXTextField tfCapacity;
@@ -80,5 +85,10 @@ public class EditCDController implements Initializable {
             year = pDateEdit.getValue().toString();
         CompactDisc cp = new CompactDisc(ID, name, author, year, category, price, time, capacity, resolution);
         compactDisc.editProduct(cp);
+    }
+    @FXML
+    public void handleExit(ActionEvent event) {
+        Stage stage = (Stage) btnExit.getScene().getWindow();
+        stage.close();
     }
 }
