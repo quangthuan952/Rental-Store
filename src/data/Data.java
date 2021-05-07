@@ -167,7 +167,7 @@ public class Data {
         ObservableList<Bill> bills = FXCollections.observableArrayList();
         String dir = System.getProperty("user.dir");
         try {
-            FileReader fd = new FileReader(dir +"\\src\\data\\BillData.txt");
+            FileReader fd = new FileReader(dir +"\\src\\data\\ReturnData.txt");
             BufferedReader bd = new BufferedReader(fd);
             String line ="";
             while(true) {
