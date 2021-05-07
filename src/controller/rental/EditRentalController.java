@@ -46,10 +46,10 @@ public class EditRentalController implements Initializable {
     @FXML
     private JFXRadioButton rdCD;
     Bill bill = new Bill();
+    RentalController rentalController = new RentalController();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        RentalController rentalController = new RentalController();
         tfCodeOrder.setText(rentalController.codeOrder);
         tfCodeOrder.setEditable(false);
         tfNameCustomer.setText(rentalController.nameCustomer);
@@ -58,10 +58,9 @@ public class EditRentalController implements Initializable {
         tfItemID.setText(rentalController.itemID);
         tfDeposit.setText(String.valueOf(rentalController.deposit));
         pRentDateEdit.setPromptText(rentalController.rentDate);
-        if(rentalController.loai.equals("Comic")) {
+        if (rentalController.loai.equals("Comic")) {
             rdComic.setSelected(true);
-        }
-        else
+        } else
             rdCD.setSelected(true);
     }
 
@@ -73,6 +72,8 @@ public class EditRentalController implements Initializable {
         String itemID;
         String rentDate;
         String kindOfProduct;
+        String name = rentalController.nameCustomer;
+        String phone = rentalController.phoneCustomer;
         float deposit;
         codeOrder = tfCodeOrder.getText();
         nameCustomer = tfNameCustomer.getText();
@@ -80,28 +81,27 @@ public class EditRentalController implements Initializable {
         item = tfItem.getText();
         itemID = tfItemID.getText();
         deposit = Float.parseFloat(tfDeposit.getText());
-        if(pRentDateEdit.getValue() == null)
+        if (pRentDateEdit.getValue() == null)
             rentDate = pRentDateEdit.getPromptText();
         else
             rentDate = pRentDateEdit.getValue().toString();
-        if(rdComic.isSelected()) {
+        if (rdComic.isSelected()) {
             kindOfProduct = rdComic.getText();
-        }
-        else {
+        } else {
             kindOfProduct = rdCD.getText();
         }
         Customer customer = new Customer(nameCustomer, phoneCustomer);
         Bill b;
-        if(rdComic.isSelected()) {
+        if (rdComic.isSelected()) {
             Product product = new Comic(item, itemID);
-             b = new Bill(codeOrder, kindOfProduct,product, rentDate, deposit, customer);
-        }
-        else {
+            b = new Bill(codeOrder, kindOfProduct, product, rentDate, deposit, customer);
+        } else {
             Product product = new CompactDisc(item, itemID);
-            b = new Bill(codeOrder, kindOfProduct,product, rentDate, deposit, customer);
+            b = new Bill(codeOrder, kindOfProduct, product, rentDate, deposit, customer);
         }
-        bill.editRental(b);
+        bill.editRental(b, name, phone);
     }
+
     @FXML
     public void handleExit(ActionEvent event) {
         Stage stage = (Stage) btnExit.getScene().getWindow();

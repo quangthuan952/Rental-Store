@@ -75,7 +75,7 @@
                                     <Font size="18.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="lbRenvenueComic" layoutX="213.0" layoutY="75.0" text="Label" textFill="#ff9900">
+                              <Label fx:id="lbRenvenueComic" layoutX="189.0" layoutY="75.0" text="Label" textFill="#ff9900">
                                  <font>
                                     <Font name="Monospaced Bold" size="24.0" />
                                  </font>
@@ -99,7 +99,7 @@
                <children>
                   <Pane layoutX="-5.0" layoutY="-70.0" prefHeight="172.0" prefWidth="283.0" style="-fx-background-color: linear-gradient(to bottom left, #A868A0, #2D75E8); -fx-background-radius: 35;">
                      <children>
-                        <Label layoutX="116.0" layoutY="110.0" text="Reventue" textFill="WHITE">
+                        <Label layoutX="116.0" layoutY="110.0" text="Revenue" textFill="WHITE">
                            <font>
                               <Font name="Monospaced Bold" size="25.0" />
                            </font>

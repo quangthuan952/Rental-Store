@@ -83,4 +83,16 @@ public class HomeController implements Initializable {
             e.printStackTrace();
         }
     }
+    public void CustomerM(ActionEvent actionEvent) {
+        try {
+            Stage primaryStage = new Stage();
+            Parent root;
+            root = FXMLLoader.load(getClass().getResource("/view/customer/test.fxml"));
+            Scene scene = new Scene(root);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

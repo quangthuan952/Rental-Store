@@ -102,6 +102,7 @@ public class CDController implements Initializable {
             root = FXMLLoader.load(getClass().getResource("/view/compactdisc/DetailCD.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
+            primaryStage.setResizable(false);
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
@@ -128,6 +129,7 @@ public class CDController implements Initializable {
             root = FXMLLoader.load(getClass().getResource("/view/compactdisc/AddCompactDisc.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
+            primaryStage.setResizable(false);
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();

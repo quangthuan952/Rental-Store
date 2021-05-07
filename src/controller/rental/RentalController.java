@@ -91,6 +91,7 @@ public class RentalController implements Initializable {
             root = FXMLLoader.load(getClass().getResource("/view/rental/AddRental.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
+            primaryStage.setResizable(false);
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
@@ -124,6 +125,7 @@ public class RentalController implements Initializable {
             Parent root;
             root = FXMLLoader.load(getClass().getResource("/view/rental/DetailRental.fxml"));
             Scene scene = new Scene(root);
+            primaryStage.setResizable(false);
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (Exception e) {
@@ -152,6 +154,7 @@ public class RentalController implements Initializable {
             root = FXMLLoader.load(getClass().getResource("/view/rental/EditRental.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
+            primaryStage.setResizable(false);
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();

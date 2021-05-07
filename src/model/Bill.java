@@ -141,12 +141,24 @@ public class Bill {
     }
 
     public void addBill(Bill bill) {
+        Data data = new Data();
         String dir = System.getProperty("user.dir");
+        String nameCustomer = bill.getCustomer().getName();
+        String phoneCusomer = bill.getCustomer().getPhone();
+        Customer customer = new Customer(nameCustomer, phoneCusomer);
         try {
             FileWriter fw = new FileWriter(dir + "\\src\\data\\BillData.txt", true);
             BufferedWriter bw = new BufferedWriter(fw);
+            FileWriter fw1 = new FileWriter(dir + "\\src\\data\\CustomerData.txt", true);
+            if(data.checkCustomer(nameCustomer, phoneCusomer)) {
+                BufferedWriter bw2 = new BufferedWriter(fw1);
+                bw2.write(customer.toString());
+                bw2.newLine();
+                bw2.close();
+            }
             bw.write(bill.toStringRental());
             bw.newLine();
+            fw1.close();
             bw.close();
             fw.close();
         } catch (Exception e) {
@@ -154,23 +166,43 @@ public class Bill {
         }
     }
 
-    public void editRental(Bill bill) {
+
+    public void editRental(Bill bill, String name, String phone) {
         String dir = System.getProperty("user.dir");
-        List<Bill> l = (new Data().getDataBill());
+        Data data = new Data();
+        List<Bill> l = data.getDataBill();
+        List<Customer> customerList = data.getDataCustomer();
+        Customer customer = null;
         try {
             FileWriter fw = new FileWriter(dir + "\\src\\data\\BillData.txt");
             BufferedWriter bw = new BufferedWriter(fw);
+            FileWriter fw1 = new FileWriter(dir + "\\src\\data\\CustomerData.txt");
+            BufferedWriter bw1 = new BufferedWriter(fw1);
             for (Bill o : l) {
                 if (o.getCodeOrder().equalsIgnoreCase(bill.getCodeOrder())) {
-                    bw.write(String.valueOf((bill)));
+                    String nameCustomer = bill.getCustomer().getName();
+                    String phoneCustomer = bill.getCustomer().getPhone();
+                    customer = new Customer(nameCustomer, phoneCustomer);
+                    bw.write(bill.toStringRental());
                     bw.newLine();
                 } else {
-                    bw.write(String.valueOf((Bill) o));
+                    bw.write(o.toStringRental());
                     bw.newLine();
+                }
+            }
+            for (Customer o : customerList) {
+                if (o.getName().equalsIgnoreCase(name) && o.getPhone().equalsIgnoreCase(phone)) {
+                    bw1.write(customer.toString());
+                    bw1.newLine();
+                } else {
+                    bw1.write(o.toString());
+                    bw1.newLine();
                 }
             }
             bw.close();
             fw.close();
+            bw1.close();
+            fw1.close();
         } catch (Exception e) {
             e.printStackTrace();
         }

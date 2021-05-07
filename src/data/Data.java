@@ -167,7 +167,7 @@ public class Data {
         ObservableList<Bill> bills = FXCollections.observableArrayList();
         String dir = System.getProperty("user.dir");
         try {
-            FileReader fd = new FileReader(dir +"\\src\\data\\ReturnData.txt");
+            FileReader fd = new FileReader(dir +"\\src\\data\\BillData.txt");
             BufferedReader bd = new BufferedReader(fd);
             String line ="";
             while(true) {
@@ -212,4 +212,56 @@ public class Data {
         }
         return bills;
     }
+    public ObservableList<Customer> getDataCustomer() {
+        ObservableList<Customer> customerList = FXCollections.observableArrayList();
+        String dir = System.getProperty("user.dir");
+        try {
+            FileReader fd = new FileReader(dir +"\\src\\data\\CustomerData.txt");
+            BufferedReader bd = new BufferedReader(fd);
+            String line ="";
+            while(true) {
+                line = bd.readLine();
+                if(line == null) {
+                    break;
+                }
+                String txt [] = line.split(";");
+                String name = txt[0];
+                String phone = txt[1];
+                Customer customer = new Customer(name, phone);
+                customerList.add(customer);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return customerList;
+    }
+    public boolean checkCustomer(String name, String phone) {
+        boolean check = false;
+        String dir = System.getProperty("user.dir");
+        try {
+            FileReader fd = new FileReader(dir +"\\src\\data\\CustomerData.txt");
+            BufferedReader bd = new BufferedReader(fd);
+            String line ="";
+            while(true) {
+                line = bd.readLine();
+                if(line == null) {
+                    break;
+                }
+                String txt [] = line.split(";");
+                String nameCustomer = txt[0];
+                String phoneCustomer = txt[1];
+                if(nameCustomer.equalsIgnoreCase(name) && phone.equalsIgnoreCase(phone)) {
+                    check = true;
+                    break;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if(check)
+            return false;
+        return true;
+    }
+
+
 }
