@@ -123,6 +123,7 @@ public class ComicController implements Initializable {
             root = FXMLLoader.load(getClass().getResource("/view/comic/AddComic.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
+            primaryStage.setResizable(false);
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
@@ -136,6 +137,7 @@ public class ComicController implements Initializable {
             root = FXMLLoader.load(getClass().getResource("/view/comic/DetailComic.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
+            primaryStage.setResizable(false);
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
@@ -157,6 +159,7 @@ public class ComicController implements Initializable {
             Parent root;
             root = FXMLLoader.load(getClass().getResource("/view/comic/EditComic.fxml"));
             Scene scene = new Scene(root);
+            primaryStage.setResizable(false);
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (Exception e) {

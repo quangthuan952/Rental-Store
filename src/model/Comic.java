@@ -48,7 +48,6 @@ public class Comic extends Product {
         this.language = language;
     }
 
-    // Constructor
 
     public Comic(String id, String name, String author, String yearOfPublication, String category, float price, int pageNumber, String paperSize, String language) {
         super(id, name, author, yearOfPublication, category, price);

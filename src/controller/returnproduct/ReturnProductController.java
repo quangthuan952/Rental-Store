@@ -114,6 +114,7 @@ public class ReturnProductController implements Initializable {
             Parent root;
             root = FXMLLoader.load(getClass().getResource("/view/return/DetailReturn.fxml"));
             Scene scene = new Scene(root);
+            primaryStage.setResizable(false);
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (Exception e) {

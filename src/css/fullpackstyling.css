@@ -504,25 +504,25 @@
 }
 #btnAdd :pressed {
      -fx-background-color : #2F2B43 ;
- }
- #btnCancel {
+}
+#btnCancel {
       -fx-background-color : #000033;
        -fx-border-width: 2;
        -fx-background-radius: 30;
        -fx-border-radius: 30;
        -fx-text-fill: #ffffff;
        -fx-border-color:#ffffff;
-  }
- #btnCancel:hover {
+}
+#btnCancel:hover {
      -fx-background-color:#393351;
      -fx-background-radius:30;
      -fx-border-width: 2;
      -fx-text-fill: grey;
      -fx-border-color:#ffffff;
- }
- #btnCancel :pressed {
+}
+#btnCancel :pressed {
       -fx-background-color : #2F2B43 ;
- }
+}
 
 #depositCol {
  -fx-alignment: CENTER;
@@ -593,4 +593,11 @@
 }
 #btnSave:pressed {
      -fx-background-color : #2F2B43 ;
- }
+}
+
+#customerNameCol {
+ -fx-alignment: CENTER;
+}
+#customerPhoneCol {
+  -fx-alignment: CENTER;
+}
