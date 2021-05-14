@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="452.0" prefWidth="1103.0" style="-fx-background-color: #393351;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.rental.DetailRentalController">
+<AnchorPane prefHeight="452.0" prefWidth="1103.0" style="-fx-background-color: #393351;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.rental.DetailRentalController">
    <children>
       <VBox prefHeight="76.0" prefWidth="1103.0">
          <children>
@@ -21,7 +21,7 @@
          <children>
             <Pane prefHeight="379.0" prefWidth="1088.0" style="-fx-background-color: #131022; -fx-background-radius: 20;">
                <children>
-                  <Pane layoutX="40.0" layoutY="28.0" prefHeight="62.0" prefWidth="482.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
+                  <Pane layoutX="33.0" layoutY="28.0" prefHeight="62.0" prefWidth="482.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
                      <children>
                         <Label layoutX="70.0" layoutY="21.0" text="Code Order: " textFill="WHITE">
                            <font>
@@ -43,7 +43,7 @@
                         </ImageView>
                      </children>
                   </Pane>
-                  <Pane layoutX="40.0" layoutY="108.0" prefHeight="62.0" prefWidth="482.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
+                  <Pane layoutX="33.0" layoutY="108.0" prefHeight="62.0" prefWidth="482.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
                      <children>
                         <Label layoutX="68.0" layoutY="22.0" text="Customer's Name:" textFill="WHITE">
                            <font>
@@ -65,7 +65,7 @@
                         </ImageView>
                      </children>
                   </Pane>
-                  <Pane layoutX="40.0" layoutY="188.0" prefHeight="62.0" prefWidth="482.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
+                  <Pane layoutX="33.0" layoutY="188.0" prefHeight="62.0" prefWidth="482.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
                      <children>
                         <Label layoutX="68.0" layoutY="22.0" text="Customer's Phone:" textFill="WHITE">
                            <font>

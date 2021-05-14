@@ -140,7 +140,7 @@ public class CDController implements Initializable {
         int crition = -1;
         String output = cbSearchBy.getSelectionModel().getSelectedItem();
         ObservableList<CompactDisc> compactDiscObservableList = FXCollections.observableArrayList();
-        if(output == null && key.isEmpty()) {
+        if(output == null || key.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("Please check again!");

@@ -428,6 +428,10 @@
 
 }
 #cbPaperSize {
+    -fx-prompt-text-fill: white;
+    -fx-font-size:14;
+ }
+#cbPaperSizeEdit {
     -fx-prompt-text-fill: #FF9900;
     -fx-font-size:14;
  }
