@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="640.0" prefWidth="1016.0" style="-fx-background-color: #2f234b;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.comic.HomeController">
+<AnchorPane prefHeight="640.0" prefWidth="1016.0" style="-fx-background-color: #2f234b;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.comic.HomeController">
    <children>
       <AnchorPane prefHeight="750.0" prefWidth="292.0" style="-fx-background-color: #393351;">
          <children>
@@ -39,7 +39,7 @@
             </ImageView>
             <Label layoutX="28.0" layoutY="389.0" text="Rental Store" textFill="#e1e1e1">
                <font>
-                  <Font name="System Bold" size="41.0" />
+                  <Font name="Monospaced Bold" size="36.0" />
                </font>
             </Label>
          </children>
@@ -47,7 +47,7 @@
       <Pane layoutX="272.0" layoutY="-1.0" prefHeight="753.0" prefWidth="1018.0">
          <children>
             <Pane layoutX="-82.0" layoutY="-192.0" prefHeight="302.0" prefWidth="587.0" rotate="-147.5" style="-fx-background-color: #fa2c56; -fx-background-radius: 70;" />
-            <Button fx:id="btnComic" layoutX="88.0" layoutY="96.0" mnemonicParsing="false" onAction="#ComicM" prefHeight="255.0" prefWidth="264.0" stylesheets="@../css/fullpackstyling.css">
+            <Button fx:id="btnComic" layoutX="88.0" layoutY="96.0" mnemonicParsing="false" onAction="#ComicM" prefHeight="255.0" prefWidth="264.0" stylesheets="@../css/FullCSS.css">
                <graphic>
                   <Circle radius="84.0" stroke="#4d4d4d" strokeType="INSIDE">
                      <fill>
@@ -55,12 +55,12 @@
                            <stops>
                               <Stop>
                                  <color>
-                                    <Color red="0.11999999731779099" green="0.5086825489997864" blue="1.0" />
+                                    <Color red="0.1764705926179886" green="0.4588235318660736" blue="0.9098039269447327" />
                                  </color>
                               </Stop>
                               <Stop offset="1.0">
                                  <color>
-                                    <Color red="0.44426169991493225" green="0.8947368264198303" blue="0.29410332441329956" />
+                                    <Color red="0.658823549747467" green="0.40784314274787903" blue="0.6274510025978088" />
                                  </color>
                               </Stop>
                            </stops>
@@ -69,7 +69,7 @@
                   </Circle>
                </graphic>
             </Button>
-            <Button fx:id="btnCD" layoutX="415.0" layoutY="96.0" mnemonicParsing="false" onAction="#CompactDiscM" prefHeight="255.0" prefWidth="264.0" stylesheets="@../css/fullpackstyling.css">
+            <Button fx:id="btnCD" layoutX="415.0" layoutY="96.0" mnemonicParsing="false" onAction="#CompactDiscM" prefHeight="255.0" prefWidth="264.0" stylesheets="@../css/FullCSS.css">
                <graphic>
                   <Circle fx:id="btnCD" radius="84.0" stroke="#4d4d4d" strokeType="INSIDE">
                      <fill>
@@ -82,7 +82,7 @@
                               </Stop>
                               <Stop offset="1.0">
                                  <color>
-                                    <Color red="1.0" />
+                                    <Color red="0.658823549747467" green="0.40784314274787903" blue="0.6274510025978088" />
                                  </color>
                               </Stop>
                            </stops>
@@ -91,7 +91,7 @@
                   </Circle>
                </graphic>
             </Button>
-            <Button fx:id="btnSearch" layoutX="88.0" layoutY="415.0" mnemonicParsing="false" onAction="#RetalM" prefHeight="255.0" prefWidth="264.0" stylesheets="@../css/fullpackstyling.css">
+            <Button fx:id="btnSearch" layoutX="88.0" layoutY="415.0" mnemonicParsing="false" onAction="#RetalM" prefHeight="255.0" prefWidth="264.0" stylesheets="@../css/FullCSS.css">
                <graphic>
                   <Circle fx:id="btnRental" radius="84.0" stroke="#4d4d4d" strokeType="INSIDE">
                      <fill>
@@ -99,22 +99,12 @@
                            <stops>
                               <Stop>
                                  <color>
-                                    <Color red="0.11999999731779099" green="0.5086825489997864" blue="1.0" />
-                                 </color>
-                              </Stop>
-                              <Stop offset="0.007662835249042145">
-                                 <color>
-                                    <Color red="1.0" green="0.20149795711040497" blue="0.11999999731779099" />
-                                 </color>
-                              </Stop>
-                              <Stop offset="0.9070979973930555">
-                                 <color>
-                                    <Color red="1.0" green="0.7018808126449585" blue="0.5799999833106995" />
+                                    <Color red="0.1764705926179886" green="0.4588235318660736" blue="0.9098039269447327" />
                                  </color>
                               </Stop>
                               <Stop offset="1.0">
                                  <color>
-                                    <Color red="1.0" green="0.6836858987808228" blue="0.5799999833106995" />
+                                    <Color red="0.658823549747467" green="0.40784314274787903" blue="0.6274510025978088" />
                                  </color>
                               </Stop>
                            </stops>
@@ -123,7 +113,7 @@
                   </Circle>
                </graphic>
             </Button>
-            <Button fx:id="btnReturn" layoutX="415.0" layoutY="415.0" mnemonicParsing="false" onAction="#ReturnM" prefHeight="255.0" prefWidth="264.0" stylesheets="@../css/fullpackstyling.css">
+            <Button fx:id="btnReturn" layoutX="415.0" layoutY="415.0" mnemonicParsing="false" onAction="#ReturnM" prefHeight="255.0" prefWidth="264.0" stylesheets="@../css/FullCSS.css">
                <graphic>
                   <Circle fx:id="btnSearch11" radius="84.0" stroke="#4d4d4d" strokeType="INSIDE">
                      <fill>
@@ -139,19 +129,14 @@
                                     <Color red="0.11999999731779099" green="1.0" blue="0.2142055481672287" />
                                  </color>
                               </Stop>
-                              <Stop offset="0.04123711340206179">
+                              <Stop offset="0.04123711340206178">
                                  <color>
-                                    <Color red="0.9765343070030212" green="1.0" blue="0.8999999761581421" />
-                                 </color>
-                              </Stop>
-                              <Stop offset="0.9070979973930552">
-                                 <color>
-                                    <Color red="0.13390317559242249" green="0.11959999799728394" blue="0.9200000166893005" opacity="0.9700000286102295" />
+                                    <Color red="0.1764705926179886" green="0.4588235318660736" blue="0.9098039269447327" />
                                  </color>
                               </Stop>
                               <Stop offset="1.0">
                                  <color>
-                                    <Color red="1.0" green="1.0" blue="1.0" />
+                                    <Color red="0.658823549747467" green="0.40784314274787903" blue="0.6274510025978088" />
                                  </color>
                               </Stop>
                            </stops>
@@ -160,7 +145,7 @@
                   </Circle>
                </graphic>
             </Button>
-            <Button fx:id="btnDetail" layoutX="746.0" layoutY="415.0" mnemonicParsing="false" onAction="#RevenueM" prefHeight="255.0" prefWidth="264.0" stylesheets="@../css/fullpackstyling.css">
+            <Button fx:id="btnDetail" layoutX="746.0" layoutY="415.0" mnemonicParsing="false" onAction="#RevenueM" prefHeight="255.0" prefWidth="264.0" stylesheets="@../css/FullCSS.css">
                <graphic>
                   <Circle fx:id="btnDetail" radius="84.0" stroke="#4d4d4d" strokeType="INSIDE">
                      <fill>
@@ -178,7 +163,7 @@
                               </Stop>
                               <Stop offset="1.0">
                                  <color>
-                                    <Color red="0.9868420958518982" green="0.9384137392044067" blue="0.018274853006005287" />
+                                    <Color red="0.658823549747467" green="0.40784314274787903" blue="0.6274510025978088" opacity="0.9700000286102295" />
                                  </color>
                               </Stop>
                            </stops>
@@ -189,27 +174,27 @@
             </Button>
             <Label layoutX="194.0" layoutY="312.0" text="Comic" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font name="Monospaced Bold" size="18.0" />
                </font>
             </Label>
             <Label layoutX="193.0" layoutY="632.0" text="Rental" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font name="Monospaced Bold" size="18.0" />
                </font>
             </Label>
             <Label layoutX="535.0" layoutY="312.0" text="CD" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font name="Monospaced Bold" size="18.0" />
                </font>
             </Label>
             <Label layoutX="518.0" layoutY="632.0" text="Return" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font name="Monospaced Bold" size="18.0" />
                </font>
             </Label>
             <Label layoutX="842.0" layoutY="632.0" text="Revenue" textFill="#f8f8f8">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font name="Monospaced Bold" size="18.0" />
                </font>
             </Label>
             <ImageView fitHeight="99.0" fitWidth="88.0" layoutX="177.0" layoutY="497.0" pickOnBounds="true" preserveRatio="true">
@@ -237,7 +222,7 @@
                   <Image url="@../image/money.png" />
                </image>
             </ImageView>
-            <Button fx:id="btnCD" layoutX="743.0" layoutY="96.0" mnemonicParsing="false" onAction="#CustomerM" prefHeight="255.0" prefWidth="264.0" stylesheets="@../css/fullpackstyling.css">
+            <Button fx:id="btnCD" layoutX="743.0" layoutY="96.0" mnemonicParsing="false" onAction="#CustomerM" prefHeight="255.0" prefWidth="264.0" stylesheets="@../css/FullCSS.css">
                <graphic>
                   <Circle fx:id="btnCD1" radius="84.0" stroke="#4d4d4d" strokeType="INSIDE">
                      <fill>
@@ -245,12 +230,12 @@
                            <stops>
                               <Stop>
                                  <color>
-                                    <Color red="0.7882493138313293" green="1.0" blue="0.11999999731779099" />
+                                    <Color red="0.1764705926179886" green="0.4588235318660736" blue="0.9098039269447327" />
                                  </color>
                               </Stop>
                               <Stop offset="1.0">
                                  <color>
-                                    <Color red="1.0" green="0.2166064977645874" />
+                                    <Color red="0.658823549747467" green="0.40784314274787903" blue="0.6274510025978088" />
                                  </color>
                               </Stop>
                            </stops>
@@ -266,7 +251,7 @@
             </ImageView>
             <Label layoutX="837.0" layoutY="312.0" text="Customer" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font name="Monospaced Bold" size="18.0" />
                </font>
             </Label>
          </children>

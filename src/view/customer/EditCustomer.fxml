@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="403.0" prefWidth="586.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.customer.EditCustomer">
+<AnchorPane prefHeight="403.0" prefWidth="586.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.customer.EditCustomer">
    <children>
       <VBox layoutY="71.0" prefHeight="332.0" prefWidth="587.0">
          <children>
@@ -19,7 +19,7 @@
                <children>
                   <Pane layoutX="70.0" layoutY="50.0" prefHeight="70.0" prefWidth="450.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
                      <children>
-                        <JFXTextField fx:id="tfNameCustomer" focusColor="WHITE" layoutX="104.0" layoutY="23.0" prefWidth="300.0" promptText="Customer's Name" stylesheets="@../../css/fullpackstyling.css" unFocusColor="WHITE" />
+                        <JFXTextField fx:id="tfNameCustomer" focusColor="WHITE" layoutX="104.0" layoutY="23.0" prefWidth="300.0" promptText="Customer's Name" stylesheets="@../../css/FullCSS.css" unFocusColor="WHITE" />
                         <ImageView fitHeight="43.0" fitWidth="46.0" layoutX="14.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../image/director.png" />
@@ -29,7 +29,7 @@
                   </Pane>
                   <Pane layoutX="70.0" layoutY="150.0" prefHeight="70.0" prefWidth="450.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
                      <children>
-                        <JFXTextField fx:id="tfPhoneCustomer" focusColor="WHITE" layoutX="102.0" layoutY="23.0" prefWidth="300.0" promptText="Customer's Phone" stylesheets="@../../css/fullpackstyling.css" unFocusColor="WHITE" />
+                        <JFXTextField fx:id="tfPhoneCustomer" focusColor="WHITE" layoutX="102.0" layoutY="23.0" prefWidth="300.0" promptText="Customer's Phone" stylesheets="@../../css/FullCSS.css" unFocusColor="WHITE" />
                         <ImageView fitHeight="43.0" fitWidth="46.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../image/phone.png" />
@@ -37,8 +37,8 @@
                         </ImageView>
                      </children>
                   </Pane>
-                  <Button fx:id="btnAdd" layoutX="458.0" layoutY="268.0" mnemonicParsing="false" onAction="#customerModified" prefHeight="25.0" prefWidth="60.0" stylesheets="@../../css/fullpackstyling.css" text="Save" />
-                  <Button fx:id="btnCancel" layoutX="361.0" layoutY="268.0" mnemonicParsing="false" onAction="#handleExit" prefHeight="25.0" prefWidth="60.0" stylesheets="@../../css/fullpackstyling.css" text="Cancel" />
+                  <Button fx:id="btnAdd" layoutX="458.0" layoutY="268.0" mnemonicParsing="false" onAction="#customerModified" prefHeight="25.0" prefWidth="60.0" stylesheets="@../../css/FullCSS.css" text="Save" />
+                  <Button fx:id="btnCancel" layoutX="361.0" layoutY="268.0" mnemonicParsing="false" onAction="#handleExit" prefHeight="25.0" prefWidth="60.0" stylesheets="@../../css/FullCSS.css" text="Cancel" />
                </children>
             </Pane>
          </children>

@@ -1,20 +1,18 @@
 package controller.compactdisc;
 
-import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
-import controller.comic.ComicController;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
-import model.Comic;
 import model.CompactDisc;
 
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class EditCDController implements Initializable {
@@ -47,6 +45,7 @@ public class EditCDController implements Initializable {
     private JFXTextField tfCapacity;
     CompactDisc compactDisc = new CompactDisc();
     CDController cdController = new CDController();
+    Alert alert;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         tfProductCode.setText(cdController.ID);
@@ -75,19 +74,39 @@ public class EditCDController implements Initializable {
         name = tfName.getText();
         author = tfAuthor.getText();
         category = tfCategory.getText();
-        price = Float.parseFloat(tfPrice.getText());
         time = tfTime.getText();
-        capacity = Double.parseDouble(tfCapacity.getText());
         resolution = tfResolution.getText();
         if(pDateEdit.getValue() == null)
             year = pDateEdit.getPromptText();
         else
             year = pDateEdit.getValue().toString();
-        CompactDisc cp = new CompactDisc(ID, name, author, year, category, price, time, capacity, resolution);
-        compactDisc.editProduct(cp);
+        if(ID.isEmpty() || name.isEmpty() || author.isEmpty() || category.isEmpty() || tfPrice.getText().trim().isEmpty()
+                || tfCapacity.getText().trim().isEmpty() || resolution.isEmpty() || time.isEmpty()) {
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Please check again!");
+            alert.setContentText("Please fill in all the required fields.");
+            //alert.setContentText("We override the style classes of the dialog");
+            alert.show();
+        }
+        else {
+            System.out.println("OK");
+            price = Float.parseFloat(tfPrice.getText());
+            capacity = Double.parseDouble(tfCapacity.getText());
+            CompactDisc cp = new CompactDisc(ID, name, author, year, category, price, time, capacity, resolution);
+            compactDisc.editProduct(cp);
+            alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Success");
+            alert.setHeaderText("Compact Disc edited successfully!");
+            Optional<ButtonType> result = alert.showAndWait();
+            if(result.get() == ButtonType.OK) {
+                handleExit();
+            }
+        }
     }
+
     @FXML
-    public void handleExit(ActionEvent event) {
+    public void handleExit() {
         Stage stage = (Stage) btnExit.getScene().getWindow();
         stage.close();
     }

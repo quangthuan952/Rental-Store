@@ -150,7 +150,7 @@ public class Bill {
             FileWriter fw = new FileWriter(dir + "\\src\\data\\BillData.txt", true);
             BufferedWriter bw = new BufferedWriter(fw);
             FileWriter fw1 = new FileWriter(dir + "\\src\\data\\CustomerData.txt", true);
-            if(data.checkCustomer(nameCustomer, phoneCusomer)) {
+            if (data.checkCustomer(nameCustomer, phoneCusomer)) {
                 BufferedWriter bw2 = new BufferedWriter(fw1);
                 bw2.write(customer.toString());
                 bw2.newLine();
@@ -285,18 +285,30 @@ public class Bill {
 
     public void returnProduct(Bill bill) {
         String dir = System.getProperty("user.dir");
+        Data data = new Data();
+        List<Bill> billList = data.getDataBill();
         try {
             FileWriter fw = new FileWriter(dir + "\\src\\data\\ReturnData.txt", true);
             BufferedWriter bw = new BufferedWriter(fw);
+            FileWriter fw1 = new FileWriter(dir + "\\src\\data\\BillData.txt");
+            BufferedWriter bw1 = new BufferedWriter(fw1);
             bw.write(bill.toStringReturn());
             bw.newLine();
             bw.close();
             fw.close();
+            for (Bill o : billList) {
+                if (o.getCodeOrder().equalsIgnoreCase(bill.getCodeOrder())) {
+                    continue;
+                }
+                bw1.write(o.toStringRental());
+                bw1.newLine();
+            }
+            bw1.close();
+            fw1.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
     public float calculateRevenue(String from, String to) {
         float revenue = 0;
         LocalDate dateFrom = LocalDate.parse(from);
@@ -350,10 +362,9 @@ public class Bill {
                 String item = txt[1];
                 float rentalFee = Float.parseFloat(txt[7]);
                 totalRevenue += rentalFee;
-                if(item.indexOf("D") == 1) {
+                if (item.indexOf("D") == 1) {
                     revenueCD += rentalFee;
-                }
-                else {
+                } else {
                     revenueComic += rentalFee;
                 }
             }

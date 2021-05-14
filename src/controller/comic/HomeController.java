@@ -15,6 +15,7 @@ public class HomeController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
     }
+
     public void ComicM(ActionEvent actionEvent) {
         try {
             Stage primaryStage = new Stage();
@@ -23,11 +24,14 @@ public class HomeController implements Initializable {
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.setMaximized(true);
+            primaryStage.setTitle("Comic");
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+
 
     public void CompactDiscM(ActionEvent actionEvent) {
         try {
@@ -37,13 +41,13 @@ public class HomeController implements Initializable {
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.setMaximized(true);
-            // primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/image/icon.png")));
-            // primaryStage.setTitle("Bach Khoa Rental Store");
+            primaryStage.setTitle("Compact Disc");
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     public void RetalM(ActionEvent actionEvent) {
         try {
             Stage primaryStage = new Stage();
@@ -52,11 +56,13 @@ public class HomeController implements Initializable {
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.setMaximized(true);
+            primaryStage.setTitle("Rental");
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     public void ReturnM(ActionEvent actionEvent) {
         try {
             Stage primaryStage = new Stage();
@@ -65,11 +71,13 @@ public class HomeController implements Initializable {
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.setMaximized(true);
+            primaryStage.setTitle("Return Product");
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     public void RevenueM(ActionEvent actionEvent) {
         try {
             Stage primaryStage = new Stage();
@@ -78,18 +86,21 @@ public class HomeController implements Initializable {
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.setMaximized(true);
+            primaryStage.setTitle("Revenue");
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     public void CustomerM(ActionEvent actionEvent) {
         try {
             Stage primaryStage = new Stage();
             Parent root;
-            root = FXMLLoader.load(getClass().getResource("/view/customer/test.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/view/customer/Customer.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
+            primaryStage.setTitle("Customer");
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();

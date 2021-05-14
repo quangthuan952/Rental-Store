@@ -10,14 +10,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.Bill;
 
 import java.net.URL;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class ReturnProductController implements Initializable {
@@ -41,6 +41,8 @@ public class ReturnProductController implements Initializable {
 
     @FXML
     private TableColumn<Bill, Float> depositCol;
+    @FXML
+    private Button btnAdd;
 
     @FXML
     private TableColumn<Bill, Float> rentalFreeCol;
@@ -59,6 +61,7 @@ public class ReturnProductController implements Initializable {
     public static String returnDate;
     public static float rentalFee;
     public static float payment;
+    Alert alert;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         billList = data.getDataReturn();
@@ -76,16 +79,54 @@ public class ReturnProductController implements Initializable {
         ReturnTable.setItems(billList);
         handle();
     }
-
     public void addReturn() {
         String orderID = tfCodeOrder.getText();
         List<Bill> list = b.searchBill(orderID, 0);
-        String returnDate = pReturnDate.getValue().toString();
-        list.get(0).setReturnDate(returnDate);
-        String itemID = list.get(0).getProduct().getId();
-        float priceItem = data.getPriceProduct(itemID);
-        list.get(0).getProduct().setPrice(priceItem);
-        b.returnProduct(list.get(0));
+        if(orderID.isEmpty() || pReturnDate.getValue() == null) {
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Please check again!");
+            alert.setContentText("Please fill in all the required fields.");
+            alert.show();
+        }
+        else {
+            if(list.size() == 0) {
+                alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("Please check again!");
+                alert.setContentText("Could not find Order ID.");
+                alert.show();
+            }
+            else {
+                String returnDate = pReturnDate.getValue().toString();
+                list.get(0).setReturnDate(returnDate);
+                String itemID = list.get(0).getProduct().getId();
+                float priceItem = data.getPriceProduct(itemID);
+                list.get(0).getProduct().setPrice(priceItem);
+                b.returnProduct(list.get(0));
+                alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Success");
+                alert.setHeaderText("Return successfully!");
+                alert.setContentText("Amount to be paid is: " +  list.get(0).calculateAmountPay());
+                Optional<ButtonType> result = alert.showAndWait();
+                if(result.get() == ButtonType.OK) {
+                    try {
+                        Stage primaryStage = new Stage();
+                        Parent root;
+                        root = FXMLLoader.load(getClass().getResource("/view/return/ReturnProduct.fxml"));
+                        Scene scene = new Scene(root);
+                        primaryStage.setScene(scene);
+                        primaryStage.setMaximized(true);
+                        primaryStage.setTitle("Return Product");
+                        primaryStage.show();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    Stage stage = (Stage) btnAdd.getScene().getWindow();
+                    stage.close();
+                }
+            }
+        }
     }
 
     public void handle() {
@@ -108,7 +149,6 @@ public class ReturnProductController implements Initializable {
     }
 
     public void detail() {
-
         try {
             Stage primaryStage = new Stage();
             Parent root;
@@ -116,6 +156,7 @@ public class ReturnProductController implements Initializable {
             Scene scene = new Scene(root);
             primaryStage.setResizable(false);
             primaryStage.setScene(scene);
+            primaryStage.setTitle("Detail Order");
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();

@@ -65,6 +65,7 @@ public class Comic extends Product {
     public Comic() {
 
     }
+
     public Comic(String name, String ID) {
         super(name, ID);
     }
@@ -86,7 +87,7 @@ public class Comic extends Product {
             bw.newLine();
             bw.close();
             fw.close();
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -99,12 +100,11 @@ public class Comic extends Product {
         try {
             FileWriter fw = new FileWriter(dir + "\\src\\data\\ComicData.txt");
             BufferedWriter bw = new BufferedWriter(fw);
-            for (Comic o: l) {
-                if(o.getId().equalsIgnoreCase(product.getId())) {
+            for (Comic o : l) {
+                if (o.getId().equalsIgnoreCase(product.getId())) {
                     bw.write(String.valueOf((Comic) product));
                     bw.newLine();
-                }
-                else {
+                } else {
                     bw.write(String.valueOf((Comic) o));
                     bw.newLine();
                 }
@@ -113,7 +113,7 @@ public class Comic extends Product {
 
             bw.close();
             fw.close();
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -125,16 +125,16 @@ public class Comic extends Product {
         try {
             FileWriter fw = new FileWriter(dir + "\\src\\data\\ComicData.txt");
             BufferedWriter bw = new BufferedWriter(fw);
-            for (Comic o: l) {
-                if(o.getId().equalsIgnoreCase(product.getId())) {
+            for (Comic o : l) {
+                if (o.getId().equalsIgnoreCase(product.getId())) {
                     continue;
-               }
+                }
                 bw.write(String.valueOf((Comic) o));
                 bw.newLine();
             }
             bw.close();
             fw.close();
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -151,7 +151,7 @@ public class Comic extends Product {
 
             while (true) {
                 line = br.readLine();
-                if(line == null) {
+                if (line == null) {
                     break;
                 }
                 String txt[] = line.split(";");
@@ -164,15 +164,13 @@ public class Comic extends Product {
                 int pageNumber = Integer.parseInt(txt[6]);
                 String paperSize = txt[7];
                 String language = txt[8];
-                if(criterion == 0 && key.equalsIgnoreCase(txt[1])) {
-                        Comic c = new Comic(ID, name, author, year, category, price, pageNumber, paperSize, language);
-                        list.add(c);
-                }
-                else if(criterion == 1 && key.equalsIgnoreCase(txt[2])) {
+                if (criterion == 0 && key.equalsIgnoreCase(txt[1])) {
                     Comic c = new Comic(ID, name, author, year, category, price, pageNumber, paperSize, language);
                     list.add(c);
-                }
-                else if(criterion == 2 && key.equalsIgnoreCase(txt[4])) {
+                } else if (criterion == 1 && key.equalsIgnoreCase(txt[2])) {
+                    Comic c = new Comic(ID, name, author, year, category, price, pageNumber, paperSize, language);
+                    list.add(c);
+                } else if (criterion == 2 && key.equalsIgnoreCase(txt[4])) {
                     Comic c = new Comic(ID, name, author, year, category, price, pageNumber, paperSize, language);
                     list.add(c);
                 }

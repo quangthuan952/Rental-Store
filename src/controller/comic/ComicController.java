@@ -10,10 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.Comic;
@@ -28,7 +25,6 @@ public class ComicController implements Initializable {
     private TableView<Comic> ComicTable;
     @FXML
     private TableColumn<Comic, String> IDCol;
-
 
     @FXML
     private TableColumn<Comic, String> NameCol;
@@ -60,7 +56,7 @@ public class ComicController implements Initializable {
     @FXML
     private TextField tfSearch;
 
-    ObservableList<String> listComboBoxSearchBy ;
+    ObservableList<String> listComboBoxSearchBy;
     ObservableList<Comic> comicList;
     Comic c = new Comic();
     Data getComicData = new Data();
@@ -82,11 +78,11 @@ public class ComicController implements Initializable {
         comicList = getComicData.getDataComic();
         updateTable(comicList);
         handle();
-
     }
+
     public void handle() {
-        ComicTable.setOnMouseClicked( event -> {
-            if( event.getClickCount() == 2 ) {
+        ComicTable.setOnMouseClicked(event -> {
+            if (event.getClickCount() == 2) {
                 comic = ComicTable.getSelectionModel().getSelectedItem();
                 ID = comic.getId();
                 name = comic.getName();
@@ -98,17 +94,18 @@ public class ComicController implements Initializable {
                 language = comic.getLanguage();
                 year = comic.getYearOfPublication();
                 detail();
-            }});
+            }
+        });
     }
 
     public void updateTable(ObservableList<Comic> comicList) {
         //comicList = FXCollections.observableArrayList();
-        IDCol.setCellValueFactory(new PropertyValueFactory<Comic,String>("id"));
+        IDCol.setCellValueFactory(new PropertyValueFactory<Comic, String>("id"));
         NameCol.setCellValueFactory(new PropertyValueFactory<Comic, String>("Name"));
         AuthorCol.setCellValueFactory(new PropertyValueFactory<Comic, String>("Author"));
         CategoryCol.setCellValueFactory(new PropertyValueFactory<Comic, String>("Category"));
-        PriceCol.setCellValueFactory(new PropertyValueFactory<Comic,Float>("Price"));
-        PageNumberCol.setCellValueFactory(new PropertyValueFactory<Comic,Integer>("PageNumber"));
+        PriceCol.setCellValueFactory(new PropertyValueFactory<Comic, Float>("Price"));
+        PageNumberCol.setCellValueFactory(new PropertyValueFactory<Comic, Integer>("PageNumber"));
         PaperSizeCol.setCellValueFactory(new PropertyValueFactory<Comic, String>("PaperSize"));
         LanguageCol.setCellValueFactory(new PropertyValueFactory<Comic, String>("Language"));
         YearOfPublicationCol.setCellValueFactory(new PropertyValueFactory<Comic, String>("YearOfPublication"));
@@ -124,11 +121,13 @@ public class ComicController implements Initializable {
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.setResizable(false);
+            primaryStage.setTitle("Add Comic");
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     public void detail() {
 
         try {
@@ -138,11 +137,13 @@ public class ComicController implements Initializable {
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.setResizable(false);
+            primaryStage.setTitle("Detail Comic");
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     public void edit() {
         Comic comic1 = ComicTable.getSelectionModel().getSelectedItem();
         ID = comic1.getId();
@@ -160,32 +161,32 @@ public class ComicController implements Initializable {
             root = FXMLLoader.load(getClass().getResource("/view/comic/EditComic.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setResizable(false);
+            primaryStage.setTitle("Edit Comic");
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     public void search() {
         String key = tfSearch.getText();
-        if(key == null) {
-            comicList = getComicData.getDataComic();
-            updateTable(comicList);
-        }
         int crition = -1;
         String output = ComboBox.getSelectionModel().getSelectedItem();
         ObservableList<Comic> comicObservableList = FXCollections.observableArrayList();
-        if(output == null) {
-            System.out.println("NULL");
+        if (output == null && key.isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Please check again!");
+            alert.setContentText("Keyword or search criteria is empty.");
+            alert.show();
         }
         else {
-            if(output.equals("By Author")) {
+            if (output.equals("By Author")) {
                 crition = 1;
-            }
-            else if(output.equals("By Name")) {
+            } else if (output.equals("By Name")) {
                 crition = 0;
-            }
-            else if(output.equals("By Category")) {
+            } else if (output.equals("By Category")) {
                 crition = 2;
             }
             List<Product> l = c.searchProduct(key, crition);
@@ -205,7 +206,7 @@ public class ComicController implements Initializable {
             primaryStage.setScene(scene);
             primaryStage.setMaximized(true);
             // primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/image/icon.png")));
-            // primaryStage.setTitle("Bach Khoa Rental Store");
+            primaryStage.setTitle("Comic");
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
@@ -217,7 +218,7 @@ public class ComicController implements Initializable {
     public void delete() {
         Comic comic1 = ComicTable.getSelectionModel().getSelectedItem();
         c.deleteProduct(comic1);
-       // System.out.println(comic1.toString());
+        // System.out.println(comic1.toString());
 
     }
 

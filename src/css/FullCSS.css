@@ -304,6 +304,43 @@
     -fx-background-color: #93f9b911;
 
 }
+.jfx-button {
+    -fx-background-color: #4169E1;
+    -fx-background-radius: 15;
+    -fx-text-fill: white;
+    -fx-padding: 5 40 5 40;
+
+}
+
+#btnDetail {
+    -fx-background-radius: 15;
+    -fx-text-fill: white;
+    -fx-padding: 5 40 5 40;
+
+}
+
+.jfx-button:hover {
+
+    -fx-background-color:#696969  ;
+
+}
+.jfx-text-field {
+    -fx-prompt-text-fill: #000000;
+    -fx-prompt-text-font-weight: bold;
+    -fx-text-inner-color: #0000ff;
+    -fx-font-size: 14;
+
+}
+
+.jfx-combo-box{
+     -fx-prompt-text-fill: #000000;
+
+ }
+
+.jfx-combo-box .list-cell{
+
+     -fx-text-fill: #000000;
+ }
 .table-cell {
 -fx-text-fill:white;
 }
@@ -391,7 +428,7 @@
 
 }
 #cbPaperSize {
-    -fx-prompt-text-fill: white;
+    -fx-prompt-text-fill: #FF9900;
     -fx-font-size:14;
  }
 
@@ -544,11 +581,11 @@
  }
 .chart-pie-label {
     -fx-fill: white;
-    -fx-text-size: 1.2rem;
+
 }
 .chart-title {
   -fx-text-fill: #4682b4;
-  -fx-font-size: 1.6em;
+
 }
 
 .data0.chart-pie {
@@ -600,4 +637,40 @@
 }
 #customerPhoneCol {
   -fx-alignment: CENTER;
+}
+#bSearch {
+      -fx-background-color : #000033;
+      -fx-border-width: 2;
+      -fx-background-radius: 30;
+      -fx-border-radius: 30;
+      -fx-text-fill: #ffffff;
+      -fx-border-color:#ffffff;
+ }
+#bSearch:hover {
+    -fx-background-color:#393351;
+    -fx-background-radius:30;
+    -fx-border-width: 2;
+    -fx-text-fill: grey;
+    -fx-border-color:#ffffff;
+}
+#bSearch :pressed {
+     -fx-background-color : #2F2B43 ;
+}
+#refesh {
+      -fx-background-color : #000033;
+      -fx-border-width: 2;
+      -fx-background-radius: 30;
+      -fx-border-radius: 30;
+      -fx-text-fill: #ffffff;
+      -fx-border-color:#ffffff;
+ }
+#refesh :hover {
+    -fx-background-color:#393351;
+    -fx-background-radius:30;
+    -fx-border-width: 2;
+    -fx-text-fill: grey;
+    -fx-border-color:#ffffff;
+}
+#refesh  :pressed {
+     -fx-background-color : #2F2B43 ;
 }

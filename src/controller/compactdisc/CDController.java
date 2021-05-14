@@ -12,12 +12,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import model.Comic;
 import model.CompactDisc;
 import model.Product;
 
 import java.net.URL;
-import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -29,7 +27,7 @@ public class CDController implements Initializable {
     private ComboBox<String> cbSearchBy;
 
     @FXML
-    private Button btnSearch;
+    private Button refesh;
     @FXML
     private TableColumn<CompactDisc, String> IDCol;
 
@@ -103,6 +101,7 @@ public class CDController implements Initializable {
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.setResizable(false);
+            primaryStage.setTitle("Detail Compact Disc");
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
@@ -130,6 +129,7 @@ public class CDController implements Initializable {
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.setResizable(false);
+            primaryStage.setTitle("Add Compact Disc");
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
@@ -140,25 +140,33 @@ public class CDController implements Initializable {
         int crition = -1;
         String output = cbSearchBy.getSelectionModel().getSelectedItem();
         ObservableList<CompactDisc> compactDiscObservableList = FXCollections.observableArrayList();
-        if(output.equals("By Author")) {
-            crition = 1;
+        if(output == null && key.isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Please check again!");
+            alert.setContentText("Keyword or search criteria is empty.");
+            alert.show();
         }
-        else if(output.equals("By Name")) {
-            crition = 0;
+        else {
+            if(output.equals("By Author")) {
+                crition = 1;
+            }
+            else if(output.equals("By Name")) {
+                crition = 0;
+            }
+            else if(output.equals("By Category")) {
+                crition = 2;
+            }
+            List<Product> l = compactDisc.searchProduct(key, crition);
+            for (int i = 0; i < l.size(); i++) {
+                compactDiscObservableList.add((CompactDisc) l.get(i));
+            }
+            updateTable(compactDiscObservableList );
         }
-        else if(output.equals("By Category")) {
-            crition = 2;
-        }
-        List<Product> l = compactDisc.searchProduct(key, crition);
-        for (int i = 0; i < l.size(); i++) {
-            compactDiscObservableList.add((CompactDisc) l.get(i));
-        }
-        updateTable(compactDiscObservableList );
     }
     public void delete() {
         CompactDisc cp = CDTable.getSelectionModel().getSelectedItem();
         compactDisc.deleteProduct(cp);
-        // System.out.println(comic1.toString());
     }
 
     public void edit() {
@@ -178,10 +186,27 @@ public class CDController implements Initializable {
             root = FXMLLoader.load(getClass().getResource("/view/compactdisc/EditCompactDisc.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
+            primaryStage.setTitle("Edit Compact Disc");
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    public void refesh() {
+        try {
+            Stage primaryStage = new Stage();
+            Parent root;
+            root = FXMLLoader.load(getClass().getResource("/view/compactdisc/CompactDisc.fxml"));
+            Scene scene = new Scene(root);
+            primaryStage.setScene(scene);
+            primaryStage.setMaximized(true);
+            primaryStage.setTitle("Compact Disc");
+            primaryStage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Stage stage = (Stage) refesh.getScene().getWindow();
+        stage.close();
     }
 
 }

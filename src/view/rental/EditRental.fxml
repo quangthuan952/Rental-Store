@@ -14,7 +14,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="511.0" prefWidth="1103.0" style="-fx-background-color: #393351;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.rental.EditRentalController">
+<AnchorPane prefHeight="511.0" prefWidth="1103.0" style="-fx-background-color: #393351;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.rental.EditRentalController">
    <children>
       <VBox layoutX="14.0" layoutY="93.0" prefHeight="368.0" prefWidth="1076.0">
          <children>
@@ -35,7 +35,7 @@
                   </JFXRadioButton>
                   <Pane layoutX="43.0" layoutY="40.0" prefHeight="62.0" prefWidth="260.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
                      <children>
-                        <JFXTextField fx:id="tfCodeOrder" focusColor="WHITE" labelFloat="true" layoutX="79.0" layoutY="16.0" prefHeight="30.0" prefWidth="126.0" promptText="Code Order" stylesheets="@../../css/fullpackstyling.css" />
+                        <JFXTextField fx:id="tfCodeOrder" focusColor="WHITE" labelFloat="true" layoutX="79.0" layoutY="16.0" prefHeight="30.0" prefWidth="126.0" promptText="Code Order" stylesheets="@../../css/FullCSS.css" />
                         <ImageView fitHeight="42.0" fitWidth="43.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../image/codeOrder.png" />
@@ -45,7 +45,7 @@
                   </Pane>
                   <Pane layoutX="43.0" layoutY="140.0" prefHeight="62.0" prefWidth="482.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
                      <children>
-                        <JFXTextField fx:id="tfNameCustomer" focusColor="WHITE" labelFloat="true" layoutX="79.0" layoutY="19.0" prefHeight="25.0" prefWidth="350.0" promptText="Customer's Name" stylesheets="@../../css/fullpackstyling.css" />
+                        <JFXTextField fx:id="tfNameCustomer" focusColor="WHITE" labelFloat="true" layoutX="79.0" layoutY="19.0" prefHeight="25.0" prefWidth="350.0" promptText="Customer's Name" stylesheets="@../../css/FullCSS.css" />
                         <ImageView fitHeight="42.0" fitWidth="43.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../image/director.png" />
@@ -60,7 +60,7 @@
                               <Image url="@../../image/phone.png" />
                            </image>
                         </ImageView>
-                        <JFXTextField fx:id="tfPhone" focusColor="WHITE" labelFloat="true" layoutX="79.0" layoutY="19.0" prefHeight="25.0" prefWidth="350.0" promptText="Customer's Phone" stylesheets="@../../css/fullpackstyling.css" />
+                        <JFXTextField fx:id="tfPhone" focusColor="WHITE" labelFloat="true" layoutX="79.0" layoutY="19.0" prefHeight="25.0" prefWidth="350.0" promptText="Customer's Phone" stylesheets="@../../css/FullCSS.css" />
                      </children>
                   </Pane>
                   <Pane layoutX="553.0" layoutY="49.0" prefHeight="62.0" prefWidth="482.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
@@ -70,7 +70,7 @@
                               <Image url="@../../image/product.png" />
                            </image>
                         </ImageView>
-                        <JFXTextField fx:id="tfItem" focusColor="WHITE" labelFloat="true" layoutX="79.0" layoutY="19.0" prefHeight="25.0" prefWidth="350.0" promptText="Product" stylesheets="@../../css/fullpackstyling.css" />
+                        <JFXTextField fx:id="tfItem" focusColor="WHITE" labelFloat="true" layoutX="79.0" layoutY="19.0" prefHeight="25.0" prefWidth="350.0" promptText="Product" stylesheets="@../../css/FullCSS.css" />
                      </children>
                   </Pane>
                   <Pane layoutX="553.0" layoutY="140.0" prefHeight="62.0" prefWidth="230.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
@@ -80,7 +80,7 @@
                               <Image url="@../../image/productItem.png" />
                            </image>
                         </ImageView>
-                        <JFXTextField fx:id="tfItemID" focusColor="WHITE" labelFloat="true" layoutX="79.0" layoutY="19.0" prefHeight="30.0" prefWidth="134.0" promptText="Product's ID" stylesheets="@../../css/fullpackstyling.css" />
+                        <JFXTextField fx:id="tfItemID" focusColor="WHITE" labelFloat="true" layoutX="79.0" layoutY="19.0" prefHeight="30.0" prefWidth="134.0" promptText="Product's ID" stylesheets="@../../css/FullCSS.css" />
                      </children>
                   </Pane>
                   <Pane layoutX="553.0" layoutY="240.0" prefHeight="62.0" prefWidth="482.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
@@ -90,7 +90,7 @@
                               <Image url="@../../image/Year.png" />
                            </image>
                         </ImageView>
-                        <JFXDatePicker fx:id="pRentDateEdit" layoutX="79.0" layoutY="17.0" prefHeight="28.0" prefWidth="198.0" promptText="Rent Date" stylesheets="@../../css/fullpackstyling.css" />
+                        <JFXDatePicker fx:id="pRentDateEdit" layoutX="79.0" layoutY="17.0" prefHeight="28.0" prefWidth="198.0" promptText="Rent Date" stylesheets="@../../css/FullCSS.css" />
                      </children>
                   </Pane>
                   <Pane layoutX="805.0" layoutY="140.0" prefHeight="62.0" prefWidth="230.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
@@ -100,7 +100,7 @@
                               <Image url="@../../image/deposit.png" />
                            </image>
                         </ImageView>
-                        <JFXTextField fx:id="tfDeposit" focusColor="WHITE" labelFloat="true" layoutX="79.0" layoutY="19.0" prefHeight="30.0" prefWidth="140.0" promptText="Deposit" stylesheets="@../../css/fullpackstyling.css" />
+                        <JFXTextField fx:id="tfDeposit" focusColor="WHITE" labelFloat="true" layoutX="79.0" layoutY="19.0" prefHeight="30.0" prefWidth="140.0" promptText="Deposit" stylesheets="@../../css/FullCSS.css" />
                      </children>
                   </Pane>
                </children>
@@ -129,7 +129,7 @@
             </Pane>
          </children>
       </VBox>
-      <Button fx:id="btnAdd" layoutX="982.0" layoutY="459.0" mnemonicParsing="false" onAction="#editRT" prefHeight="29.0" prefWidth="60.0" stylesheets="@../../css/fullpackstyling.css" text="Save" />
-      <Button fx:id="btnExit" layoutX="891.0" layoutY="459.0" mnemonicParsing="false" onAction="#handleExit" prefHeight="29.0" prefWidth="60.0" stylesheets="@../../css/fullpackstyling.css" text="Cancel" />
+      <Button fx:id="btnAdd" layoutX="982.0" layoutY="459.0" mnemonicParsing="false" onAction="#editRT" prefHeight="29.0" prefWidth="60.0" stylesheets="@../../css/FullCSS.css" text="Save" />
+      <Button fx:id="btnExit" layoutX="891.0" layoutY="459.0" mnemonicParsing="false" onAction="#handleExit" prefHeight="29.0" prefWidth="60.0" stylesheets="@../../css/FullCSS.css" text="Cancel" />
    </children>
 </AnchorPane>
