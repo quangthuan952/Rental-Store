@@ -6,10 +6,7 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -36,7 +33,7 @@ public class EditComicController implements Initializable {
     private JFXTextField tfPageNumber;
 
     @FXML
-    private JFXComboBox<String> cbPaperSize;
+    private JFXComboBox<String> cbPaperSizeEdit;
     @FXML
     private JFXTextField tfProductCode;
 
@@ -55,7 +52,7 @@ public class EditComicController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         listPaperSize = FXCollections.observableArrayList("A3", "A4", "A5");
-        cbPaperSize.setItems(listPaperSize);
+        cbPaperSizeEdit.setItems(listPaperSize);
         tfProductCode.setText(comicController.ID);
         tfProductCode.setEditable(false);
         tfName.setText(comicController.name);
@@ -66,12 +63,12 @@ public class EditComicController implements Initializable {
         tfLanguage.setText(comicController.language);
         pDateEdit.setPromptText(comicController.year);
         if ((comicController.paperSize).equals("A3")) {
-            cbPaperSize.setPromptText("A3");
+            cbPaperSizeEdit.setPromptText("A3");
         }
         if ((comicController.paperSize).equals("A4")) {
-            cbPaperSize.setPromptText("A4");
+            cbPaperSizeEdit.setPromptText("A4");
         } else {
-            cbPaperSize.setPromptText("A5");
+            cbPaperSizeEdit.setPromptText("A5");
         }
     }
 
@@ -93,10 +90,10 @@ public class EditComicController implements Initializable {
             year = pDateEdit.getPromptText();
         else
             year = pDateEdit.getValue().toString();
-        if (cbPaperSize.getSelectionModel().isEmpty()) {
-            paperSize = cbPaperSize.getPromptText();
+        if (cbPaperSizeEdit.getSelectionModel().isEmpty()) {
+            paperSize = cbPaperSizeEdit.getPromptText();
         } else
-            paperSize = cbPaperSize.getSelectionModel().getSelectedItem();
+            paperSize = cbPaperSizeEdit.getSelectionModel().getSelectedItem();
         category = tfCategory.getText();
         if (tfProductCode.getText().trim().isEmpty() || tfName.getText().trim().isEmpty() || tfAuthor.getText().trim().isEmpty() || tfPageNumber.getText().trim().isEmpty() || tfLanguage.getText().trim().isEmpty()
                 || tfPrice.getText().trim().isEmpty() || tfCategory.getText().trim().isEmpty()) {

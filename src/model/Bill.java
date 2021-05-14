@@ -79,22 +79,6 @@ public class Bill {
         this.deposit = deposit;
     }
 
-//    public float getHireCharge() {
-//        return hireCharge;
-//    }
-//
-//    public void setHireCharge(float hireCharge) {
-//        this.hireCharge = hireCharge;
-//    }
-
-    public Bill(String codeOrder, String items, String rentDate, float deposit, Customer customer) {
-        this.codeOrder = codeOrder;
-        this.items = items;
-        this.rentDate = rentDate;
-        this.deposit = deposit;
-        this.customer = customer;
-
-    }
 
     public Bill(String codeOrder, String items, Product product, String rentDate, float deposit, Customer customer) {
         this.codeOrder = codeOrder;
@@ -111,15 +95,12 @@ public class Bill {
         this.rentDate = rentDate;
         this.returnDate = returnDate;
         this.deposit = deposit;
-        // this.hireCharge = hireCharge;
         this.customer = customer;
         this.product = product;
     }
 
     public Bill() {
     }
-
-    ;
 
     public float hireCharge() {
         LocalDate dateBefore = LocalDate.parse(rentDate);
@@ -272,9 +253,13 @@ public class Bill {
                 } else if (criterion == 2 && key.equalsIgnoreCase(phone)) {
                     Bill bill = new Bill(codeOrder, item, product, rentDate, deposit, customer);
                     list.add(bill);
-                } else if (criterion == 3 && key.equalsIgnoreCase(rentDate)) {
-                    Bill bill = new Bill(codeOrder, item, product, rentDate, deposit, customer);
-                    list.add(bill);
+                } else if (criterion == 3) {
+                    LocalDate dateBefore = LocalDate.parse(rentDate);
+                    LocalDate dateAfter = LocalDate.parse(key);
+                    if(ChronoUnit.DAYS.between(dateBefore, dateAfter) >= 0) {
+                        Bill bill = new Bill(codeOrder, item, product, rentDate, deposit, customer);
+                        list.add(bill);
+                    }
                 }
             }
         } catch (Exception e) {

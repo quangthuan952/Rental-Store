@@ -23,12 +23,12 @@
                <children>
                   <Pane layoutX="30.0" layoutY="46.0" prefHeight="71.0" prefWidth="200.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
                      <children>
-                        <JFXTextField fx:id="tfCodeOrder" focusColor="WHITE" labelFloat="true" layoutX="21.0" layoutY="23.0" promptText="Code's Order" stylesheets="@../../css/fullpackstyling.css" unFocusColor="WHITE" />
+                        <JFXTextField fx:id="tfCodeOrder" focusColor="WHITE" labelFloat="true" layoutX="21.0" layoutY="23.0" promptText="Code's Order" stylesheets="@../../css/FullCSS.css" unFocusColor="WHITE" />
                      </children>
                   </Pane>
                   <Pane layoutX="30.0" layoutY="164.0" prefHeight="71.0" prefWidth="200.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
                      <children>
-                        <JFXDatePicker fx:id="pReturnDate" defaultColor="#4059c7" layoutX="20.0" layoutY="22.0" prefHeight="28.0" prefWidth="166.0" promptText="Return Date" stylesheets="@../../css/fullpackstyling.css" />
+                        <JFXDatePicker fx:id="pReturnDate" defaultColor="#4059c7" layoutX="20.0" layoutY="22.0" prefHeight="28.0" prefWidth="166.0" promptText="Return Date" stylesheets="@../../css/FullCSS.css" />
                      </children>
                   </Pane>
                </children>

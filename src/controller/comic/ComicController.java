@@ -174,7 +174,7 @@ public class ComicController implements Initializable {
         int crition = -1;
         String output = ComboBox.getSelectionModel().getSelectedItem();
         ObservableList<Comic> comicObservableList = FXCollections.observableArrayList();
-        if (output == null && key.isEmpty()) {
+        if (output == null || key.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("Please check again!");
@@ -205,7 +205,6 @@ public class ComicController implements Initializable {
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.setMaximized(true);
-            // primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/image/icon.png")));
             primaryStage.setTitle("Comic");
             primaryStage.show();
         } catch (Exception e) {

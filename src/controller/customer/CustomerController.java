@@ -67,7 +67,7 @@ public class CustomerController implements Initializable {
         int crition = -1;
         ObservableList<Customer> customerObservableList = FXCollections.observableArrayList();
         String output = cbSearchBy.getSelectionModel().getSelectedItem();
-        if (output == null && key.isEmpty()) {
+        if (output == null || key.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("Please check again!");
