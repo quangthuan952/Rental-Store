@@ -10,15 +10,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.Bill;
 
 import java.net.URL;
-
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -48,14 +45,15 @@ public class RentalController implements Initializable {
 
     @FXML
     private javafx.scene.control.ComboBox<String> ComboBox;
-
+    @FXML
+    private Button refesh;
     @FXML
     private TextField tfSearch;
     ObservableList<String> listComboBoxSearchBy;
     ObservableList<Bill> billList;
     Data data = new Data();
     Bill b = new Bill();
-    public  static String codeOrder;
+    public static String codeOrder;
     public static String nameCustomer;
     public static String phoneCustomer;
     public static String item;
@@ -63,6 +61,7 @@ public class RentalController implements Initializable {
     public static String rentDate;
     public static float deposit;
     public static String loai;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         listComboBoxSearchBy = FXCollections.observableArrayList("By Code Order", "By Name", "By Phone", "By Date");
@@ -92,14 +91,16 @@ public class RentalController implements Initializable {
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.setResizable(false);
+            primaryStage.setTitle("Add Rental");
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     public void handle() {
-        RentalTable.setOnMouseClicked( event -> {
-            if( event.getClickCount() == 2 ) {
+        RentalTable.setOnMouseClicked(event -> {
+            if (event.getClickCount() == 2) {
                 b = RentalTable.getSelectionModel().getSelectedItem();
                 codeOrder = b.getCodeOrder();
                 nameCustomer = b.getCustomer().getName();
@@ -109,15 +110,16 @@ public class RentalController implements Initializable {
                 item = b.getProduct().getName();
                 itemID = b.getProduct().getId();
                 char tmp = itemID.charAt(1);
-                if(tmp == 'C') {
+                if (tmp == 'C') {
                     loai = "Comic";
-                }
-                else {
+                } else {
                     loai = "CD";
                 }
                 detail();
-            }});
+            }
+        });
     }
+
     public void detail() {
 
         try {
@@ -127,11 +129,13 @@ public class RentalController implements Initializable {
             Scene scene = new Scene(root);
             primaryStage.setResizable(false);
             primaryStage.setScene(scene);
+            primaryStage.setTitle("Detail Order");
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     public void edit() {
         Bill b1 = RentalTable.getSelectionModel().getSelectedItem();
         codeOrder = b1.getCodeOrder();
@@ -142,10 +146,9 @@ public class RentalController implements Initializable {
         item = b1.getProduct().getName();
         itemID = b1.getProduct().getId();
         int tmp = itemID.indexOf("M");
-        if(tmp == 1) {
+        if (tmp == 1) {
             loai = "Comic";
-        }
-        else {
+        } else {
             loai = "CD";
         }
         try {
@@ -155,12 +158,14 @@ public class RentalController implements Initializable {
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.setResizable(false);
+            primaryStage.setTitle("Edit Order");
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
+
     public void delete() {
         Bill bill1 = RentalTable.getSelectionModel().getSelectedItem();
         //System.out.println(bill1.toStringReturn());
@@ -171,26 +176,23 @@ public class RentalController implements Initializable {
         ObservableList<Bill> billObservableList = FXCollections.observableArrayList();
         Data data = new Data();
         String key = tfSearch.getText();
-        if(key == null) {
-            billObservableList = data.getDataBill();
-            updateTable(billObservableList);
-        }
         int criterion = -1;
         String output = ComboBox.getSelectionModel().getSelectedItem();
-        if(output == null) {
-            System.out.println("NULL");
+        if (key.isEmpty() || output == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Please check again!");
+            alert.setContentText("Keyword or search criteria is empty.");
+            alert.show();
         }
         else {
-            if(output.equals("By Code Order")) {
+            if (output.equals("By Code Order")) {
                 criterion = 0;
-            }
-            else if(output.equals("By Name")) {
+            } else if (output.equals("By Name")) {
                 criterion = 1;
-            }
-            else if(output.equals("By Phone")) {
+            } else if (output.equals("By Phone")) {
                 criterion = 2;
-            }
-            else if(output.equals("By Date")) {
+            } else if (output.equals("By Date")) {
                 criterion = 3;
             }
             List<Bill> l = b.searchBill(key, criterion);
@@ -199,5 +201,21 @@ public class RentalController implements Initializable {
             }
             updateTable(billObservableList);
         }
+    }
+    public void refesh() {
+        try {
+            Stage primaryStage = new Stage();
+            Parent root;
+            root = FXMLLoader.load(getClass().getResource("/view/rental/Rental.fxml"));
+            Scene scene = new Scene(root);
+            primaryStage.setScene(scene);
+            primaryStage.setMaximized(true);
+            primaryStage.setTitle("Rental");
+            primaryStage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Stage stage = (Stage) refesh.getScene().getWindow();
+        stage.close();
     }
 }

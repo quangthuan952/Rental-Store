@@ -1,3 +1,2 @@
-QTT014;Comic;CM241;Muộn rồi còn stress;2021-05-23;25.0;Hoàng uang Thuậ;0375162796
-x;CD;CD12;Gozilla đại chiến Kong;2021-05-10;10.0;Trần Nam Hưng;0326787166
-x;CD;CD12;Gozilla đại chiến Kong;2021-05-10;10.0;Trần Nam Hưng;0326787166
+QT1020;Comic;CM3;Mèo con đi học;2021-05-09;20.0;Lê Phương Nam;0367809732
+

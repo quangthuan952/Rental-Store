@@ -45,9 +45,11 @@ public class CompactDisc extends Product {
         this.capacity = capacity;
         this.resolution = resolution;
     }
+
     public CompactDisc() {
 
     }
+
     public CompactDisc(String name, String ID) {
         super(name, ID);
     }
@@ -70,7 +72,7 @@ public class CompactDisc extends Product {
             bw.newLine();
             bw.close();
             fw.close();
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -82,12 +84,11 @@ public class CompactDisc extends Product {
         try {
             FileWriter fw = new FileWriter(dir + "\\src\\data\\CompactDiscData.txt");
             BufferedWriter bw = new BufferedWriter(fw);
-            for (CompactDisc o: l) {
-                if(o.getId().equalsIgnoreCase(product.getId())) {
+            for (CompactDisc o : l) {
+                if (o.getId().equalsIgnoreCase(product.getId())) {
                     bw.write(String.valueOf((CompactDisc) product));
                     bw.newLine();
-                }
-                else {
+                } else {
                     bw.write(String.valueOf((CompactDisc) o));
                     bw.newLine();
                 }
@@ -95,7 +96,7 @@ public class CompactDisc extends Product {
             }
             bw.close();
             fw.close();
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -107,8 +108,8 @@ public class CompactDisc extends Product {
         try {
             FileWriter fw = new FileWriter(dir + "\\src\\data\\CompactDiscData.txt");
             BufferedWriter bw = new BufferedWriter(fw);
-            for (CompactDisc o: l) {
-                if(o.getId().equalsIgnoreCase(product.getId())) {
+            for (CompactDisc o : l) {
+                if (o.getId().equalsIgnoreCase(product.getId())) {
                     continue;
                 }
                 bw.write(String.valueOf((CompactDisc) o));
@@ -116,7 +117,7 @@ public class CompactDisc extends Product {
             }
             bw.close();
             fw.close();
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -133,7 +134,7 @@ public class CompactDisc extends Product {
 
             while (true) {
                 line = br.readLine();
-                if(line == null) {
+                if (line == null) {
                     break;
                 }
                 String txt[] = line.split(";");
@@ -143,18 +144,16 @@ public class CompactDisc extends Product {
                 String year = txt[3];
                 String category = txt[4];
                 float price = Float.parseFloat(txt[5]);
-                String time =(txt[6]);
+                String time = (txt[6]);
                 double capacity = Double.parseDouble(txt[7]);
                 String resolution = txt[8];
-                if(criterion == 0 && key.equalsIgnoreCase(txt[1])) {
+                if (criterion == 0 && key.equalsIgnoreCase(txt[1])) {
                     CompactDisc compactDisc = new CompactDisc(ID, name, author, year, category, price, time, capacity, resolution);
                     list.add(compactDisc);
-                }
-                else if(criterion == 1 && key.equalsIgnoreCase(txt[2])) {
+                } else if (criterion == 1 && key.equalsIgnoreCase(txt[2])) {
                     CompactDisc compactDisc = new CompactDisc(ID, name, author, year, category, price, time, capacity, resolution);
                     list.add(compactDisc);
-                }
-                else if(criterion == 2 && key.equalsIgnoreCase(txt[4])) {
+                } else if (criterion == 2 && key.equalsIgnoreCase(txt[4])) {
                     CompactDisc compactDisc = new CompactDisc(ID, name, author, year, category, price, time, capacity, resolution);
                     list.add(compactDisc);
                 }

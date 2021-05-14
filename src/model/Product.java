@@ -70,7 +70,7 @@ public abstract class Product {
         this.price = price;
     }
 
-    public Product(String id,String name, String author, String yearOfPublication, String category, float price) {
+    public Product(String id, String name, String author, String yearOfPublication, String category, float price) {
         this.id = id;
         this.name = name;
         this.author = author;
@@ -78,16 +78,22 @@ public abstract class Product {
         this.category = category;
         this.price = price;
     }
+
     public Product() {
 
     }
+
     public Product(String name, String ID) {
         this.name = name;
         this.id = ID;
     }
+
     public abstract void addProduct(Product product);
+
     public abstract void editProduct(Product product);
+
     public abstract void deleteProduct(Product product);
+
     public abstract List<Product> searchProduct(String key, int criterion);
 
 

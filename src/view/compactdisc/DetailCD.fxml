@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="507.0" prefWidth="1103.0" style="-fx-background-color: #393351;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.compactdisc.DetailCDController">
+<AnchorPane prefHeight="507.0" prefWidth="1103.0" style="-fx-background-color: #393351;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.compactdisc.DetailCDController">
    <children>
       <VBox prefHeight="76.0" prefWidth="1103.0">
          <children>
@@ -111,7 +111,7 @@
                   </Pane>
                   <Pane layoutX="576.0" layoutY="28.0" prefHeight="62.0" prefWidth="482.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
                      <children>
-                        <Label layoutX="68.0" layoutY="22.0" text="Time" textFill="WHITE">
+                        <Label layoutX="68.0" layoutY="22.0" text="Time:" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -133,7 +133,7 @@
                   </Pane>
                   <Pane layoutX="576.0" layoutY="108.0" prefHeight="62.0" prefWidth="482.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
                      <children>
-                        <Label layoutX="68.0" layoutY="22.0" text="Capacity" textFill="WHITE">
+                        <Label layoutX="68.0" layoutY="22.0" text="Capacity:" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -155,7 +155,7 @@
                   </Pane>
                   <Pane layoutX="576.0" layoutY="188.0" prefHeight="62.0" prefWidth="482.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
                      <children>
-                        <Label layoutX="68.0" layoutY="22.0" text="Resolution" textFill="WHITE">
+                        <Label layoutX="68.0" layoutY="22.0" text="Resolution:" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -197,7 +197,7 @@
                         </ImageView>
                      </children>
                   </Pane>
-                  <Button fx:id="btnExit" layoutX="527.0" layoutY="367.0" mnemonicParsing="false" onAction="#handleExit" prefHeight="25.0" prefWidth="72.0" stylesheets="@../../css/fullpackstyling.css" text="OK" />
+                  <Button fx:id="btnExit" layoutX="527.0" layoutY="367.0" mnemonicParsing="false" onAction="#handleExit" prefHeight="25.0" prefWidth="72.0" stylesheets="@../../css/FullCSS.css" text="OK" />
                </children>
             </Pane>
          </children>

@@ -11,12 +11,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import model.Comic;
 import model.Customer;
-import model.Product;
 
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class CustomerController implements Initializable {
@@ -27,10 +24,7 @@ public class CustomerController implements Initializable {
     private ComboBox<String> cbSearchBy;
 
     @FXML
-    private Button btnSearch;
-
-    @FXML
-    private Button btnAdd;
+    private Button refesh;
 
     @FXML
     private TableView<Customer> CustomerTable;
@@ -70,15 +64,15 @@ public class CustomerController implements Initializable {
 
     public void search() {
         String key = tfSearch.getText();
-        if (key == null) {
-            list = data.getDataCustomer();
-            updateTable(list);
-        }
         int crition = -1;
         ObservableList<Customer> customerObservableList = FXCollections.observableArrayList();
         String output = cbSearchBy.getSelectionModel().getSelectedItem();
-        if (output == null) {
-            System.out.println("NULL");
+        if (output == null && key.isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Please check again!");
+            alert.setContentText("Keyword or search criteria is empty.");
+            alert.show();
         } else {
             if (output.equals("By Name")) {
                 crition = 0;
@@ -107,5 +101,26 @@ public class CustomerController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void delete() {
+        Customer c = CustomerTable.getSelectionModel().getSelectedItem();
+        customer.deleteCustomer(c);
+    }
+    public void refesh() {
+        try {
+            Stage primaryStage = new Stage();
+            Parent root;
+            root = FXMLLoader.load(getClass().getResource("/view/customer/Customer.fxml"));
+            Scene scene = new Scene(root);
+            primaryStage.setScene(scene);
+            // primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/image/icon.png")));
+            // primaryStage.setTitle("Bach Khoa Rental Store");
+            primaryStage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Stage stage = (Stage) refesh.getScene().getWindow();
+        stage.close();
     }
 }

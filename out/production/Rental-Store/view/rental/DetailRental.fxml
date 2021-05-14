@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="452.0" prefWidth="1103.0" style="-fx-background-color: #393351;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.rental.DetailRentalController">
+<AnchorPane prefHeight="452.0" prefWidth="1103.0" style="-fx-background-color: #393351;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.rental.DetailRentalController">
    <children>
       <VBox prefHeight="76.0" prefWidth="1103.0">
          <children>
@@ -111,7 +111,7 @@
                   </Pane>
                   <Pane layoutX="576.0" layoutY="108.0" prefHeight="62.0" prefWidth="230.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
                      <children>
-                        <Label layoutX="68.0" layoutY="22.0" text="Product's ID" textFill="WHITE">
+                        <Label layoutX="68.0" layoutY="22.0" text="Product's ID:" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -155,7 +155,7 @@
                   </Pane>
                   <Pane layoutX="576.0" layoutY="190.0" prefHeight="62.0" prefWidth="482.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
                      <children>
-                        <Label layoutX="68.0" layoutY="22.0" text="Rent Date" textFill="WHITE">
+                        <Label layoutX="68.0" layoutY="22.0" text="Rent Date:" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -175,14 +175,14 @@
                         </ImageView>
                      </children>
                   </Pane>
-                  <Button fx:id="btnExit" layoutX="523.0" layoutY="296.0" mnemonicParsing="false" onAction="#handleExit" prefHeight="25.0" prefWidth="72.0" stylesheets="@../../css/fullpackstyling.css" text="OK" />
+                  <Button fx:id="btnExit" layoutX="507.0" layoutY="294.0" mnemonicParsing="false" onAction="#handleExit" prefHeight="25.0" prefWidth="72.0" stylesheets="@../../css/FullCSS.css" text="OK" />
                </children>
             </Pane>
          </children>
       </VBox>
-      <Pane layoutX="-1.0" layoutY="-111.0" prefHeight="194.0" prefWidth="289.0" style="-fx-background-color: linear-gradient(to bottom left, #A868A0, #2D75E8); -fx-background-radius: 35;">
+      <Pane layoutX="-1.0" layoutY="-111.0" prefHeight="194.0" prefWidth="300.0" style="-fx-background-color: linear-gradient(to bottom left, #A868A0, #2D75E8); -fx-background-radius: 35;">
          <children>
-            <Label layoutX="94.0" layoutY="143.0" text="Detail CD" textFill="WHITE">
+            <Label layoutX="94.0" layoutY="143.0" text="Detail Rental" textFill="WHITE">
                <font>
                   <Font name="Monospaced Bold" size="25.0" />
                </font>

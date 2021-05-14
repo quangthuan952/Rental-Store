@@ -1,13 +1,18 @@
 package controller.returnproduct;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class DetailReturnController implements Initializable {
+    @FXML
+    private Button btnExit;
     @FXML
     private Label lbCodeOrder;
 
@@ -50,5 +55,10 @@ public class DetailReturnController implements Initializable {
         lbRentalFee.setText(String.valueOf(returnProductController.rentalFee));
         lbItemID.setText(returnProductController.itemID);
         lbItem.setText(returnProductController.item);
+    }
+    @FXML
+    public void handleExit(ActionEvent event) {
+        Stage stage = (Stage) btnExit.getScene().getWindow();
+        stage.close();
     }
 }

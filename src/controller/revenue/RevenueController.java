@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.PieChart;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import model.Bill;
 
@@ -35,7 +36,6 @@ public class RevenueController implements Initializable {
     private PieChart c1;
 
 
-
     Bill b = new Bill();
 
     @Override
@@ -47,22 +47,30 @@ public class RevenueController implements Initializable {
         NumberFormat numberFormat = NumberFormat.getCompactNumberInstance();
         numberFormat.setMaximumFractionDigits(2);
         numberFormat.setMaximumFractionDigits(2);
-        float comicValue = Integer.parseInt(numberFormat.format(list.get(1)/list.get(0)*100));
-        float cdValue = Integer.parseInt(numberFormat.format(list.get(2)/list.get(0)*100));
+        float comicValue = Integer.parseInt(numberFormat.format(list.get(1) / list.get(0) * 100));
+        float cdValue = Integer.parseInt(numberFormat.format(list.get(2) / list.get(0) * 100));
         ObservableList<PieChart.Data> pieChart1 = FXCollections.observableArrayList(
                 new PieChart.Data("Comic", comicValue),
-                new PieChart.Data("CD",cdValue)
+                new PieChart.Data("CD", cdValue)
         );
         c1.setData(pieChart1);
-       pieChart1.forEach(data -> data.nameProperty().bind(Bindings.concat(data.getName(), " ", data.pieValueProperty(), " %")));
-
-
+        pieChart1.forEach(data -> data.nameProperty().bind(Bindings.concat(data.getName(), " ", data.pieValueProperty(), " %")));
     }
 
     public void caclulate() {
-        String from = pDateFrom.getValue().toString();
-        String to = pDateTo.getValue().toString();
-        lbRevenue.setText(String.valueOf(b.calculateRevenue(from, to)));
+
+        if (pDateTo.getValue() == null || pDateFrom.getValue() == null) {
+            Alert alert;
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Please check again!");
+            alert.setContentText("Please fill in all the required fields.");
+            alert.show();
+        } else {
+            String from = pDateFrom.getValue().toString();
+            String to = pDateTo.getValue().toString();
+            lbRevenue.setText(String.valueOf(b.calculateRevenue(from, to)));
+        }
     }
 
     public void cancel() {
