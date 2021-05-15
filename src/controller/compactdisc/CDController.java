@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import model.CompactDisc;
 import model.Product;
@@ -102,13 +103,13 @@ public class CDController implements Initializable {
             primaryStage.setScene(scene);
             primaryStage.setResizable(false);
             primaryStage.setTitle("Detail Compact Disc");
+            primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/image/detail_icon.png")));
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
     public void updateTable(ObservableList<CompactDisc> compactDiscsList) {
-        //comicList = FXCollections.observableArrayList();
         IDCol.setCellValueFactory(new PropertyValueFactory<CompactDisc, String>("id"));
         nameCol.setCellValueFactory(new PropertyValueFactory<CompactDisc, String>("Name"));
         authorCol.setCellValueFactory(new PropertyValueFactory<CompactDisc, String>("Author"));
@@ -130,6 +131,7 @@ public class CDController implements Initializable {
             primaryStage.setScene(scene);
             primaryStage.setResizable(false);
             primaryStage.setTitle("Add Compact Disc");
+            primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/image/add_icon.png")));
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
@@ -193,6 +195,7 @@ public class CDController implements Initializable {
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.setTitle("Edit Compact Disc");
+            primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/image/edit_icon.png")));
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
@@ -207,6 +210,7 @@ public class CDController implements Initializable {
             primaryStage.setScene(scene);
             primaryStage.setMaximized(true);
             primaryStage.setTitle("Compact Disc");
+            primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/image/cd_icon.png")));
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();

@@ -12,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import model.Bill;
 
@@ -118,6 +119,7 @@ public class ReturnProductController implements Initializable {
                         primaryStage.setScene(scene);
                         primaryStage.setMaximized(true);
                         primaryStage.setTitle("Return Product");
+                        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/image/add_icon.png")));
                         primaryStage.show();
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -157,9 +159,14 @@ public class ReturnProductController implements Initializable {
             primaryStage.setResizable(false);
             primaryStage.setScene(scene);
             primaryStage.setTitle("Detail Order");
+            primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/image/detail_icon.png")));
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    public void cancel() {
+        tfCodeOrder.setText("");
+        pReturnDate.setValue(null);
     }
 }

@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import model.Customer;
 
@@ -97,6 +98,8 @@ public class CustomerController implements Initializable {
             Scene scene = new Scene(root);
             primaryStage.setResizable(false);
             primaryStage.setScene(scene);
+            primaryStage.setTitle("Edit Customer");
+            primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/image/edit_icon.png")));
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
@@ -106,6 +109,10 @@ public class CustomerController implements Initializable {
     public void delete() {
         Customer c = CustomerTable.getSelectionModel().getSelectedItem();
         customer.deleteCustomer(c);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Success");
+        alert.setHeaderText("Deleted successfully!");
+        alert.show();
     }
     public void refesh() {
         try {
@@ -114,8 +121,7 @@ public class CustomerController implements Initializable {
             root = FXMLLoader.load(getClass().getResource("/view/customer/Customer.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
-            // primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/image/icon.png")));
-            // primaryStage.setTitle("Bach Khoa Rental Store");
+            primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/image/customer_icon.png")));
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();

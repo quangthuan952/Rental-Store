@@ -13,40 +13,45 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="640.0" prefWidth="1016.0" style="-fx-background-color: #2f234b;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.comic.HomeController">
+<AnchorPane prefHeight="640.0" prefWidth="1323.0" style="-fx-background-color: #2f234b;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeController">
    <children>
-      <AnchorPane prefHeight="750.0" prefWidth="292.0" style="-fx-background-color: #393351;">
+      <AnchorPane prefHeight="750.0" prefWidth="329.0" style="-fx-background-color: #393351;">
          <children>
             <Pane prefHeight="128.0" prefWidth="294.0">
                <children>
                   <ImageView fitHeight="35.0" fitWidth="33.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../image/home.png" />
+                        <Image url="@../image/home_64px.png" />
                      </image>
                   </ImageView>
-                  <Line endX="12.0" endY="738.0" layoutX="280.0" layoutY="14.0" startX="12.0" startY="-14.049530029296875" stroke="WHITE" />
                </children>
             </Pane>
-            <ImageView fitHeight="174.0" fitWidth="175.0" layoutY="190.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="200.0" fitWidth="300.0" layoutX="14.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../image/book1.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="109.0" layoutY="251.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="154.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../image/CD2.png" />
                </image>
             </ImageView>
-            <Label layoutX="28.0" layoutY="389.0" text="Rental Store" textFill="#e1e1e1">
+            <Label layoutX="10.0" layoutY="389.0" text="Rental Store" textFill="#e1e1e1">
                <font>
-                  <Font name="Monospaced Bold" size="36.0" />
+                  <Font name="Bradley Hand ITC" size="58.0" />
                </font>
             </Label>
+            <Label layoutX="57.0" layoutY="683.0" text="nhom19.btloop20202@gmail.com" textFill="WHITE" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="14.0" layoutY="674.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/telegram.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
-      <Pane layoutX="272.0" layoutY="-1.0" prefHeight="753.0" prefWidth="1018.0">
+      <Pane layoutX="304.0" layoutY="-1.0" prefHeight="753.0" prefWidth="1000.0">
          <children>
-            <Pane layoutX="-82.0" layoutY="-192.0" prefHeight="302.0" prefWidth="587.0" rotate="-147.5" style="-fx-background-color: #fa2c56; -fx-background-radius: 70;" />
+            <Pane layoutX="-36.0" layoutY="-181.0" prefHeight="302.0" prefWidth="587.0" rotate="-147.5" style="-fx-background-color: #fa2c56; -fx-background-radius: 70;" />
             <Button fx:id="btnComic" layoutX="88.0" layoutY="96.0" mnemonicParsing="false" onAction="#ComicM" prefHeight="255.0" prefWidth="264.0" stylesheets="@../css/FullCSS.css">
                <graphic>
                   <Circle radius="84.0" stroke="#4d4d4d" strokeType="INSIDE">
@@ -254,6 +259,7 @@
                   <Font name="Monospaced Bold" size="18.0" />
                </font>
             </Label>
+            <Line endX="6.0" endY="753.0" layoutX="16.0" startX="6.0" startY="-14.049530029296875" stroke="WHITE" />
          </children>
       </Pane>
    </children>

@@ -12,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import model.Comic;
 import model.Product;
@@ -122,6 +123,7 @@ public class ComicController implements Initializable {
             primaryStage.setScene(scene);
             primaryStage.setResizable(false);
             primaryStage.setTitle("Add Comic");
+            primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/image/add_icon.png")));
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
@@ -138,6 +140,7 @@ public class ComicController implements Initializable {
             primaryStage.setScene(scene);
             primaryStage.setResizable(false);
             primaryStage.setTitle("Detail Comic");
+            primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/image/detail_icon.png")));
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
@@ -162,6 +165,7 @@ public class ComicController implements Initializable {
             Scene scene = new Scene(root);
             primaryStage.setResizable(false);
             primaryStage.setTitle("Edit Comic");
+            primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/image/edit_icon.png")));
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (Exception e) {
@@ -206,6 +210,7 @@ public class ComicController implements Initializable {
             primaryStage.setScene(scene);
             primaryStage.setMaximized(true);
             primaryStage.setTitle("Comic");
+            primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/image/book_icon.png")));
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
@@ -217,7 +222,6 @@ public class ComicController implements Initializable {
     public void delete() {
         Comic comic1 = ComicTable.getSelectionModel().getSelectedItem();
         c.deleteProduct(comic1);
-        // System.out.println(comic1.toString());
         refesh();
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Success");

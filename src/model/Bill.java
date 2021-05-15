@@ -256,7 +256,7 @@ public class Bill {
                 } else if (criterion == 3) {
                     LocalDate dateBefore = LocalDate.parse(rentDate);
                     LocalDate dateAfter = LocalDate.parse(key);
-                    if(ChronoUnit.DAYS.between(dateBefore, dateAfter) >= 0) {
+                    if (ChronoUnit.DAYS.between(dateBefore, dateAfter) >= 0) {
                         Bill bill = new Bill(codeOrder, item, product, rentDate, deposit, customer);
                         list.add(bill);
                     }
@@ -294,6 +294,7 @@ public class Bill {
             e.printStackTrace();
         }
     }
+
     public float calculateRevenue(String from, String to) {
         float revenue = 0;
         LocalDate dateFrom = LocalDate.parse(from);

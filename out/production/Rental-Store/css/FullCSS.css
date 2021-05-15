@@ -208,6 +208,9 @@
      -fx-border-color: #999999;  /* similar to the default color */
      -fx-border-width: 0;   /* similar to the default width */
  }
+  #IDCol {
+  -fx-alignment: CENTER;
+  }
  #NameCol {
  -fx-alignment: CENTER-LEFT;
  }
@@ -554,6 +557,13 @@
        -fx-text-fill: #ffffff;
        -fx-border-color:#ffffff;
 }
+#refesh:hover {
+    -fx-background-color:#393351;
+    -fx-background-radius:30;
+    -fx-border-width: 2;
+    -fx-text-fill: grey;
+    -fx-border-color:#ffffff;
+}
 #btnCancel:hover {
      -fx-background-color:#393351;
      -fx-background-radius:30;
@@ -678,3 +688,15 @@
 #refesh  :pressed {
      -fx-background-color : #2F2B43 ;
 }
+#pReturnDate .text-field{
+   -jfx-focus-color: white;
+   -jfx-unfocus-color: white;
+   -fx-prompt-text-fill: white;
+   -fx-font-size:14;
+  }
+#pReturnDate .text-field:selected{
+     -jfx-focus-color: white;
+     -jfx-unfocus-color: white;
+     -fx-prompt-text-fill: #FF9900;
+     -fx-font-size:14;
+  }

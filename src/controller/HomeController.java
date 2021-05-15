@@ -1,10 +1,11 @@
-package controller.comic;
+package controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -25,13 +26,12 @@ public class HomeController implements Initializable {
             primaryStage.setScene(scene);
             primaryStage.setMaximized(true);
             primaryStage.setTitle("Comic");
+            primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/image/book_icon.png")));
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
-
 
     public void CompactDiscM(ActionEvent actionEvent) {
         try {
@@ -42,6 +42,7 @@ public class HomeController implements Initializable {
             primaryStage.setScene(scene);
             primaryStage.setMaximized(true);
             primaryStage.setTitle("Compact Disc");
+            primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/image/cd_icon.png")));
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
@@ -57,6 +58,7 @@ public class HomeController implements Initializable {
             primaryStage.setScene(scene);
             primaryStage.setMaximized(true);
             primaryStage.setTitle("Rental");
+            primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/image/rental_icon.png")));
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
@@ -72,6 +74,7 @@ public class HomeController implements Initializable {
             primaryStage.setScene(scene);
             primaryStage.setMaximized(true);
             primaryStage.setTitle("Return Product");
+            primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/image/return_icon.png")));
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
@@ -87,6 +90,7 @@ public class HomeController implements Initializable {
             primaryStage.setScene(scene);
             primaryStage.setMaximized(true);
             primaryStage.setTitle("Revenue");
+            primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/image/revenue_icon.png")));
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
@@ -101,6 +105,7 @@ public class HomeController implements Initializable {
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.setTitle("Customer");
+            primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/image/customer_icon.png")));
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();

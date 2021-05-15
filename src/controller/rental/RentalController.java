@@ -12,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import model.Bill;
 
@@ -92,6 +93,7 @@ public class RentalController implements Initializable {
             primaryStage.setScene(scene);
             primaryStage.setResizable(false);
             primaryStage.setTitle("Add Rental");
+            primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/image/add_icon.png")));
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
@@ -130,6 +132,7 @@ public class RentalController implements Initializable {
             primaryStage.setResizable(false);
             primaryStage.setScene(scene);
             primaryStage.setTitle("Detail Order");
+            primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/image/detail_icon.png")));
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
@@ -159,6 +162,7 @@ public class RentalController implements Initializable {
             primaryStage.setScene(scene);
             primaryStage.setResizable(false);
             primaryStage.setTitle("Edit Order");
+            primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/image/edit_icon.png")));
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
@@ -216,6 +220,7 @@ public class RentalController implements Initializable {
             primaryStage.setScene(scene);
             primaryStage.setMaximized(true);
             primaryStage.setTitle("Rental");
+            primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/image/rental_icon.png")));
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
