@@ -167,6 +167,12 @@ public class CDController implements Initializable {
     public void delete() {
         CompactDisc cp = CDTable.getSelectionModel().getSelectedItem();
         compactDisc.deleteProduct(cp);
+        refesh();
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Success");
+        alert.setHeaderText("Deleted successfully!");
+        alert.show();
+
     }
 
     public void edit() {

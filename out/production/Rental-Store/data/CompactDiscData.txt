@@ -3,3 +3,4 @@ CD2;Nhỏ ơi;Jack;2021/5/3;Nhạc nhẹ;30.0;1h30;1.32;Full HD
 CD3;Thám Tử Conan Movie 21: Bản Tình Ca Màu Đỏ Thẫm; Kobun Shizuno;2021/5/3;Hoạt hình;80.0;1h50;4.7;4K
 CD4;Muộn rồi mà sao còn;Sơn Tùng - MTP;2021/5/3;Pop Ballat;242.0;90p;4.5;4K
 CD5;Một cú lừa;Bích Phương;2021/5/3;Hành động;90.0;1h30;9.6;4K
+CD6;Xuân hạ thu đông rồi lại xuân;Đĩa than hồng;2021-05-08;Pop;500000.0;2h;1.5;4K

@@ -1,2 +1,2 @@
 QT1020;Comic;CM3;Mèo con đi học;2021-05-09;20.0;Lê Phương Nam;0367809732
-x;Comic;x;x;2021-05-17;1.0;x;x
+QT1;Comic;CM5;a;2021-05-13;10000.0;aaaa;1234

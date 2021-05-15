@@ -2,3 +2,4 @@ CM1;Tôi thấy hoa vàng trên cỏ xanh;Nguyễn Ngọc Ánh;2021/5/3;Tình c�
 CM2;Muộn rồi mà sao còn;Sơn Tùng - MTP;2021/5/3;Tình cảm;48.0;239;A5;Tiếng Việt
 CM3;Mèo con đi học;Lỗ Tấn Thiên;2020-08-02;Thiếu nhi;80.0;421;A4;Tiếng Việt
 CM4;Khi bạn đang mơ thì người khác đang nỗ lực;Lỗ Tấn Thiên;2020-08-02;Self Help;80.0;420;A4;Tiếng Việt
+CM5;a;a;2021-05-01;a;10.0;10;A3;VN

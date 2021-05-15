@@ -170,6 +170,11 @@ public class RentalController implements Initializable {
         Bill bill1 = RentalTable.getSelectionModel().getSelectedItem();
         //System.out.println(bill1.toStringReturn());
         b.deleteRental(bill1);
+        refesh();
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Success");
+        alert.setHeaderText("Deleted successfully!");
+        alert.show();
     }
 
     public void search() {

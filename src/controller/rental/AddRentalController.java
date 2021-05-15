@@ -13,6 +13,8 @@ import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 import model.*;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -78,7 +80,9 @@ public class AddRentalController implements Initializable {
             alert.setContentText("Please fill in all the required fields.");
             alert.show();
         }
-        else {
+
+
+        if (checkProduct()) {
             float deposit = Float.parseFloat(tfDeposit.getText());
             String rentDate = pRentDate.getValue().toString();
             if(kindOfProduct.equals("Comic")) {
@@ -98,7 +102,62 @@ public class AddRentalController implements Initializable {
             if(result.get() == ButtonType.OK) {
                 cancel();
             }
+        } else {
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Please check again!");
+            alert.setContentText("Product not exist");
+            alert.show();
         }
+    }
+    public boolean checkProduct(){
+        boolean status=false;
+        String dir = System.getProperty("user.dir");
+        if(rdComic.isSelected()){
+            try {
+                FileReader fr = new FileReader(dir + "\\src\\data\\ComicData.txt");
+                BufferedReader br = new BufferedReader(fr);
+                String line = "";
+                while (true) {
+                    line = br.readLine();
+                    if (line == null) {
+                        break;
+                    }
+                    String txt[] = line.split(";");
+                    String ID = txt[0];
+                    String name = txt[1];
+                    if(tfID.getText().equalsIgnoreCase(ID) && tfItem.getText().equalsIgnoreCase(name)) {
+                        status=true;
+                    }
+
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        else if(rdCD.isSelected()){
+            try {
+                FileReader fr = new FileReader(dir + "\\src\\data\\CompactDiscData.txt");
+                BufferedReader br = new BufferedReader(fr);
+                String line = "";
+                while (true) {
+                    line = br.readLine();
+                    if (line == null) {
+                        break;
+                    }
+                    String txt[] = line.split(";");
+                    String ID = txt[0];
+                    String name = txt[1];
+                    if(tfID.getText().equalsIgnoreCase(ID) && tfItem.getText().equalsIgnoreCase(name)) {
+                        status=true;
+                    }
+
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return status;
     }
     public void cancel() {
         Stage stage = (Stage) btnCancel.getScene().getWindow();

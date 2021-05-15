@@ -218,7 +218,11 @@ public class ComicController implements Initializable {
         Comic comic1 = ComicTable.getSelectionModel().getSelectedItem();
         c.deleteProduct(comic1);
         // System.out.println(comic1.toString());
-
+        refesh();
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Success");
+        alert.setHeaderText("Deleted successfully!");
+        alert.show();
     }
 
 }

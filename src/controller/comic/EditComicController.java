@@ -13,6 +13,8 @@ import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 import model.Comic;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
