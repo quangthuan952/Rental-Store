@@ -1,5 +1,9 @@
 package model;
 
+/*
+ * @author: Trịnh Bá Thắng
+ * */
+
 import data.Data;
 
 import java.io.BufferedReader;
@@ -148,13 +152,13 @@ public class CompactDisc extends Product {
                 double capacity = Double.parseDouble(txt[7]);
                 String resolution = txt[8];
                 if (criterion == 0 && key.equalsIgnoreCase(txt[1])) {
-                    CompactDisc compactDisc = new CompactDisc(ID, name, author, year, category, price, time, capacity, resolution);
+                    Product compactDisc = new CompactDisc(ID, name, author, year, category, price, time, capacity, resolution);
                     list.add(compactDisc);
                 } else if (criterion == 1 && key.equalsIgnoreCase(txt[2])) {
-                    CompactDisc compactDisc = new CompactDisc(ID, name, author, year, category, price, time, capacity, resolution);
+                    Product compactDisc = new CompactDisc(ID, name, author, year, category, price, time, capacity, resolution);
                     list.add(compactDisc);
                 } else if (criterion == 2 && key.equalsIgnoreCase(txt[4])) {
-                    CompactDisc compactDisc = new CompactDisc(ID, name, author, year, category, price, time, capacity, resolution);
+                    Product compactDisc = new CompactDisc(ID, name, author, year, category, price, time, capacity, resolution);
                     list.add(compactDisc);
                 }
             }
@@ -163,5 +167,4 @@ public class CompactDisc extends Product {
         }
         return list;
     }
-
 }

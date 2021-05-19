@@ -1,4 +1,7 @@
 package controller.compactdisc;
+/*
+ * author: Trịnh Bá Thắng
+ * */
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -51,7 +54,7 @@ public class DetailCDController implements Initializable {
     }
 
     @FXML
-    public void handleExit(ActionEvent event) {
+    public void cancel(ActionEvent event) {
         Stage stage = (Stage) btnExit.getScene().getWindow();
         stage.close();
     }

@@ -1,5 +1,8 @@
 package model;
 
+/*
+ * @author: Hoàng Quang Thuận*/
+
 import data.Data;
 
 import java.io.BufferedReader;
@@ -13,11 +16,10 @@ import java.util.List;
 
 public class Bill {
     private String codeOrder;
-    private String items;
+    private String item;
     private String rentDate;
     private String returnDate;
     private float deposit;
-    //private float hireCharge;
     private Customer customer;
     private Product product;
 
@@ -30,7 +32,6 @@ public class Bill {
         this.customer = customer;
     }
 
-
     public Product getProduct() {
         return product;
     }
@@ -39,12 +40,12 @@ public class Bill {
         this.product = product;
     }
 
-    public String getItems() {
-        return items;
+    public String getItem() {
+        return item;
     }
 
-    public void setItems(String items) {
-        this.items = items;
+    public void setItem(String item) {
+        this.item = item;
     }
 
     public String getRentDate() {
@@ -79,10 +80,9 @@ public class Bill {
         this.deposit = deposit;
     }
 
-
     public Bill(String codeOrder, String items, Product product, String rentDate, float deposit, Customer customer) {
         this.codeOrder = codeOrder;
-        this.items = items;
+        this.item = items;
         this.product = product;
         this.rentDate = rentDate;
         this.deposit = deposit;
@@ -91,7 +91,7 @@ public class Bill {
 
     public Bill(String codeOrder, String items, String rentDate, String returnDate, float deposit, Customer customer, Product product) {
         this.codeOrder = codeOrder;
-        this.items = items;
+        this.item = items;
         this.rentDate = rentDate;
         this.returnDate = returnDate;
         this.deposit = deposit;
@@ -102,23 +102,25 @@ public class Bill {
     public Bill() {
     }
 
-    public float hireCharge() {
+    // tính phí thuê sản phẩm
+    public float calculateHireCharge() {
         LocalDate dateBefore = LocalDate.parse(rentDate);
         LocalDate dateAfter = LocalDate.parse(returnDate);
         return ChronoUnit.DAYS.between(dateBefore, dateAfter) * getProduct().getPrice();
     }
 
+    // tính số tiền phải trả
     public float calculateAmountPay() {
-        return hireCharge() - deposit;
+        return calculateHireCharge() - deposit;
     }
 
     public String toStringRental() {
-        return codeOrder + ";" + items + ";" + product.getId() + ";" + product.getName() + ";" + rentDate + ";" + deposit + ";" + customer.getName() + ";" + customer.getPhone();
+        return codeOrder + ";" + item + ";" + product.getId() + ";" + product.getName() + ";" + rentDate + ";" + deposit + ";" + customer.getName() + ";" + customer.getPhone();
     }
 
     public String toStringReturn() {
-        return codeOrder + ";" + items + ";" + product.getId() + ";" + product.getName() + ";" + rentDate + ";" + returnDate
-                + ";" + deposit + ";" + hireCharge() + ";" + customer.getName() + ";" + customer.getPhone() + ";" + calculateAmountPay();
+        return codeOrder + ";" + item + ";" + product.getId() + ";" + product.getName() + ";" + rentDate + ";" + returnDate
+                + ";" + deposit + ";" + calculateHireCharge() + ";" + customer.getName() + ";" + customer.getPhone() + ";" + calculateAmountPay();
     }
 
     public void addBill(Bill bill) {
@@ -147,8 +149,7 @@ public class Bill {
         }
     }
 
-
-    public void editRental(Bill bill, String name, String phone) {
+    public void editBill(Bill bill, String name, String phone) {
         String dir = System.getProperty("user.dir");
         Data data = new Data();
         List<Bill> l = data.getDataBill();
@@ -189,7 +190,7 @@ public class Bill {
         }
     }
 
-    public void deleteRental(Bill bill) {
+    public void deleteBill(Bill bill) {
         String dir = System.getProperty("user.dir");
         List<Bill> l = (new Data().getDataBill());
         try {
@@ -232,17 +233,13 @@ public class Bill {
                 String phone = txt[7];
                 Customer customer = new Customer(nameCustomer, phone);
                 Product product = null;
-                Product comic = null;
-                Product cd = null;
-                if (item.equalsIgnoreCase("Comic")) {
 
-                    comic = new Comic(nameProduct, itemID);
-                    product = comic;
-                    comic.setName(nameProduct);
+                if (item.equalsIgnoreCase("Comic")) {
+                    product = new Comic(nameProduct, itemID);
+                    product.setName(nameProduct);
                 } else {
-                    cd = new CompactDisc(nameProduct, itemID);
-                    product = cd;
-                    cd.setName(nameProduct);
+                    product = new CompactDisc(nameProduct, itemID);
+                    product.setName(nameProduct);
                 }
                 if (criterion == 0 && key.equalsIgnoreCase(codeOrder)) {
                     Bill bill = new Bill(codeOrder, item, product, rentDate, deposit, customer);
@@ -295,11 +292,11 @@ public class Bill {
         }
     }
 
+    // tính tổng doanh thu trong 1 khoảng thời gian
     public float calculateRevenue(String from, String to) {
         float revenue = 0;
         LocalDate dateFrom = LocalDate.parse(from);
         LocalDate dateTo = LocalDate.parse(to);
-
         String dir = System.getProperty("user.dir");
         try {
             FileReader fd = new FileReader(dir + "\\src\\data\\ReturnData.txt");
@@ -312,11 +309,9 @@ public class Bill {
                 }
                 String txt[] = line.split(";");
                 String date = txt[5];
-
-                //ChronoUnit.DAYS.between(dateForm, tmp) < 0 thì tmp là những ngày trước dateForm
                 float rentalFee = Float.parseFloat(txt[7]);
                 LocalDate tmp = LocalDate.parse(date);
-                if (ChronoUnit.DAYS.between(tmp, dateFrom) < 0 && ChronoUnit.DAYS.between(tmp, dateTo) > 0) {
+                if (ChronoUnit.DAYS.between(tmp, dateFrom) <= 0 && ChronoUnit.DAYS.between(tmp, dateTo) >= 0) {
                     revenue += rentalFee;
                 }
             }
@@ -328,12 +323,12 @@ public class Bill {
         return revenue;
     }
 
+    // tính tổng doanh thu
     public List<Float> calculateTotalRevenue() {
         List<Float> list = new ArrayList<>();
         float revenueComic = 0;
         float revenueCD = 0;
         float totalRevenue = 0;
-
         String dir = System.getProperty("user.dir");
         try {
             FileReader fd = new FileReader(dir + "\\src\\data\\ReturnData.txt");

@@ -1,6 +1,8 @@
 package controller.rental;
+/*
+ * author: Hoàng Quang Thuận
+ * */
 
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -47,8 +49,8 @@ public class DetailRentalController implements Initializable {
         lbRentDate.setText(rentalController.rentDate);
 
     }
-    @FXML
-    public void handleExit(ActionEvent event) {
+
+    public void cancel(ActionEvent event) {
         Stage stage = (Stage) btnExit.getScene().getWindow();
         stage.close();
     }

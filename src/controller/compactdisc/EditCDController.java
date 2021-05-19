@@ -1,8 +1,10 @@
 package controller.compactdisc;
+/*
+ * author: Trịnh Bá Thắng
+ * */
 
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -46,6 +48,7 @@ public class EditCDController implements Initializable {
     CompactDisc compactDisc = new CompactDisc();
     CDController cdController = new CDController();
     Alert alert;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         tfProductCode.setText(cdController.ID);
@@ -60,6 +63,7 @@ public class EditCDController implements Initializable {
         pDateEdit.setPromptText(cdController.year);
     }
 
+    // chính sửa thông tin về đĩa phim
     public void editCD() {
         String name;
         String ID;
@@ -76,11 +80,11 @@ public class EditCDController implements Initializable {
         category = tfCategory.getText();
         time = tfTime.getText();
         resolution = tfResolution.getText();
-        if(pDateEdit.getValue() == null)
+        if (pDateEdit.getValue() == null)
             year = pDateEdit.getPromptText();
         else
             year = pDateEdit.getValue().toString();
-        if(ID.isEmpty() || name.isEmpty() || author.isEmpty() || category.isEmpty() || tfPrice.getText().trim().isEmpty()
+        if (ID.isEmpty() || name.isEmpty() || author.isEmpty() || category.isEmpty() || tfPrice.getText().trim().isEmpty()
                 || tfCapacity.getText().trim().isEmpty() || resolution.isEmpty() || time.isEmpty()) {
             alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
@@ -88,8 +92,7 @@ public class EditCDController implements Initializable {
             alert.setContentText("Please fill in all the required fields.");
             //alert.setContentText("We override the style classes of the dialog");
             alert.show();
-        }
-        else {
+        } else {
             System.out.println("OK");
             price = Float.parseFloat(tfPrice.getText());
             capacity = Double.parseDouble(tfCapacity.getText());
@@ -99,14 +102,13 @@ public class EditCDController implements Initializable {
             alert.setTitle("Success");
             alert.setHeaderText("Compact Disc edited successfully!");
             Optional<ButtonType> result = alert.showAndWait();
-            if(result.get() == ButtonType.OK) {
-                handleExit();
+            if (result.get() == ButtonType.OK) {
+                cancel();
             }
         }
     }
 
-    @FXML
-    public void handleExit() {
+    public void cancel() {
         Stage stage = (Stage) btnExit.getScene().getWindow();
         stage.close();
     }

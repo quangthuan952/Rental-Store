@@ -1,5 +1,8 @@
 package model;
 
+/*
+ * @author: Hoàng Quang Thuận + Trịnh Bá Thắng
+ * */
 
 import data.Data;
 
@@ -13,7 +16,6 @@ import java.util.List;
 public class Customer {
     private String name;
     private String phone;
-
 
     public String getName() {
         return name;
@@ -34,8 +36,6 @@ public class Customer {
     public Customer() {
     }
 
-    ;
-
     public Customer(String name, String phone) {
         this.name = name;
         this.phone = phone;
@@ -46,7 +46,8 @@ public class Customer {
         return name + ";" + phone;
     }
 
-    public Customer searchCustomer(String key, int criterion) {
+    public List<Customer> searchCustomer(String key, int criterion) {
+        List<Customer> customerList = new ArrayList<>();
         String dir = System.getProperty("user.dir");
         Customer customer = null;
         try {
@@ -64,14 +65,16 @@ public class Customer {
                 String phone = txt[1];
                 if (criterion == 0 && key.equalsIgnoreCase(name)) {
                     customer = new Customer(name, phone);
+                    customerList.add(customer);
                 } else if (criterion == 1 && key.equalsIgnoreCase(phone)) {
                     customer = new Customer(name, phone);
+                    customerList.add(customer);
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return customer;
+        return customerList;
     }
 
     public void editCustomer(Customer customer, String name, String phone) {
@@ -126,7 +129,7 @@ public class Customer {
             BufferedWriter bw1 = new BufferedWriter(fw1);
             for (Customer o : customerList) {
                 if (o.getName().equalsIgnoreCase(customer.getName()) && o.getPhone().equalsIgnoreCase(customer.getPhone())) {
-                   continue;
+                    continue;
                 } else {
                     bw.write(o.toString());
                     bw.newLine();
@@ -134,7 +137,7 @@ public class Customer {
             }
             for (Bill o : billList) {
                 if (o.getCustomer().getName().equalsIgnoreCase(customer.getName()) && o.getCustomer().getPhone().equalsIgnoreCase(customer.getPhone())) {
-                   continue;
+                    continue;
                 } else {
                     bw1.write(o.toStringRental());
                     bw1.newLine();
@@ -144,8 +147,7 @@ public class Customer {
             fw.close();
             bw1.close();
             fw1.close();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

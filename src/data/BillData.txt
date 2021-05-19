@@ -1,4 +1,3 @@
-QT1001;Comic;CM1;Tôi thấy hoa vàng trên cỏ xanh;2021-05-03;2.0;Lê Phương Nam;0362345678
 QT1004;Comic;CM1;Tôi thấy hoa vàng trên cỏ xanh;2021-05-03;2.0;Nguyễn Tuấn Anh;0967881230
 QT1005;CD;CD5;Một cú lừa;2021-05-11;2.0;Nguyễn Tiến Dũng;0987567112
 QT1006;Comic;CM3;Mèo con đi học;2021-05-07;2.0;Nguyễn Văn Nam;0343580973
@@ -6,3 +5,5 @@ QT1007;Comic;CM2;Muộn rồi mà sao còn;2021-05-09;2.0;Hoàng Tiến Mạnh;0
 QT1011;CD;CM2;Muộn rồi mà sao còn;2021-05-11;2.0;Nguyễn Tiến Dũng;0987567112
 QT1012;Comic;CM1;Tôi thấy hoa vàng trên cỏ xanh;2021-05-03;2.0;Lê Khánh Vân;09876781123
 QT1013;CD;CD5;Một cú lừa;2021-05-11;2.0;Nguyễn Việt Anh;0345662308
+QT1014;CD;CD7;Bố Già;2021-05-09;3.0;Nguyễn Việt Hưng;0875162798
+QT1015;Comic;CM5;Doraemon;2021-05-10;2.5;Nguyễn Việt Hưng;0875162798

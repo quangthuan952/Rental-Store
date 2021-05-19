@@ -1,4 +1,7 @@
 package controller.compactdisc;
+/*
+ * author: Trịnh Bá Thắng
+ * */
 
 import data.Data;
 import javafx.collections.FXCollections;
@@ -61,13 +64,14 @@ public class CDController implements Initializable {
     CompactDisc compactDisc = new CompactDisc();
     public static String ID;
     public static String name;
-    public  static String author;
+    public static String author;
     public static float price;
     public static String category;
     public static String resolution;
     public static double capacity;
     public static String time;
     public static String year;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         listSearchBy = FXCollections.observableArrayList("By Name", "By Author", "By Category");
@@ -77,9 +81,11 @@ public class CDController implements Initializable {
         updateTable(compactDiscsList);
         handle();
     }
+
+    // Lấy thông tin 1 hàng khi nhấn đúp chuột vào hàng đó
     public void handle() {
-        CDTable.setOnMouseClicked( event -> {
-            if( event.getClickCount() == 2 ) {
+        CDTable.setOnMouseClicked(event -> {
+            if (event.getClickCount() == 2) {
                 compactDisc = CDTable.getSelectionModel().getSelectedItem();
                 ID = compactDisc.getId();
                 name = compactDisc.getName();
@@ -90,11 +96,13 @@ public class CDController implements Initializable {
                 resolution = compactDisc.getResolution();
                 capacity = compactDisc.getCapacity();
                 year = compactDisc.getYearOfPublication();
-                DetailComic();
-            }});
+                detail();
+            }
+        });
     }
-    public void DetailComic() {
 
+    // Xem chi tiết một đĩa phim
+    public void detail() {
         try {
             Stage primaryStage = new Stage();
             Parent root;
@@ -109,20 +117,22 @@ public class CDController implements Initializable {
             e.printStackTrace();
         }
     }
+
     public void updateTable(ObservableList<CompactDisc> compactDiscsList) {
         IDCol.setCellValueFactory(new PropertyValueFactory<CompactDisc, String>("id"));
         nameCol.setCellValueFactory(new PropertyValueFactory<CompactDisc, String>("Name"));
         authorCol.setCellValueFactory(new PropertyValueFactory<CompactDisc, String>("Author"));
         capacityCol.setCellValueFactory(new PropertyValueFactory<CompactDisc, Double>("Capacity"));
-        priceCol.setCellValueFactory(new PropertyValueFactory<CompactDisc,Float>("Price"));
+        priceCol.setCellValueFactory(new PropertyValueFactory<CompactDisc, Float>("Price"));
         yearOfPublicationCol.setCellValueFactory(new PropertyValueFactory<CompactDisc, String>("YearOfPublication"));
         timeCol.setCellValueFactory(new PropertyValueFactory<CompactDisc, String>("Time"));
         resolutionCol.setCellValueFactory(new PropertyValueFactory<CompactDisc, String>("Resolution"));
         categoryCol.setCellValueFactory(new PropertyValueFactory<CompactDisc, String>("Category"));
         CDTable.setItems(compactDiscsList);
     }
-    public void addCompactDisc(ActionEvent actionEvent) {
 
+    // Thêm mới 1 đĩa phim
+    public void add(ActionEvent actionEvent) {
         try {
             Stage primaryStage = new Stage();
             Parent root;
@@ -137,35 +147,36 @@ public class CDController implements Initializable {
             e.printStackTrace();
         }
     }
+
+    // Tìm kiếm đĩa phim
     public void search() {
         String key = tfSearchCD.getText();
         int crition = -1;
         String output = cbSearchBy.getSelectionModel().getSelectedItem();
         ObservableList<CompactDisc> compactDiscObservableList = FXCollections.observableArrayList();
-        if(output == null || key.isEmpty()) {
+        if (output == null || key.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("Please check again!");
             alert.setContentText("Keyword or search criteria is empty.");
             alert.show();
-        }
-        else {
-            if(output.equals("By Author")) {
+        } else {
+            if (output.equals("By Author")) {
                 crition = 1;
-            }
-            else if(output.equals("By Name")) {
+            } else if (output.equals("By Name")) {
                 crition = 0;
-            }
-            else if(output.equals("By Category")) {
+            } else if (output.equals("By Category")) {
                 crition = 2;
             }
             List<Product> l = compactDisc.searchProduct(key, crition);
             for (int i = 0; i < l.size(); i++) {
                 compactDiscObservableList.add((CompactDisc) l.get(i));
             }
-            updateTable(compactDiscObservableList );
+            updateTable(compactDiscObservableList);
         }
     }
+
+    // Xóa 1 đĩa phim
     public void delete() {
         CompactDisc cp = CDTable.getSelectionModel().getSelectedItem();
         compactDisc.deleteProduct(cp);
@@ -174,9 +185,9 @@ public class CDController implements Initializable {
         alert.setTitle("Success");
         alert.setHeaderText("Deleted successfully!");
         alert.show();
-
     }
 
+    // Chỉnh sửa thông tin 1 đĩa phim
     public void edit() {
         CompactDisc cp = CDTable.getSelectionModel().getSelectedItem();
         ID = cp.getId();
@@ -201,6 +212,8 @@ public class CDController implements Initializable {
             e.printStackTrace();
         }
     }
+
+    //Refesh lại dữ liệu
     public void refesh() {
         try {
             Stage primaryStage = new Stage();

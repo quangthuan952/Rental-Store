@@ -1,10 +1,11 @@
 package controller.comic;
-
+/*
+ * author: Trịnh Bá Thắng
+ * */
 
 import data.Data;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -81,6 +82,7 @@ public class ComicController implements Initializable {
         handle();
     }
 
+    // Lấy dữ liệu ở 1 hàng khi nhấn đúp chuột vào hàng đó
     public void handle() {
         ComicTable.setOnMouseClicked(event -> {
             if (event.getClickCount() == 2) {
@@ -100,7 +102,6 @@ public class ComicController implements Initializable {
     }
 
     public void updateTable(ObservableList<Comic> comicList) {
-        //comicList = FXCollections.observableArrayList();
         IDCol.setCellValueFactory(new PropertyValueFactory<Comic, String>("id"));
         NameCol.setCellValueFactory(new PropertyValueFactory<Comic, String>("Name"));
         AuthorCol.setCellValueFactory(new PropertyValueFactory<Comic, String>("Author"));
@@ -113,8 +114,7 @@ public class ComicController implements Initializable {
         ComicTable.setItems(comicList);
     }
 
-    public void add(ActionEvent actionEvent) {
-
+    public void add() {
         try {
             Stage primaryStage = new Stage();
             Parent root;
@@ -130,8 +130,8 @@ public class ComicController implements Initializable {
         }
     }
 
+    // Xem chi tiết thông tin 1 truyện
     public void detail() {
-
         try {
             Stage primaryStage = new Stage();
             Parent root;
@@ -147,6 +147,7 @@ public class ComicController implements Initializable {
         }
     }
 
+    // Chỉnh sửa thông tin 1 truyện
     public void edit() {
         Comic comic1 = ComicTable.getSelectionModel().getSelectedItem();
         ID = comic1.getId();
@@ -173,6 +174,7 @@ public class ComicController implements Initializable {
         }
     }
 
+    // Tìm kiếm truyện
     public void search() {
         String key = tfSearch.getText();
         int crition = -1;
@@ -184,8 +186,7 @@ public class ComicController implements Initializable {
             alert.setHeaderText("Please check again!");
             alert.setContentText("Keyword or search criteria is empty.");
             alert.show();
-        }
-        else {
+        } else {
             if (output.equals("By Author")) {
                 crition = 1;
             } else if (output.equals("By Name")) {
@@ -201,6 +202,7 @@ public class ComicController implements Initializable {
         }
     }
 
+    // Refesh lại dữ liệu
     public void refesh() {
         try {
             Stage primaryStage = new Stage();
@@ -219,6 +221,7 @@ public class ComicController implements Initializable {
         stage.close();
     }
 
+    // Xóa truyện
     public void delete() {
         Comic comic1 = ComicTable.getSelectionModel().getSelectedItem();
         c.deleteProduct(comic1);

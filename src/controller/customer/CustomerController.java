@@ -1,4 +1,7 @@
 package controller.customer;
+/*
+ * author: Hoàng Quang Thuận + Trịnh Bá Thắng
+ * */
 
 import data.Data;
 import javafx.collections.FXCollections;
@@ -15,6 +18,7 @@ import javafx.stage.Stage;
 import model.Customer;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class CustomerController implements Initializable {
@@ -57,12 +61,14 @@ public class CustomerController implements Initializable {
         CustomerTable.setItems(list);
     }
 
+    // update lại dữ liệu của bảng
     public void updateTable(ObservableList<Customer> list) {
         customerNameCol.setCellValueFactory(new PropertyValueFactory<Customer, String>("name"));
         customerPhoneCol.setCellValueFactory(new PropertyValueFactory<Customer, String>("phone"));
         CustomerTable.setItems(list);
     }
 
+    // tìm kiếm khách hàng
     public void search() {
         String key = tfSearch.getText();
         int crition = -1;
@@ -81,12 +87,15 @@ public class CustomerController implements Initializable {
                 crition = 1;
             }
             Customer c = new Customer();
-            Customer customer = c.searchCustomer(key, crition);
-            customerObservableList.add((customer));
+            List<Customer> customerList = c.searchCustomer(key, crition);
+            for (Customer o : customerList) {
+                customerObservableList.add(o);
+            }
             updateTable(customerObservableList);
         }
     }
 
+    // chỉnh sửa thông tin của khách hàng
     public void edit() {
         customer = CustomerTable.getSelectionModel().getSelectedItem();
         name = customer.getName();
@@ -106,6 +115,7 @@ public class CustomerController implements Initializable {
         }
     }
 
+    // xóa khách hàng
     public void delete() {
         Customer c = CustomerTable.getSelectionModel().getSelectedItem();
         customer.deleteCustomer(c);
@@ -114,6 +124,8 @@ public class CustomerController implements Initializable {
         alert.setHeaderText("Deleted successfully!");
         alert.show();
     }
+
+    // Refesh lại dữ liệu
     public void refesh() {
         try {
             Stage primaryStage = new Stage();

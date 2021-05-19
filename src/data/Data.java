@@ -1,5 +1,8 @@
 package data;
 
+/*
+* author: Hoàng Quang Thuận + Trịnh Bá Thắng
+* */
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.*;
@@ -9,6 +12,7 @@ import java.io.FileReader;
 
 public class Data {
 
+    // lấy dữ liệu về giá sản phẩm
     public float getPriceProduct(String itemID) {
         String dir = System.getProperty("user.dir");
         float priceItem = 0;
@@ -28,7 +32,6 @@ public class Data {
                         priceItem = Float.parseFloat(txt[5]);
                         break;
                     }
-
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -38,7 +41,7 @@ public class Data {
             try {
                 FileReader fd = new FileReader(dir +"\\src\\data\\CompactDiscData.txt");
                 BufferedReader bd = new BufferedReader(fd);
-                String line ="";
+                String line = "";
                 while(true) {
                     line = bd.readLine();
                     if(line == null) {
@@ -59,6 +62,8 @@ public class Data {
 
         return priceItem;
     }
+
+    // lấy dữ liệu của các đối tượng Comic
     public ObservableList<Comic> getDataComic() {
         ObservableList<Comic> comicObservableList = FXCollections.observableArrayList();
         String dir = System.getProperty("user.dir");
@@ -89,6 +94,8 @@ public class Data {
         }
         return comicObservableList;
     }
+
+    // lấy dữ liệu về các đối tượng CompactDisc
     public ObservableList<CompactDisc> getDataCD() {
         ObservableList<CompactDisc> compactDiscs = FXCollections.observableArrayList();
         String dir = System.getProperty("user.dir");
@@ -111,7 +118,6 @@ public class Data {
                 String time =(txt[6]);
                 double capacity = Double.parseDouble(txt[7]);
                 String resolution = txt[8];
-                //Sau tất cả;Sobin Hoàng Sơn;2021/5/3;Tình cảm;50.0;1h30;Tình cảm;4K
                 CompactDisc cd = new CompactDisc(ID, name, author, year, category, price, time, capacity, resolution);
                 compactDiscs.add(cd);
             }
@@ -121,6 +127,7 @@ public class Data {
         return compactDiscs;
     }
 
+    // lấy dữ liệu về các đơn hàng
     public ObservableList<Bill> getDataBill() {
         ObservableList<Bill> bills = FXCollections.observableArrayList();
         String dir = System.getProperty("user.dir");
@@ -163,6 +170,7 @@ public class Data {
         return bills;
     }
 
+    // lấy dữ liệu về đơn trả hàng
     public ObservableList<Bill> getDataReturn() {
         ObservableList<Bill> bills = FXCollections.observableArrayList();
         String dir = System.getProperty("user.dir");
@@ -187,7 +195,6 @@ public class Data {
                 float deposit = Float.parseFloat(txt[6]);
                 String nameCustomer = txt[8];
                 String phone = txt[9];
-                float amoutPaid = Float.parseFloat(txt[10]);
                 Customer customer = new Customer(nameCustomer, phone);
                 if(item.equals("Comic")) {
                     Product comic = new Comic(nameProduct, itemID);
@@ -212,6 +219,8 @@ public class Data {
         }
         return bills;
     }
+
+    // lấy dữ liệu về khách hàng
     public ObservableList<Customer> getDataCustomer() {
         ObservableList<Customer> customerList = FXCollections.observableArrayList();
         String dir = System.getProperty("user.dir");
@@ -235,6 +244,8 @@ public class Data {
         }
         return customerList;
     }
+
+    // kiểm tra xem khách hàng hiện tại đã tồn tại trong hệ thống hay chưa
     public boolean checkCustomer(String name, String phone) {
         boolean check = false;
         String dir = System.getProperty("user.dir");
@@ -250,7 +261,7 @@ public class Data {
                 String txt [] = line.split(";");
                 String nameCustomer = txt[0];
                 String phoneCustomer = txt[1];
-                if(nameCustomer.equalsIgnoreCase(name) && phone.equalsIgnoreCase(phone)) {
+                if(nameCustomer.equalsIgnoreCase(name) && phoneCustomer.equalsIgnoreCase(phone)) {
                     check = true;
                     break;
                 }
@@ -262,6 +273,4 @@ public class Data {
             return false;
         return true;
     }
-
-
 }

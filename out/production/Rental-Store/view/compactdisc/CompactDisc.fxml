@@ -24,7 +24,7 @@
                   <TextField fx:id="tfSearchCD" layoutX="337.0" layoutY="54.0" prefHeight="29.0" prefWidth="374.0" promptText="Enter to search" stylesheets="@../../css/FullCSS.css" />
                   <ComboBox fx:id="cbSearchBy" layoutX="736.0" layoutY="54.0" prefWidth="150.0" promptText="Search by" stylesheets="@../../css/FullCSS.css" />
                   <Button fx:id="bSearch" layoutX="911.0" layoutY="56.0" mnemonicParsing="false" onAction="#search" prefHeight="29.0" prefWidth="69.0" stylesheets="@../../css/FullCSS.css" text="Search" />
-                  <Button fx:id="btnAdd" layoutX="1285.0" layoutY="54.0" mnemonicParsing="false" onAction="#addCompactDisc" prefHeight="29.0" prefWidth="69.0" stylesheets="@../../css/FullCSS.css" text="Add" />
+                  <Button fx:id="btnAdd" layoutX="1285.0" layoutY="54.0" mnemonicParsing="false" onAction="#add" prefHeight="29.0" prefWidth="69.0" stylesheets="@../../css/FullCSS.css" text="Add" />
                   <Pane layoutX="15.0" layoutY="-117.0" prefHeight="200.0" prefWidth="258.0" style="-fx-background-color: linear-gradient(to bottom left, #A868A0, #2D75E8); -fx-background-radius: 35;">
                      <children>
                         <Label layoutX="137.0" layoutY="127.0" text="CD" textFill="WHITE">

@@ -1,4 +1,7 @@
 package controller.returnproduct;
+/*
+author: Hoàng Quang Thuận
+* */
 
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
@@ -52,7 +55,7 @@ public class ReturnProductController implements Initializable {
     ObservableList<Bill> billList;
     Data data = new Data();
     Bill b = new Bill();
-    public  static String codeOrder;
+    public static String codeOrder;
     public static String nameCustomer;
     public static String phoneCustomer;
     public static String itemID;
@@ -63,42 +66,44 @@ public class ReturnProductController implements Initializable {
     public static float rentalFee;
     public static float payment;
     Alert alert;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         billList = data.getDataReturn();
         updateTable(billList);
 
     }
+
+    // update lại dữ liệu của bảng
     public void updateTable(ObservableList<Bill> billList) {
-        //comicList = FXCollections.observableArrayList();
-        codeOrderCol.setCellValueFactory(new PropertyValueFactory<Bill,String>("codeOrder"));
+        codeOrderCol.setCellValueFactory(new PropertyValueFactory<Bill, String>("codeOrder"));
         rentDateCol.setCellValueFactory(new PropertyValueFactory<Bill, String>("rentDate"));
         returnDateCol.setCellValueFactory(new PropertyValueFactory<Bill, String>("returnDate"));
         depositCol.setCellValueFactory(new PropertyValueFactory<Bill, Float>("deposit"));
-        rentalFreeCol.setCellValueFactory(cellData -> new SimpleObjectProperty<Float>(cellData.getValue().hireCharge()));
+        rentalFreeCol.setCellValueFactory(cellData -> new SimpleObjectProperty<Float>(cellData.getValue().calculateHireCharge()));
         paymentCol.setCellValueFactory(cellData -> new SimpleObjectProperty<Float>(cellData.getValue().calculateAmountPay()));
         ReturnTable.setItems(billList);
         handle();
     }
-    public void addReturn() {
+
+    // lưu lại thông tin trả hàng
+    public void add() {
         String orderID = tfCodeOrder.getText();
         List<Bill> list = b.searchBill(orderID, 0);
-        if(orderID.isEmpty() || pReturnDate.getValue() == null) {
+        if (orderID.isEmpty() || pReturnDate.getValue() == null) {
             alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("Please check again!");
             alert.setContentText("Please fill in all the required fields.");
             alert.show();
-        }
-        else {
-            if(list.size() == 0) {
+        } else {
+            if (list.size() == 0) {
                 alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
                 alert.setHeaderText("Please check again!");
                 alert.setContentText("Could not find Order ID.");
                 alert.show();
-            }
-            else {
+            } else {
                 String returnDate = pReturnDate.getValue().toString();
                 list.get(0).setReturnDate(returnDate);
                 String itemID = list.get(0).getProduct().getId();
@@ -108,9 +113,9 @@ public class ReturnProductController implements Initializable {
                 alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Success");
                 alert.setHeaderText("Return successfully!");
-                alert.setContentText("Amount to be paid is: " +  list.get(0).calculateAmountPay());
+                alert.setContentText("Amount to be paid is: " + list.get(0).calculateAmountPay());
                 Optional<ButtonType> result = alert.showAndWait();
-                if(result.get() == ButtonType.OK) {
+                if (result.get() == ButtonType.OK) {
                     try {
                         Stage primaryStage = new Stage();
                         Parent root;
@@ -131,9 +136,10 @@ public class ReturnProductController implements Initializable {
         }
     }
 
+    // lấy dữ liệu 1 hàng khi nhấn đúp chuột vào hàng đó
     public void handle() {
         ReturnTable.setOnMouseClicked(event -> {
-            if(event.getClickCount() == 2) {
+            if (event.getClickCount() == 2) {
                 b = ReturnTable.getSelectionModel().getSelectedItem();
                 codeOrder = b.getCodeOrder();
                 nameCustomer = b.getCustomer().getName();
@@ -143,13 +149,14 @@ public class ReturnProductController implements Initializable {
                 itemID = b.getProduct().getId();
                 item = b.getProduct().getName();
                 returnDate = b.getReturnDate();
-                rentalFee = b.hireCharge();
+                rentalFee = b.calculateHireCharge();
                 payment = b.calculateAmountPay();
                 detail();
             }
         });
     }
 
+    // xem thông tin chi tiết 1 đơn trả hàng
     public void detail() {
         try {
             Stage primaryStage = new Stage();
@@ -165,6 +172,7 @@ public class ReturnProductController implements Initializable {
             e.printStackTrace();
         }
     }
+
     public void cancel() {
         tfCodeOrder.setText("");
         pReturnDate.setValue(null);

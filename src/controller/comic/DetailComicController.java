@@ -1,4 +1,7 @@
 package controller.comic;
+/*
+ * author: Trịnh Bá Thắng
+ * */
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -48,8 +51,9 @@ public class DetailComicController implements Initializable {
         lbYearOfPublication.setText(comicController.year);
         lbLanguage.setText(comicController.language);
     }
+
     @FXML
-    public void handleExit(ActionEvent event) {
+    public void cancel(ActionEvent event) {
         Stage stage = (Stage) btnExit.getScene().getWindow();
         stage.close();
     }

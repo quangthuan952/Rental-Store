@@ -1,4 +1,7 @@
 package controller;
+/*
+ * author: Hoàng Quang Thuận + Trịnh Bá Thắng
+ * */
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +20,7 @@ public class HomeController implements Initializable {
 
     }
 
+    // Mở giao diện quản lý truyện
     public void ComicM(ActionEvent actionEvent) {
         try {
             Stage primaryStage = new Stage();
@@ -33,6 +37,7 @@ public class HomeController implements Initializable {
         }
     }
 
+    // Mở giao diện quản lý đĩa phim
     public void CompactDiscM(ActionEvent actionEvent) {
         try {
             Stage primaryStage = new Stage();
@@ -49,6 +54,7 @@ public class HomeController implements Initializable {
         }
     }
 
+    // Mở giao diện quản lý đơn hàng
     public void RetalM(ActionEvent actionEvent) {
         try {
             Stage primaryStage = new Stage();
@@ -65,6 +71,7 @@ public class HomeController implements Initializable {
         }
     }
 
+    // Mở giao diện quản lý đơn trả hàng
     public void ReturnM(ActionEvent actionEvent) {
         try {
             Stage primaryStage = new Stage();
@@ -81,6 +88,7 @@ public class HomeController implements Initializable {
         }
     }
 
+    // Mở giao diện quản lý doanh thu
     public void RevenueM(ActionEvent actionEvent) {
         try {
             Stage primaryStage = new Stage();
@@ -97,6 +105,7 @@ public class HomeController implements Initializable {
         }
     }
 
+    // Mở giao diện quản lý khách hàng
     public void CustomerM(ActionEvent actionEvent) {
         try {
             Stage primaryStage = new Stage();

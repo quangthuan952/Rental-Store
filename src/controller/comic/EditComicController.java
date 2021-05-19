@@ -1,4 +1,7 @@
 package controller.comic;
+/*
+author: Trịnh Bá Thắng
+*/
 
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
@@ -13,8 +16,6 @@ import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 import model.Comic;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -74,6 +75,7 @@ public class EditComicController implements Initializable {
         }
     }
 
+    // chỉnh sửa thông tin truyện
     public void editComic() {
         String ID;
         String name;
@@ -114,13 +116,13 @@ public class EditComicController implements Initializable {
             alert.setHeaderText("Comic edited successfully!");
             Optional<ButtonType> result = alert.showAndWait();
             if (result.get() == ButtonType.OK) {
-                handleExit();
+                cancel();
             }
         }
     }
 
     @FXML
-    public void handleExit() {
+    public void cancel() {
         Stage stage = (Stage) btnExit.getScene().getWindow();
         stage.close();
     }

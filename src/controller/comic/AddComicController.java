@@ -1,4 +1,7 @@
 package controller.comic;
+/*
+ * author: Trịnh Bá Thắng
+ * */
 
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
@@ -14,7 +17,6 @@ import javafx.stage.Stage;
 import model.Comic;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.net.URL;
 import java.util.Optional;
@@ -92,6 +94,7 @@ public class AddComicController implements Initializable {
         }
     }
 
+    // Kiểm tra truyện vừa nhập đã tồn tại trong hệ thống hay chưa
     public boolean checkData() {
         if (tfProductCode.getText().trim().isEmpty() || tfName.getText().trim().isEmpty() || tfAuthor.getText().trim().isEmpty() || tfPageNumber.getText().trim().isEmpty() || tfLanguage.getText().trim().isEmpty()
                 || tfPrice.getText().trim().isEmpty() || pDate.getValue() == null || cbPaperSize.getSelectionModel().isEmpty() || tfCategory.getText().trim().isEmpty()) {
@@ -115,7 +118,7 @@ public class AddComicController implements Initializable {
                 }
                 String txt[] = line.split(";");
                 String ID = txt[0];
-                if(tfProductCode.getText().equalsIgnoreCase(ID)) {
+                if (tfProductCode.getText().equalsIgnoreCase(ID)) {
                     alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Error");
                     alert.setHeaderText("Please check again!");
@@ -135,5 +138,4 @@ public class AddComicController implements Initializable {
         Stage stage = (Stage) btnCancel.getScene().getWindow();
         stage.close();
     }
-
 }

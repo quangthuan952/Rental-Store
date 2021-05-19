@@ -1,8 +1,10 @@
 package model;
 
+/*
+ * @author: Trịnh Bá Thắng
+ * */
+
 import data.Data;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -16,7 +18,6 @@ public class Comic extends Product {
     private int pageNumber;
     private String paperSize;
     private String language;
-
 
     public int getPageNumber() {
 
@@ -48,7 +49,6 @@ public class Comic extends Product {
         this.language = language;
     }
 
-
     public Comic(String id, String name, String author, String yearOfPublication, String category, float price, int pageNumber, String paperSize, String language) {
         super(id, name, author, yearOfPublication, category, price);
         this.pageNumber = pageNumber;
@@ -63,7 +63,6 @@ public class Comic extends Product {
     }
 
     public Comic() {
-
     }
 
     public Comic(String name, String ID) {
@@ -90,7 +89,6 @@ public class Comic extends Product {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     @Override
@@ -108,7 +106,6 @@ public class Comic extends Product {
                     bw.write(String.valueOf((Comic) o));
                     bw.newLine();
                 }
-
             }
 
             bw.close();
@@ -129,7 +126,7 @@ public class Comic extends Product {
                 if (o.getId().equalsIgnoreCase(product.getId())) {
                     continue;
                 }
-                bw.write(String.valueOf((Comic) o));
+                bw.write(String.valueOf(o));
                 bw.newLine();
             }
             bw.close();
@@ -148,7 +145,6 @@ public class Comic extends Product {
             FileReader fr = new FileReader(dir + "\\src\\data\\ComicData.txt");
             BufferedReader br = new BufferedReader(fr);
             String line = "";
-
             while (true) {
                 line = br.readLine();
                 if (line == null) {
@@ -165,13 +161,13 @@ public class Comic extends Product {
                 String paperSize = txt[7];
                 String language = txt[8];
                 if (criterion == 0 && key.equalsIgnoreCase(txt[1])) {
-                    Comic c = new Comic(ID, name, author, year, category, price, pageNumber, paperSize, language);
+                    Product c = new Comic(ID, name, author, year, category, price, pageNumber, paperSize, language);
                     list.add(c);
                 } else if (criterion == 1 && key.equalsIgnoreCase(txt[2])) {
-                    Comic c = new Comic(ID, name, author, year, category, price, pageNumber, paperSize, language);
+                    Product c = new Comic(ID, name, author, year, category, price, pageNumber, paperSize, language);
                     list.add(c);
                 } else if (criterion == 2 && key.equalsIgnoreCase(txt[4])) {
-                    Comic c = new Comic(ID, name, author, year, category, price, pageNumber, paperSize, language);
+                    Product c = new Comic(ID, name, author, year, category, price, pageNumber, paperSize, language);
                     list.add(c);
                 }
             }
@@ -180,5 +176,4 @@ public class Comic extends Product {
         }
         return list;
     }
-
 }

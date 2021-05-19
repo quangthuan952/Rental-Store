@@ -43,6 +43,7 @@
                     <items>
                         <MenuItem fx:id="ctxDelete" mnemonicParsing="false" onAction="#delete" text="Delete" />
                         <MenuItem fx:id="ctxEdit" mnemonicParsing="false" onAction="#edit" text="Edit" />
+                        <MenuItem fx:id="ctxReturn" mnemonicParsing="false" onAction="#returnProduct" text="Return" />
                     </items>
                   </ContextMenu>
                </contextMenu>

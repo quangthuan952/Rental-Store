@@ -129,7 +129,7 @@
             </Pane>
          </children>
       </VBox>
-      <Button fx:id="btnAdd" layoutX="982.0" layoutY="459.0" mnemonicParsing="false" onAction="#editRT" prefHeight="29.0" prefWidth="60.0" stylesheets="@../../css/FullCSS.css" text="Save" />
-      <Button fx:id="btnExit" layoutX="891.0" layoutY="459.0" mnemonicParsing="false" onAction="#handleExit" prefHeight="29.0" prefWidth="60.0" stylesheets="@../../css/FullCSS.css" text="Cancel" />
+      <Button fx:id="btnAdd" layoutX="982.0" layoutY="459.0" mnemonicParsing="false" onAction="#editRental" prefHeight="29.0" prefWidth="60.0" stylesheets="@../../css/FullCSS.css" text="Save" />
+      <Button fx:id="btnExit" layoutX="891.0" layoutY="459.0" mnemonicParsing="false" onAction="#cancel" prefHeight="29.0" prefWidth="60.0" stylesheets="@../../css/FullCSS.css" text="Cancel" />
    </children>
 </AnchorPane>

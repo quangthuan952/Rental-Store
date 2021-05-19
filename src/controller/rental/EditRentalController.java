@@ -1,9 +1,11 @@
 package controller.rental;
+/*
+ * author: Hoàng Quang Thuận
+ * */
 
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -18,57 +20,50 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class EditRentalController implements Initializable {
+    Bill bill = new Bill();
+    RentalController rentalController = new RentalController();
+    Alert alert;
     @FXML
     private JFXTextField tfCodeOrder;
-
     @FXML
     private JFXTextField tfNameCustomer;
-
     @FXML
     private JFXTextField tfItem;
-
     @FXML
     private JFXTextField tfItemID;
-
     @FXML
     private JFXTextField tfDeposit;
-
     @FXML
     private JFXDatePicker pRentDateEdit;
-
     @FXML
     private JFXTextField tfPhone;
     @FXML
     private JFXRadioButton rdComic;
-
     @FXML
     private ToggleGroup item;
     @FXML
     private Button btnExit;
-
     @FXML
     private JFXRadioButton rdCD;
-    Bill bill = new Bill();
-    RentalController rentalController = new RentalController();
-    Alert alert;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        tfCodeOrder.setText(rentalController.codeOrder);
+        tfCodeOrder.setText(RentalController.codeOrder);
         tfCodeOrder.setEditable(false);
-        tfNameCustomer.setText(rentalController.nameCustomer);
-        tfPhone.setText(rentalController.phoneCustomer);
-        tfItem.setText(rentalController.item);
-        tfItemID.setText(rentalController.itemID);
-        tfDeposit.setText(String.valueOf(rentalController.deposit));
-        pRentDateEdit.setPromptText(rentalController.rentDate);
-        if (rentalController.loai.equals("Comic")) {
+        tfNameCustomer.setText(RentalController.nameCustomer);
+        tfPhone.setText(RentalController.phoneCustomer);
+        tfItem.setText(RentalController.item);
+        tfItemID.setText(RentalController.itemID);
+        tfDeposit.setText(String.valueOf(RentalController.deposit));
+        pRentDateEdit.setPromptText(RentalController.rentDate);
+        if (RentalController.loai.equals("Comic")) {
             rdComic.setSelected(true);
         } else
             rdCD.setSelected(true);
     }
 
-    public void editRT() {
+    // chỉnh sửa thông tin đơn hàng
+    public void editRental() {
         String codeOrder;
         String nameCustomer;
         String phoneCustomer;
@@ -76,8 +71,8 @@ public class EditRentalController implements Initializable {
         String itemID;
         String rentDate;
         String kindOfProduct = "";
-        String name = rentalController.nameCustomer;
-        String phone = rentalController.phoneCustomer;
+        String name = RentalController.nameCustomer;
+        String phone = RentalController.phoneCustomer;
         float deposit;
         codeOrder = tfCodeOrder.getText();
         nameCustomer = tfNameCustomer.getText();
@@ -111,19 +106,18 @@ public class EditRentalController implements Initializable {
                 Product product = new CompactDisc(item, itemID);
                 b = new Bill(codeOrder, kindOfProduct, product, rentDate, deposit, customer);
             }
-            bill.editRental(b, name, phone);
+            bill.editBill(b, name, phone);
             alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Success");
             alert.setHeaderText("Update successfully!");
             Optional<ButtonType> result = alert.showAndWait();
-            if(result.get() == ButtonType.OK) {
-               handleExit();
+            if (result.get() == ButtonType.OK) {
+                cancel();
             }
         }
     }
 
-    @FXML
-    public void handleExit() {
+    public void cancel() {
         Stage stage = (Stage) btnExit.getScene().getWindow();
         stage.close();
     }

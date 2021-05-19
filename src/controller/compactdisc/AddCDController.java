@@ -1,8 +1,10 @@
 package controller.compactdisc;
+/*
+author: Trịnh Bá Thắng
+*/
 
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -84,6 +86,7 @@ public class AddCDController implements Initializable {
         }
     }
 
+    // Kiểm tra xem đĩa phim vừa nhập đã tồn tại hay chưa
     public boolean checkData() {
         if (tfProductCode.getText().trim().isEmpty() || tfName.getText().trim().isEmpty() || tfAuthor.getText().trim().isEmpty()
                 || tfPrice.getText().trim().isEmpty() || pDate.getValue() == null || tfCategory.getText().trim().isEmpty()
@@ -107,7 +110,7 @@ public class AddCDController implements Initializable {
                 }
                 String txt[] = line.split(";");
                 String ID = txt[0];
-                if(tfProductCode.getText().equalsIgnoreCase(ID)) {
+                if (tfProductCode.getText().equalsIgnoreCase(ID)) {
                     alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Error");
                     alert.setHeaderText("Please check again!");

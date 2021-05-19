@@ -1,4 +1,7 @@
 package controller.revenue;
+/*
+ * author: Hoàng Quang Thuận
+ * */
 
 import com.jfoenix.controls.JFXDatePicker;
 import javafx.beans.binding.Bindings;
@@ -34,8 +37,6 @@ public class RevenueController implements Initializable {
     private Label lbTotalRevenue;
     @FXML
     private PieChart c1;
-
-
     Bill b = new Bill();
 
     @Override
@@ -57,7 +58,8 @@ public class RevenueController implements Initializable {
         pieChart1.forEach(data -> data.nameProperty().bind(Bindings.concat(data.getName(), " ", data.pieValueProperty(), " %")));
     }
 
-    public void caclulate() {
+    // tính doanh thu trong 1 khoảng thời gian nhập vào
+    public void caclulateRevenue() {
 
         if (pDateTo.getValue() == null || pDateFrom.getValue() == null) {
             Alert alert;

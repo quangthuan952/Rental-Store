@@ -1,4 +1,7 @@
 package controller.returnproduct;
+/*
+ * author: Hoàng Quang Thuận
+ * */
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -42,7 +45,8 @@ public class DetailReturnController implements Initializable {
 
     @FXML
     private Label lbPayment;
-        ReturnProductController returnProductController = new ReturnProductController();
+    ReturnProductController returnProductController = new ReturnProductController();
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         lbCodeOrder.setText(returnProductController.codeOrder);
@@ -56,8 +60,9 @@ public class DetailReturnController implements Initializable {
         lbItemID.setText(returnProductController.itemID);
         lbItem.setText(returnProductController.item);
     }
+
     @FXML
-    public void handleExit(ActionEvent event) {
+    public void cancel(ActionEvent event) {
         Stage stage = (Stage) btnExit.getScene().getWindow();
         stage.close();
     }

@@ -1,9 +1,11 @@
 package controller.rental;
+/*
+ * author: Hoàng Quang Thuận
+ * */
 
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -52,28 +54,28 @@ public class AddRentalController implements Initializable {
     private JFXDatePicker pRentDate;
     Bill bill = new Bill();
     Alert alert;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
 
-    public void add(ActionEvent actionEvent) {
+    public void addRental() {
         String ID = tfID.getText();
         String codeOrder = tfCodeOrder.getText();
         String nameCustomer = tfNameCustomer.getText();
         String phoneCustomer = tfPhoneCustomer.getText();
         String kindOfProduct = "";
-        if(rdComic.isSelected()) {
+        if (rdComic.isSelected()) {
             kindOfProduct = rdComic.getText();
-        }
-        else if (rdCD.isSelected()){
+        } else if (rdCD.isSelected()) {
             kindOfProduct = rdCD.getText();
         }
         String item = tfItem.getText();
         Customer customer = new Customer(nameCustomer, phoneCustomer);
         Product product;
-        if(ID.isEmpty() || codeOrder.isEmpty() || nameCustomer.isEmpty() || phoneCustomer.isEmpty() || kindOfProduct.isEmpty()
-        || item.isEmpty() || tfDeposit.getText().trim().isEmpty() || pRentDate.getValue() == null) {
+        if (ID.isEmpty() || codeOrder.isEmpty() || nameCustomer.isEmpty() || phoneCustomer.isEmpty() || kindOfProduct.isEmpty()
+                || item.isEmpty() || tfDeposit.getText().trim().isEmpty() || pRentDate.getValue() == null) {
             alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("Please check again!");
@@ -81,16 +83,14 @@ public class AddRentalController implements Initializable {
             alert.show();
         }
 
-
-        if (checkProduct()) {
+        if (checkData()) {
             float deposit = Float.parseFloat(tfDeposit.getText());
             String rentDate = pRentDate.getValue().toString();
-            if(kindOfProduct.equals("Comic")) {
+            if (kindOfProduct.equals("Comic")) {
                 product = new Comic(item, ID);
                 Bill b = new Bill(codeOrder, kindOfProduct, product, rentDate, deposit, customer);
                 bill.addBill(b);
-            }
-            else {
+            } else {
                 product = new CompactDisc(item, ID);
                 Bill b = new Bill(codeOrder, kindOfProduct, product, rentDate, deposit, customer);
                 bill.addBill(b);
@@ -99,7 +99,7 @@ public class AddRentalController implements Initializable {
             alert.setTitle("Success");
             alert.setHeaderText("Successfully added to database!");
             Optional<ButtonType> result = alert.showAndWait();
-            if(result.get() == ButtonType.OK) {
+            if (result.get() == ButtonType.OK) {
                 cancel();
             }
         } else {
@@ -110,10 +110,12 @@ public class AddRentalController implements Initializable {
             alert.show();
         }
     }
-    public boolean checkProduct(){
-        boolean status=false;
+
+    // Kiểm tra sản phẩm vừa nhập có tồn tại trong hệ thống hay không
+    public boolean checkData() {
+        boolean status = false;
         String dir = System.getProperty("user.dir");
-        if(rdComic.isSelected()){
+        if (rdComic.isSelected()) {
             try {
                 FileReader fr = new FileReader(dir + "\\src\\data\\ComicData.txt");
                 BufferedReader br = new BufferedReader(fr);
@@ -126,16 +128,15 @@ public class AddRentalController implements Initializable {
                     String txt[] = line.split(";");
                     String ID = txt[0];
                     String name = txt[1];
-                    if(tfID.getText().equalsIgnoreCase(ID) && tfItem.getText().equalsIgnoreCase(name)) {
-                        status=true;
+                    if (tfID.getText().equalsIgnoreCase(ID) && tfItem.getText().equalsIgnoreCase(name)) {
+                        status = true;
                     }
 
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
-        else if(rdCD.isSelected()){
+        } else if (rdCD.isSelected()) {
             try {
                 FileReader fr = new FileReader(dir + "\\src\\data\\CompactDiscData.txt");
                 BufferedReader br = new BufferedReader(fr);
@@ -148,8 +149,8 @@ public class AddRentalController implements Initializable {
                     String txt[] = line.split(";");
                     String ID = txt[0];
                     String name = txt[1];
-                    if(tfID.getText().equalsIgnoreCase(ID) && tfItem.getText().equalsIgnoreCase(name)) {
-                        status=true;
+                    if (tfID.getText().equalsIgnoreCase(ID) && tfItem.getText().equalsIgnoreCase(name)) {
+                        status = true;
                     }
 
                 }
@@ -159,6 +160,7 @@ public class AddRentalController implements Initializable {
         }
         return status;
     }
+
     public void cancel() {
         Stage stage = (Stage) btnCancel.getScene().getWindow();
         stage.close();

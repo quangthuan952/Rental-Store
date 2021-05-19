@@ -1,7 +1,9 @@
 package controller.customer;
+/*
+ * author: Hoàng Quang Thuận
+ * */
 
 import com.jfoenix.controls.JFXTextField;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -30,23 +32,24 @@ public class EditCustomer implements Initializable {
     @FXML
     private Button btnCancel;
     Alert alert;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         tfNameCustomer.setText(CustomerController.name);
         tfPhoneCustomer.setText(CustomerController.phone);
     }
 
-    public void customerModified() {
+    // chỉnh sửa thông tin khách hàng
+    public void editCustomer() {
         String name = tfNameCustomer.getText();
         String phone = tfPhoneCustomer.getText();
-        if(name.isEmpty() || phone.isEmpty()) {
+        if (name.isEmpty() || phone.isEmpty()) {
             alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("Please check again!");
             alert.setContentText("Please fill in all the required fields.");
             alert.show();
-        }
-        else {
+        } else {
             String nameCustomer = CustomerController.name;
             String phoneCustomer = CustomerController.phone;
             Customer customer1 = new Customer(name, phone);
@@ -55,14 +58,13 @@ public class EditCustomer implements Initializable {
             alert.setTitle("Success");
             alert.setHeaderText("Customer edited successfully!");
             Optional<ButtonType> result = alert.showAndWait();
-            if(result.get() == ButtonType.OK) {
-                handleExit();
+            if (result.get() == ButtonType.OK) {
+                cancel();
             }
         }
     }
 
-    @FXML
-    public void handleExit() {
+    public void cancel() {
         Stage stage = (Stage) btnCancel.getScene().getWindow();
         stage.close();
     }

@@ -1,10 +1,12 @@
 package controller.rental;
+/*
+ * author: Hoàng Quang Thuận
+ * */
 
 import data.Data;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -83,8 +85,8 @@ public class RentalController implements Initializable {
         handle();
     }
 
-    public void add(ActionEvent actionEvent) {
-
+    // thêm mới đơn hàng
+    public void add() {
         try {
             Stage primaryStage = new Stage();
             Parent root;
@@ -100,6 +102,7 @@ public class RentalController implements Initializable {
         }
     }
 
+    // lấy dữ liệu 1 hàng khi nhấn đúp chuột vào hàng đó
     public void handle() {
         RentalTable.setOnMouseClicked(event -> {
             if (event.getClickCount() == 2) {
@@ -122,8 +125,8 @@ public class RentalController implements Initializable {
         });
     }
 
+    // xem thông tin chi tiết 1 đơn hàng
     public void detail() {
-
         try {
             Stage primaryStage = new Stage();
             Parent root;
@@ -139,6 +142,7 @@ public class RentalController implements Initializable {
         }
     }
 
+    // chỉnh sửa thông tin 1 đơn hàng
     public void edit() {
         Bill b1 = RentalTable.getSelectionModel().getSelectedItem();
         codeOrder = b1.getCodeOrder();
@@ -170,10 +174,10 @@ public class RentalController implements Initializable {
 
     }
 
+    // xóa 1 đơn hàng
     public void delete() {
         Bill bill1 = RentalTable.getSelectionModel().getSelectedItem();
-        //System.out.println(bill1.toStringReturn());
-        b.deleteRental(bill1);
+        b.deleteBill(bill1);
         refesh();
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Success");
@@ -181,6 +185,7 @@ public class RentalController implements Initializable {
         alert.show();
     }
 
+    // tìm kiếm đơn hàng
     public void search() {
         ObservableList<Bill> billObservableList = FXCollections.observableArrayList();
         Data data = new Data();
@@ -193,8 +198,7 @@ public class RentalController implements Initializable {
             alert.setHeaderText("Please check again!");
             alert.setContentText("Keyword or search criteria is empty.");
             alert.show();
-        }
-        else {
+        } else {
             if (output.equals("By Code Order")) {
                 criterion = 0;
             } else if (output.equals("By Name")) {
@@ -211,6 +215,8 @@ public class RentalController implements Initializable {
             updateTable(billObservableList);
         }
     }
+
+    //Refesh lại dữ liệu
     public void refesh() {
         try {
             Stage primaryStage = new Stage();
@@ -227,5 +233,22 @@ public class RentalController implements Initializable {
         }
         Stage stage = (Stage) refesh.getScene().getWindow();
         stage.close();
+    }
+
+    // trả đơn hàng
+    public void returnProduct() {
+        try {
+            Stage primaryStage = new Stage();
+            Parent root;
+            root = FXMLLoader.load(getClass().getResource("/view/return/ReturnProduct.fxml"));
+            Scene scene = new Scene(root);
+            primaryStage.setScene(scene);
+            primaryStage.setMaximized(true);
+            primaryStage.setTitle("Return Product");
+            primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/image/return_icon.png")));
+            primaryStage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

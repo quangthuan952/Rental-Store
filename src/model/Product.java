@@ -1,7 +1,8 @@
 package model;
+/*
+ * @author: Trịnh Bá Thắng
+ * */
 
-
-import java.util.Date;
 import java.util.List;
 
 public abstract class Product {
@@ -80,7 +81,6 @@ public abstract class Product {
     }
 
     public Product() {
-
     }
 
     public Product(String name, String ID) {
@@ -95,6 +95,5 @@ public abstract class Product {
     public abstract void deleteProduct(Product product);
 
     public abstract List<Product> searchProduct(String key, int criterion);
-
 
 }

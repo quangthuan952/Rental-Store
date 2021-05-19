@@ -3,3 +3,4 @@ CM2;Muộn rồi mà sao còn;Sơn Tùng - MTP;2020-10-04;Tình cảm;2.0;239;A5
 CM3;Mèo con đi học;Trần Nam Giang;2020-08-02;Thiếu nhi;1.0;421;A4;Tiếng Việt
 CM4;Khi bạn đang mơ thì người khác đang nỗ lực;Lỗ Tấn Thiên;2020-08-02;Self Help;1.5;420;A4;Tiếng Việt
 CM5;Doraemon;Fujiko F. Fujio;2021-05-01;Thiếu nhi;1.5;100;A5;Tiếng Việt
+CM6;Có chàng trai viết lên cây;Nguyễn Ngọc Ánh;2020-10-04;Ngôn tình, lãng mạn;1.5;341;A5;Tiếng Việt

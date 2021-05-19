@@ -1,3 +1,4 @@
 QT1020;Comic;CM3;Mèo con đi học;2021-05-09;2021-05-15;2.0;6.0;Lê Phương Nam;0367809732;4.0
 QT1010;Comic;CM2;Muộn rồi mà sao còn;2021-05-09;2021-05-13;1.0;8.0;Hoàng Ánh Ngọc;0985364079;7.0
 QT1002;CD;CD1;Có chàng trai viết lên cây;2021-05-09;2021-05-14;3.0;15.0;Trần Bảo Việt;09875662143;12.0
+QT1001;Comic;CM1;Tôi thấy hoa vàng trên cỏ xanh;2021-05-03;2021-05-11;2.0;8.0;Lê Phương Nam;0362345678;6.0

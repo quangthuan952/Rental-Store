@@ -37,8 +37,8 @@
                         </ImageView>
                      </children>
                   </Pane>
-                  <Button fx:id="btnAdd" layoutX="458.0" layoutY="268.0" mnemonicParsing="false" onAction="#customerModified" prefHeight="25.0" prefWidth="60.0" stylesheets="@../../css/FullCSS.css" text="Save" />
-                  <Button fx:id="btnCancel" layoutX="361.0" layoutY="268.0" mnemonicParsing="false" onAction="#handleExit" prefHeight="25.0" prefWidth="60.0" stylesheets="@../../css/FullCSS.css" text="Cancel" />
+                  <Button fx:id="btnAdd" layoutX="458.0" layoutY="268.0" mnemonicParsing="false" onAction="#editCustomer" prefHeight="25.0" prefWidth="60.0" stylesheets="@../../css/FullCSS.css" text="Save" />
+                  <Button fx:id="btnCancel" layoutX="361.0" layoutY="268.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="60.0" stylesheets="@../../css/FullCSS.css" text="Cancel" />
                </children>
             </Pane>
          </children>

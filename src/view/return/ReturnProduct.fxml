@@ -74,7 +74,7 @@
             </TableView>
          </children>
       </VBox>
-      <Button fx:id="btnAdd" layoutX="214.0" layoutY="505.0" mnemonicParsing="false" onAction="#addReturn" prefHeight="29.0" prefWidth="66.0" text="Return">
+      <Button fx:id="btnAdd" layoutX="214.0" layoutY="505.0" mnemonicParsing="false" onAction="#add" prefHeight="29.0" prefWidth="66.0" text="Return">
          <stylesheets>
             <URL value="@../../css/fullpackstyling.css" />
             <URL value="@../../css/FullCSS.css" />

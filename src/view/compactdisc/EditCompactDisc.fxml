@@ -178,7 +178,7 @@
                         </ImageView>
                      </children>
                   </Pane>
-                  <Button fx:id="btnExit" layoutX="374.0" layoutY="459.0" minWidth="63.0" mnemonicParsing="false" onAction="#handleExit" prefHeight="25.0" stylesheets="@../../css/FullCSS.css" text="Cancel" />
+                  <Button fx:id="btnExit" layoutX="374.0" layoutY="459.0" minWidth="63.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" stylesheets="@../../css/FullCSS.css" text="Cancel" />
                </children>
             </Pane>
          </children>
