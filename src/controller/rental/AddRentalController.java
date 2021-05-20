@@ -61,52 +61,60 @@ public class AddRentalController implements Initializable {
     }
 
     public void addRental() {
-        String ID = tfID.getText();
-        String codeOrder = tfCodeOrder.getText();
-        String nameCustomer = tfNameCustomer.getText();
-        String phoneCustomer = tfPhoneCustomer.getText();
-        String kindOfProduct = "";
-        if (rdComic.isSelected()) {
-            kindOfProduct = rdComic.getText();
-        } else if (rdCD.isSelected()) {
-            kindOfProduct = rdCD.getText();
-        }
-        String item = tfItem.getText();
-        Customer customer = new Customer(nameCustomer, phoneCustomer);
-        Product product;
-        if (ID.isEmpty() || codeOrder.isEmpty() || nameCustomer.isEmpty() || phoneCustomer.isEmpty() || kindOfProduct.isEmpty()
-                || item.isEmpty() || tfDeposit.getText().trim().isEmpty() || pRentDate.getValue() == null) {
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("Please check again!");
-            alert.setContentText("Please fill in all the required fields.");
-            alert.show();
-        }
+        try {
+            String ID = tfID.getText();
+            String codeOrder = tfCodeOrder.getText();
+            String nameCustomer = tfNameCustomer.getText();
+            String phoneCustomer = tfPhoneCustomer.getText();
+            String kindOfProduct = "";
+            if (rdComic.isSelected()) {
+                kindOfProduct = rdComic.getText();
+            } else if (rdCD.isSelected()) {
+                kindOfProduct = rdCD.getText();
+            }
+            String item = tfItem.getText();
+            Customer customer = new Customer(nameCustomer, phoneCustomer);
+            Product product;
+            if (ID.isEmpty() || codeOrder.isEmpty() || nameCustomer.isEmpty() || phoneCustomer.isEmpty() || kindOfProduct.isEmpty()
+                    || item.isEmpty() || tfDeposit.getText().trim().isEmpty() || pRentDate.getValue() == null) {
+                alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("Please check again!");
+                alert.setContentText("Please fill in all the required fields.");
+                alert.show();
+            }
 
-        if (checkData()) {
-            float deposit = Float.parseFloat(tfDeposit.getText());
-            String rentDate = pRentDate.getValue().toString();
-            if (kindOfProduct.equals("Comic")) {
-                product = new Comic(item, ID);
-                Bill b = new Bill(codeOrder, kindOfProduct, product, rentDate, deposit, customer);
-                bill.addBill(b);
+            if (checkData()) {
+                float deposit = Float.parseFloat(tfDeposit.getText());
+                String rentDate = pRentDate.getValue().toString();
+                if (kindOfProduct.equals("Comic")) {
+                    product = new Comic(item, ID);
+                    Bill b = new Bill(codeOrder, kindOfProduct, product, rentDate, deposit, customer);
+                    bill.addBill(b);
+                } else {
+                    product = new CompactDisc(item, ID);
+                    Bill b = new Bill(codeOrder, kindOfProduct, product, rentDate, deposit, customer);
+                    bill.addBill(b);
+                }
+                alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Success");
+                alert.setHeaderText("Successfully added to database!");
+                Optional<ButtonType> result = alert.showAndWait();
+                if (result.get() == ButtonType.OK) {
+                    cancel();
+                }
             } else {
-                product = new CompactDisc(item, ID);
-                Bill b = new Bill(codeOrder, kindOfProduct, product, rentDate, deposit, customer);
-                bill.addBill(b);
+                alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("Please check again!");
+                alert.setContentText("Product not exist");
+                alert.show();
             }
-            alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Success");
-            alert.setHeaderText("Successfully added to database!");
-            Optional<ButtonType> result = alert.showAndWait();
-            if (result.get() == ButtonType.OK) {
-                cancel();
-            }
-        } else {
+        } catch (Exception exception) {
             alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("Please check again!");
-            alert.setContentText("Product not exist");
+            alert.setContentText("Wrong data format.");
             alert.show();
         }
     }

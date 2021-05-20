@@ -41,7 +41,7 @@
                   <Font name="Bradley Hand ITC" size="58.0" />
                </font>
             </Label>
-            <Label layoutX="57.0" layoutY="683.0" text="nhom19.btloop20202@gmail.com" textFill="WHITE" />
+            <Label layoutX="57.0" layoutY="683.0" text="nhom18.btloop20202@gmail.com" textFill="WHITE" />
             <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="14.0" layoutY="674.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../image/telegram.png" />

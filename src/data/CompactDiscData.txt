@@ -1,8 +1,8 @@
-CD1;Có chàng trai viết lên cây;Phan Mạnh Quỳnh;2021/5/3;Tâm lý tình cảm;3.0;1h30;2.5;4K
-CD2;Nhỏ ơi;Jack;2021/5/3;Nhạc nhẹ;2.5;1h30;1.32;Full HD
-CD3;Conan Movie - Bản Tình Ca Màu Đỏ Thẫm; Kobun Shizuno;2021/5/3;Hoạt hình;1.0;1h50;4.8;4K
-CD4;Muộn rồi mà sao còn;Sơn Tùng - MTP;2021/5/3;Pop Ballat;1.5;90p;4.5;4K
-CD5;Một cú lừa;Bích Phương;2021/5/3;Hành động;2.0;1h30;9.6;4K
+CD1;Có chàng trai viết lên cây;Phan Mạnh Quỳnh;2020-09-03;Tâm lý tình cảm;3.0;1h30;2.5;4K
+CD2;Nhỏ ơi;Jack;2021-05-03;Nhạc nhẹ;2.5;1h30;1.32;Full HD
+CD3;Conan Movie - Bản Tình Ca Màu Đỏ Thẫm; Kobun Shizuno;2021-05-03;Hoạt hình;1.0;1h50;4.8;4K
+CD4;Muộn rồi mà sao còn;Sơn Tùng - MTP;2021-01-03;Pop Ballat;1.5;90p;4.5;4K
+CD5;Một cú lừa;Bích Phương;2021-02-03;Hành động;2.0;1h30;9.6;4K
 CD6;Xuân hạ thu đông rồi lại xuân;Đĩa than hồng;2021-05-08;Pop;2.5;2h;1.5;4K
 CD7;Bố Già;Trấn Thành;2021-05-02;Tâm lý tình cảm;3.0;1h50;5.6;4K
 CD8;Lật mặt: 48h;Lý Hải;2021-05-02;Hành động;2.5;1h50;9.8;4K
